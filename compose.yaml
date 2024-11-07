@@ -1,0 +1,27 @@
+services:
+  app:
+    build: .
+    volumes:
+      - .:/app
+    ports:
+      - '3000:80'
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/starbhak
+    command: sh -c 'bun install && bun run --watch index.ts'
+
+  db:
+    image: postgres:16
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: starbhak
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+
+volumes:
+  db-data:
