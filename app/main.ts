@@ -10,4 +10,6 @@ app.use("*", logger());
 app.get("*", serveStatic({ root: "./frontend/dist" }));
 app.get("*", serveStatic({ path: "./frontend/dist/index.html" }));
 
+app.get("/", (c) => c.text('Hono!'))
+
 export default app;
