@@ -2,14 +2,14 @@ services:
   app:
     build: .
     volumes:
-      - .:/src
+      - .:/app
     ports:
-      - '80:80'
+      - '3000:3000'
     depends_on:
       - db
     environment:
       - DATABASE_URL=postgresql://postgres:postgres@db:5432/starbhak
-    command: sh -c 'bun run --watch src/main.ts'
+    command: sh -c 'bun run --watch ./src/main.ts'
 
   db:
     image: postgres:16
@@ -21,7 +21,7 @@ services:
     volumes:
       - db-data:/var/lib/postgresql/data
     ports:
-      - '5432:5432'
+      - '5433:5433'
 
 volumes:
   db-data:
