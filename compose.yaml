@@ -9,7 +9,7 @@ services:
       - db
     environment:
       - DATABASE_URL=postgresql://postgres:postgres@db:5432/starbhak
-    command: sh -c 'bun run --watch src/main.ts'
+    command: sh -c 'bun run --watch main.ts'
 
   db:
     image: postgres:16
