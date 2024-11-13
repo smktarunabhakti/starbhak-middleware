@@ -4,12 +4,12 @@ services:
     volumes:
       - .:/app
     ports:
-      - '3000:80'
+      - '80:80'
     depends_on:
       - db
     environment:
       - DATABASE_URL=postgresql://postgres:postgres@db:5432/starbhak
-    command: sh -c 'bun run --watch index.ts'
+    command: sh -c 'bun run --watch src/index.ts'
 
   db:
     image: postgres:16
