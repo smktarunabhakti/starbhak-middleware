@@ -1,17 +1,19 @@
-<<<<<<<< HEAD:app.ts
-import { Hono } from 'hono'
-import { logger } from "hono/logger";
+import app from "./src/main";
+import { z } from "zod";
 
-const app = new Hono()
-
-app.use('*', logger())
-app.get('/', (c) => c.text('Hono!'))
-
-export default app
-========
-import app from "./app";
-
-Bun.serve({
-  fetch: app.fetch
+const ServeEnv = z.object({
+    PORT: z
+        .string()
+        .regex(/^\d+$/, "Port must be a numeric string")
+        .default("3000")
+        .transform(Number),
 });
->>>>>>>> adac8f3 (Update docker configuration to meet server specs):src/index/app.ts
+const ProcessEnv = ServeEnv.parse(process.env);
+
+const server = Bun.serve({
+    port: ProcessEnv.PORT,
+    hostname: "0.0.0.0",
+    fetch: app.fetch,
+});
+
+console.log("server running", server.port);

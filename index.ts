@@ -1,4 +1,4 @@
-import app from "./app/main";
+import app from "./src/main";
 import { z } from "zod";
 
 const ServeEnv = z.object({
