@@ -1,29 +1,29 @@
 import { getUserByName } from "../model/user-model";
 
-export const login = (name: string, password: string) => {
-    let user = getUserByName(name)
-    console.log(`Getting user data: ${user}`);
-    
+interface loginResult {
+  success: boolean,
+  message: string
+}
 
-    if(!user) {
-        console.log("Cannot find user");
-        return {
-            success: false,
-            message: "Cannot find user!"
-        }
-    }
+export const login = (name: string, password: string): loginResult => {
+  const user = getUserByName(name)
 
-    if (user.password !== password) {
-        console.log("User found but password not matched");
-        return {
-          success: false,
-          message: "Password not matched!",
-        };
-    }
-
-    console.log("Login success");
+  if (!user) {
     return {
-      success: true,
-      message: `Welcome ${user.name}!`,
+      success: false,
+      message: "User not found"
     }
+  }
+
+  if (user.password !== password) {
+    return {
+      success: false,
+      message: "Invalid password"
+    }
+  }
+
+  return {
+    success: true,
+    message: `Welcome ${user.name}`
+  }
 }
