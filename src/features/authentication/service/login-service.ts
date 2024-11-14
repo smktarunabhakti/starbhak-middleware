@@ -1,29 +1,30 @@
-import { getUserByName } from "../model/user-model";
+import { use } from "hono/jsx";
+import { getUserByEmail } from "../../../common/model/user-model";
 
 interface loginResult {
   success: boolean,
   message: string
 }
 
-export const login = (name: string, password: string): loginResult => {
-  const user = getUserByName(name)
+export const loginService = async (email: string, password: string): Promise<loginResult> => {
+  const user = await getUserByEmail(email)
 
   if (!user) {
     return {
       success: false,
-      message: "User not found"
-    }
+      message: "Tidak bisa menemukan pengguna dengan email " + email.toString(),
+    } as loginResult;
   }
 
-  if (user.password !== password) {
+  if (user.passwordHash !== password) {
     return {
       success: false,
-      message: "Invalid password"
-    }
-  }
+      message: "Password tidak sesuai dengan data yang ada",
+    } as loginResult;
+  }  
 
   return {
     success: true,
-    message: `Welcome ${user.name}`
-  }
+    message: "Berhasil login, halo " + use.name
+  } as loginResult;
 }

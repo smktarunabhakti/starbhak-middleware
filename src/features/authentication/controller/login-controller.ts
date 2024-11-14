@@ -1,53 +1,39 @@
 import { Hono } from "hono";
-import { login } from "../service/login-service";
+import { loginService } from "../service/login-service";
 import type { JWTPayload } from "hono/utils/jwt/types";
-import { sign } from "hono/jwt";
-
-const loginController = new Hono()
+import { jwt, sign } from "hono/jwt";
+import { errorResponse, successResponse } from "../../../common/utils/api-response";
+const loginController = new Hono();
 
 loginController.post("/", async (c) => {
-    try {
-        const {name, password} = await c.req.json()
+  const { email, password } = await c.req.json();
 
-        if (!name || !password) {
-            return c.json({
-                message: "Name and password are required"
-            }, 400)
-        }
+  if (!email || !password) {
+    return c.json(errorResponse("Email dan password dibutuhkan!"), 400);
+  }
 
-        const loginResult = login(name, password)
+  const loginResult = await loginService(email, password);
 
-        const payload: JWTPayload = {
-            name:name,
-            exp: 300000
-        }
+  if (!process.env.X_SECRET) {
+    return c.json(errorResponse("Tidak bisa membuat token JWT"), 500);
+  }
 
-        const secret: string | undefined = process.env.X_SECRET;
+  const token = await sign(
+    {
+      email: email,
+      exp: 5000,
+    } as JWTPayload,
+    process.env.X_SECRET
+  );
 
-        if (!secret) {
-            return c.json({
-                message: "Secret key not set, cannot generate JWT token"
-            })
-        }
+  if (!loginResult.success) {
+    return c.json(
+        errorResponse(loginResult.message),
+        500
+    )
+  }
 
-        const token = await sign(payload, secret)
+  return c.json(successResponse(loginResult.message), 200);
+});
 
-
-        if (loginResult.success) {
-            return await c.json({
-                message: loginResult.message,
-                token: token
-            }, 200)
-        }
-
-        return c.json({
-            message: loginResult.message
-        })
-    } catch (error) {
-        return c.json({
-            message: "Internal server error"
-        }, 500)
-    }
-})
-
-export default loginController
+export default loginController;
