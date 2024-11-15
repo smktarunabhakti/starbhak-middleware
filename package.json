@@ -3,6 +3,7 @@
   "module": "index.ts",
   "type": "module",
   "scripts": {
+    "seed": "bun src/db/factories/user-factory.ts",
     "start": "bun index.ts",
     "dev": "bun --watch index.ts"
   },
