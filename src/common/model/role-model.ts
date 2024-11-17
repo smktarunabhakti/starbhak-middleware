@@ -14,20 +14,16 @@ const getRoleById = async (id: string): Promise<Role> => {
 };
 
 const createRole = async (
-  id: string,
   name: string,
   description: string,
   domain: string,
-  createdAt: Date
 ): Promise<Role> => {
   const newRole = await db
     .insert(roles)
     .values({
-      id,
       name,
       description,
       domain,
-      createdAt,
     })
     .returning();
   return newRole[0] as Role;
@@ -39,7 +35,6 @@ const updateRole = async (
     name?: string;
     description?: string;
     domain?: string;
-    createdAt?: Date;
   }
 ): Promise<Role> => {
   const updatedRole = await db

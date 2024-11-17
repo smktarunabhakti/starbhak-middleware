@@ -1,5 +1,5 @@
 export interface User {
-  id: string;
+  id?: string;
   email: string;
   passwordHash: string;
   name: string;
@@ -7,6 +7,6 @@ export interface User {
   isActive: boolean;
   lastLoginAt?: Date;
   refreshTokenHash?: string;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt?: Date;
+  updatedAt?: Date;
 }

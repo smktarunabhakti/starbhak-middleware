@@ -25,6 +25,6 @@ export const loginService = async (email: string, password: string): Promise<log
 
   return {
     success: true,
-    message: "Berhasil login, halo " + use.name
+    message: "Berhasil login, halo " + user.name
   } as loginResult;
 }
