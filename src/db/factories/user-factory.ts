@@ -66,7 +66,6 @@ const userSeeds: User[] = [
   },
 ];
 
-// Use a for...of loop to handle async/await correctly
 const seedUsers = async () => {
   for (const user of userSeeds) {
     try {
