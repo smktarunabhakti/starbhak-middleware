@@ -18,20 +18,14 @@ loginController.post("/", async (c) => {
     return c.json(errorResponse("Email dan password dibutuhkan!"), 400);
   }
 
-  try {
-    loginValidation.parse({
-      email: email,
-      password: password,
-    });
-  } catch (error) {
+  const parsedLogin = loginValidation.safeParse({email, password})
+  if (!parsedLogin.success) {
     return c.json(
       errorResponse(
-        "Email atau password tidak valid!",
-        (error as z.ZodError).errors.map((e) => ({
-          field: e.path[0],
-          message: e.message,
-        }))
-      )
+        "Login tidak valid: Struktur tidak sesuai",
+        parsedLogin.error.errors
+      ),
+      400
     );
   }
 
