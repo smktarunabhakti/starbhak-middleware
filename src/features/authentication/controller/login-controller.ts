@@ -6,7 +6,7 @@ import {
   errorResponse,
   successResponse,
 } from "../../../common/utils/api-response";
-import { getUserByEmail } from "../../../common/model/user-model";
+import { getUserByEmail, updateUser } from "../../../common/model/user-model";
 import loginValidation from "../validation/login-validation";
 import type { z } from "zod";
 const loginController = new Hono();
@@ -56,7 +56,20 @@ loginController.post("/", async (c) => {
     process.env.X_SECRET
   );
 
-  return c.json(successResponse(loginResult.message), 200);
+  if (!id) {
+    return c.json(
+      errorResponse("Tidak bisa menemukan id"),
+      500
+    )
+  }
+
+  await updateUser(id, {
+    lastLoginAt: new Date(),
+    refreshTokenHash: token,
+    updatedAt: new Date()
+  })
+
+  return c.json(successResponse(loginResult.message, {token: token}), 200);
 });
 
 export default loginController;
