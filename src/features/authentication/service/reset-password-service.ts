@@ -1,24 +1,20 @@
-import {getById} from '../model/user-model.ts';
+import { db } from "../../../db";
+import { users } from "../../../db/migrations/users-table-schema.ts";
 
-export const resetPassword = (id:number,name: string,password: string) => {
-    let updateUser = getById(id);
-    console.log(`update data: ${updateUser}`);
+interface updateResult {
+    success: boolean,
+    message: string
+}
 
-    if(updateUser?.name && updateUser?.password ) {
-       console.log("Update failed");
-       return{
-        success: false,
-        message: "Tidak ada yang di update",
-       }
-    }
-
-    console.log('Update Success')
+export const UpdateService = async (email: string, passwordHash: string, name: string): Promise<updateResult> => {
+    await db.update(users).set({
+        email,
+        passwordHash,
+        name,
+    });
+    
     return {
         success: true,
-        message: {
-            id: id,
-            name: name,
-            password: password,
-        },
-    }
+        message: "Berhasil update"
+    } as updateResult;
 }

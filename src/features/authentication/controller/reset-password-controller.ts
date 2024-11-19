@@ -1,35 +1,24 @@
 import { Hono } from "hono";
-import { resetPassword } from "../service/reset-password-service";
-import { getById } from "../model/user-model";
+import { errorResponse, successResponse } from "../../../common/utils/api-response";
+import { UpdateService } from "../service/reset-password-service";
 
-const resetPassController = new Hono();
+const ResetPass = new Hono();
 
-resetPassController.post("/", async (c) => {
-    try{
-        const {id,name,password} = await c.req.json();
+ResetPass.post("/", async (c) => {
+    try {
+        const { email, passwordHash, name } = await c.req.json();
 
-        if(id === null) {
-            return c.json({
-                message: "Tidak dapat di update",
-            }, 400)
-        }
+            const updateResult = UpdateService(email,passwordHash,name);
+            
+            if(!(await updateResult).success) {
+                return c.json(errorResponse((await updateResult).message), 500);
+            }
 
-        const resultUpdate = resetPassword(id,name,password);
-
-        if(resultUpdate.success) {
-            return await c.json({
-                message: resultUpdate.message,
-            }, 200)
-        }
-
-
-
-    }
-    catch(error) {
-        return c.json({
-            message: "Internal server error"
-        }, 500)
+            return c.json(successResponse((await updateResult).message), 200);
+    } catch (error) {
+        console.error("Reset password error:", error);
+        return c.json(errorResponse("Internal server error"), 500);
     }
 })
 
-export default resetPassController;
+export default ResetPass

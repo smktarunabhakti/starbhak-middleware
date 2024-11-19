@@ -1,1 +1,1 @@
-export { usersTable } from "/migrations/users-table-schema.ts";
+export { users } from "./migrations/users-table-schema.ts";

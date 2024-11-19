@@ -3,6 +3,7 @@
   "module": "index.ts",
   "type": "module",
   "scripts": {
+    "seed": "bun src/db/factories/user-factory.ts",
     "start": "bun index.ts",
     "dev": "bun --watch index.ts"
   },
@@ -19,7 +20,10 @@
     "@hono/zod-validator": "^0.4.1",
     "dotenv": "^16.4.5",
     "drizzle-orm": "^0.36.1",
-    "hono": "^4.6.9",
+    "express": "^4.21.1",
+    "googleapis": "^144.0.0",
+    "hono": "^4.6.10",
+    "nodemailer": "^6.9.16",
     "pg": "^8.13.1",
     "postgres": "^3.4.5",
     "zod": "^3.23.8"
