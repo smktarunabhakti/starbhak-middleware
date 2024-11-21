@@ -25,13 +25,13 @@ loginController.post("/", async (c) => {
     });
   } catch (error) {
     return c.json(
-        errorResponse(
-            "Email atau password tidak valid!",
-            (error as z.ZodError).errors.map((e) => ({
-              field: e.path[0],
-              message: e.message,
-            }))
-        )
+      errorResponse(
+        "Email atau password tidak valid!",
+        (error as z.ZodError).errors.map((e) => ({
+          field: e.path[0],
+          message: e.message,
+        }))
+      )
     );
   }
 
@@ -49,17 +49,17 @@ loginController.post("/", async (c) => {
   const exp = Math.floor(Date.now() / 1000) + (7 * 24 * 60 * 60 * 1000) / 1000;
 
   const token = await sign(
-      {
-        id: id,
-        exp: exp,
-      } as JWTPayload,
-      process.env.X_SECRET
+    {
+      id: id,
+      exp: exp,
+    } as JWTPayload,
+    process.env.X_SECRET
   );
 
   if (!id) {
     return c.json(
-        errorResponse("Tidak bisa menemukan id"),
-        500
+      errorResponse("Tidak bisa menemukan id"),
+      500
     )
   }
 
