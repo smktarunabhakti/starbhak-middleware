@@ -1,5 +1,4 @@
 import { Hono } from "hono";
-import loginController from '../controller/login-controller';
 import refreshTokenController from "../controller/refreshToken-controller";
 
 const authRoute = new Hono()

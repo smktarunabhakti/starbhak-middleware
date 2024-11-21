@@ -57,16 +57,19 @@ loginController.post("/", async (c) => {
   );
 
   if (!id) {
-    return c.json(errorResponse("Tidak bisa menemukan id"), 500);
+    return c.json(
+      errorResponse("Tidak bisa menemukan id"),
+      500
+    )
   }
 
   await updateUser(id, {
     lastLoginAt: new Date(),
     refreshTokenHash: token,
-    updatedAt: new Date(),
-  });
+    updatedAt: new Date()
+  })
 
-  return c.json(successResponse(loginResult.message, { token: token }), 200);
+  return c.json(successResponse(loginResult.message, {token: token}), 200);
 });
 
 export default loginController;
