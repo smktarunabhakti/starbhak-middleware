@@ -2,8 +2,13 @@ import { Hono } from "hono";
 import { loginService } from "../service/login-service";
 import type { JWTPayload } from "hono/utils/jwt/types";
 import { jwt, sign } from "hono/jwt";
-import { errorResponse, successResponse } from "../../../common/utils/api-response";
-import { getUserByEmail } from "../../../common/model/user-model";
+import {
+  errorResponse,
+  successResponse,
+} from "../../../common/utils/api-response";
+import { getUserByEmail, updateUser } from "../../../common/model/user-model";
+import loginValidation from "../validation/login-validation";
+import type { z } from "zod";
 const loginController = new Hono();
 
 loginController.post("/", async (c) => {
@@ -11,6 +16,23 @@ loginController.post("/", async (c) => {
 
   if (!email || !password) {
     return c.json(errorResponse("Email dan password dibutuhkan!"), 400);
+  }
+
+  try {
+    loginValidation.parse({
+      email: email,
+      password: password,
+    });
+  } catch (error) {
+    return c.json(
+      errorResponse(
+        "Email atau password tidak valid!",
+        (error as z.ZodError).errors.map((e) => ({
+          field: e.path[0],
+          message: e.message,
+        }))
+      )
+    );
   }
 
   const loginResult = await loginService(email, password);
@@ -34,7 +56,20 @@ loginController.post("/", async (c) => {
     process.env.X_SECRET
   );
 
-  return c.json(successResponse(loginResult.message), 200);
+  if (!id) {
+    return c.json(
+      errorResponse("Tidak bisa menemukan id"),
+      500
+    )
+  }
+
+  await updateUser(id, {
+    lastLoginAt: new Date(),
+    refreshTokenHash: token,
+    updatedAt: new Date()
+  })
+
+  return c.json(successResponse(loginResult.message, {token: token}), 200);
 });
 
 export default loginController;
