@@ -18,14 +18,20 @@ loginController.post("/", async (c) => {
     return c.json(errorResponse("Email dan password dibutuhkan!"), 400);
   }
 
-  const parsedLogin = loginValidation.safeParse({email, password})
-  if (!parsedLogin.success) {
+  try {
+    loginValidation.parse({
+      email: email,
+      password: password,
+    });
+  } catch (error) {
     return c.json(
       errorResponse(
-        "Login tidak valid: Struktur tidak sesuai",
-        parsedLogin.error.errors
-      ),
-      400
+        "Email atau password tidak valid!",
+        (error as z.ZodError).errors.map((e) => ({
+          field: e.path[0],
+          message: e.message,
+        }))
+      )
     );
   }
 
@@ -51,19 +57,16 @@ loginController.post("/", async (c) => {
   );
 
   if (!id) {
-    return c.json(
-      errorResponse("Tidak bisa menemukan id"),
-      500
-    )
+    return c.json(errorResponse("Tidak bisa menemukan id"), 500);
   }
 
   await updateUser(id, {
     lastLoginAt: new Date(),
     refreshTokenHash: token,
-    updatedAt: new Date()
-  })
+    updatedAt: new Date(),
+  });
 
-  return c.json(successResponse(loginResult.message, {token: token}), 200);
+  return c.json(successResponse(loginResult.message, { token: token }), 200);
 });
 
 export default loginController;
