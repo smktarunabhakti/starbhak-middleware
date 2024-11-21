@@ -53,6 +53,9 @@ const updateUser = async (
     name?: string;
     roleId?: string;
     isActive?: boolean;
+    lastLoginAt?: Date;
+    refreshTokenHash?: string;
+    updatedAt?: Date;
   }
 ): Promise<User> => {
   const updatedUser = await db

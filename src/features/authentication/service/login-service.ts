@@ -1,4 +1,4 @@
- import { use } from "hono/jsx";
+import { use } from "hono/jsx";
 import { getUserByEmail } from "../../../common/model/user-model";
 
 interface loginResult {
@@ -25,6 +25,6 @@ export const loginService = async (email: string, password: string): Promise<log
 
   return {
     success: true,
-    message: "Berhasil login, halo " + use.name
+    message: "Berhasil login, halo " + user.name
   } as loginResult;
 }
