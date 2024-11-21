@@ -4,5 +4,5 @@ FROM oven/bun
 # Set the working directory inside the container
 WORKDIR /app
 
-# Expose the port your app will run on
+# Expose the port your src will run on
 EXPOSE 3000

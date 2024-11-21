@@ -1,6 +1,19 @@
-import { Hono } from 'hono'
-const app = new Hono()
+import app from "./src/main";
+import { z } from "zod";
 
-app.get('/', (c) => c.text('Hono!'))
+const ServeEnv = z.object({
+  PORT: z
+    .string()
+    .regex(/^\d+$/, "Port must be a numeric string")
+    .default("3000")
+    .transform(Number),
+});
+const ProcessEnv = ServeEnv.parse(process.env);
 
-export default app
+const server = Bun.serve({
+  port: ProcessEnv.PORT,
+  hostname: "0.0.0.0",
+  fetch: app.fetch,
+});
+
+console.log("server running", server.port);
