@@ -5,7 +5,6 @@ import registerController from '../controller/register-controller';
 import ResetPass from "../controller/reset-password-controller";
 import kodeOtp from "../controller/kode-otp-controller";
 
-
 const authRoute = new Hono()
 
 authRoute.route("/login", loginController)
