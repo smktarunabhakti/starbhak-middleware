@@ -57,6 +57,13 @@
       "when": 1733723833514,
       "tag": "0007_curious_leech",
       "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1733739371508,
+      "tag": "0008_remarkable_black_knight",
+      "breakpoints": true
     }
   ]
 }

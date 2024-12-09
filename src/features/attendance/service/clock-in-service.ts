@@ -7,6 +7,13 @@ import { attendanceRecord } from "../../../db/schemas/attendance-records-table-s
 export default async function clockInService (rfid: string) {
     const find = await db.select().from(StudentSchema).where(eq(StudentSchema.rfid, rfid))
 
+    if(!find){
+        return {
+            success: false,
+            message: "Siswa tidak ditemukan!"
+        }
+    }
+
     const student = find[0]
 
     //dont know if this gonna work lol
@@ -19,6 +26,13 @@ export default async function clockInService (rfid: string) {
         )
     )
 
+    if(!findSchedule){
+        return {
+            success: false,
+            message: "Jadwal tidak ditemukan!"
+        }
+    }
+
     try{
         await db.insert(attendanceRecord).values({
             student_id: student.student_id,
@@ -29,6 +43,9 @@ export default async function clockInService (rfid: string) {
         throw err
     }
 
-
+    return {
+        success: true,
+        message: "Berhasil Tap In!"
+    }
 
 }

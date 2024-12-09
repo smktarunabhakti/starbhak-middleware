@@ -8,6 +8,7 @@ export const teacher = pgTable("teachers", {
     gender: text('gender'),
     email: text("email").notNull().unique(), 
     name: text("name").notNull(),
+    user_id: uuid("user_id"),
     isActive: boolean("is_active").default(true), 
     createdAt: timestamp("created_at").defaultNow(),
     updatedAt: timestamp("updated_at").defaultNow()
