@@ -2,6 +2,7 @@ import { eq } from "drizzle-orm";
 import { db } from "../../db";
 import { users } from "../../db/schema";
 import type { User } from "../interfaces/user-interface";
+import byc from "bcrypt";
 
 const getAllUsers = async (): Promise<User[]> => {
   const collections = await db.select().from(users);
@@ -33,15 +34,17 @@ const createUser = async (
   name: string,
   roleId: string
 ): Promise<User> => {
+
   const newUser = await db
     .insert(users)
     .values({
-      email,
-      passwordHash,
-      name,
-      roleId,
+      email: email,
+      passwordHash: byc.hashSync(passwordHash, 10),
+      name: name,
+      roleId: roleId,
     })
     .returning();
+    
   return newUser[0] as User;
 };
 

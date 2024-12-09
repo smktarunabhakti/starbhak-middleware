@@ -1,6 +1,6 @@
 import { eq } from "drizzle-orm";
 import { db } from "../../db";
-import { roles } from "../../db/migrations/roles-table-schema";
+import { roles } from "../../db/schemas/roles-table-schema";
 import type { Role } from "../interfaces/role-interface";
 
 const getAllRoles = async (): Promise<Role[]> => {

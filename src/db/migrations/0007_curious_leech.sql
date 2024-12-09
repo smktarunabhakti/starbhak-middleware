@@ -1,0 +1,1 @@
+ALTER TABLE "attendance_records" ALTER COLUMN "clock_in" SET DEFAULT now();

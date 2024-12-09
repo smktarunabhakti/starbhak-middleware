@@ -1,6 +1,6 @@
 import { Hono } from "hono";
 import { registerService } from "../service/register-service.ts";
-import { users } from "../../../db/migrations/users-table-schema.ts";
+import { users } from "../../../db/schemas/users-table-schema.ts";
 import { db } from "../../../db";
 import { and, eq } from "drizzle-orm";
 import registerValidation from "../validation/register-validation";
@@ -37,7 +37,7 @@ registerController.post("/", async (c) => {
         );
     }
 
-    const registerResult = await registerService(email, name, passwordHash);
+    const registerResult = await registerService(email, passwordHash, name);
 
     if (!registerResult.success) {
         return c.json(errorResponse(registerResult.message), 500);

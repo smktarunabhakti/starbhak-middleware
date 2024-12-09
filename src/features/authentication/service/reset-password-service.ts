@@ -1,5 +1,5 @@
 import { db } from "../../../db";
-import { users } from "../../../db/migrations/users-table-schema.ts";
+import { users } from "../../../db/schemas/users-table-schema.ts";
 
 interface updateResult {
     success: boolean,

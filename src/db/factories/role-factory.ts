@@ -2,7 +2,7 @@ import { sql } from "drizzle-orm";
 import { db } from "..";
 import type { Role } from "../../common/interfaces/role-interface";
 import { createRole } from "../../common/model/role-model";
-import { roles } from "../migrations/roles-table-schema";
+import { roles } from "../schemas/roles-table-schema";
 
 const roleSeeds: Role[] = [
   {

@@ -1,6 +1,6 @@
 import { eq } from "drizzle-orm";
 import { db } from "../../db";
-import { permissions } from "../../db/migrations/permissions-table-schema";
+import { permissions } from "../../db/schemas/permissions-table-schema";
 import type { Permission } from "../interfaces/permission-interface";
 
 const getAllPermissions = async (): Promise<Permission[]> => {

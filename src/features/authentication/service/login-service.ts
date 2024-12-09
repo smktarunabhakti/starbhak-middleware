@@ -1,5 +1,6 @@
 import { use } from "hono/jsx";
 import { getUserByEmail } from "../../../common/model/user-model";
+import { compareSync } from "bcrypt";
 
 interface loginResult {
   success: boolean,
@@ -16,7 +17,7 @@ export const loginService = async (email: string, password: string): Promise<log
     } as loginResult;
   }
 
-  if (user.passwordHash !== password) {
+  if (!compareSync(password, user.passwordHash)) {
     return {
       success: false,
       message: "Password tidak sesuai dengan data yang ada",
