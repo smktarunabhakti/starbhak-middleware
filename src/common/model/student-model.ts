@@ -8,22 +8,24 @@ const getAllStudents = async (): Promise<Student[]> => {
   return collections as Student[];
 };
 
-const getStudentById = async (id: number): Promise<Student> => {
-  const [collection] = await db
+const getStudentById = async (id: number): Promise<Student | null> => {
+  const collection = await db
     .select()
     .from(student)
     .where(eq(student.id, id))
     .limit(1);
-  return collection as Student;
+  return collection.length > 0 ? collection as Student : null;
 };
 
-const getStudentByUuid = async (uuid: string): Promise<Student> => {
-  const [collection] = await db
+const getStudentByUuid = async (uuid: string): Promise<Student | null> => {
+
+  const collection = await db
     .select()
     .from(student)
     .where(eq(student.student_id, uuid))
     .limit(1);
-  return collection as Student;
+  
+  return collection.length > 0 ? collection as Student : null;
 };
 
 const createStudent = async (createData: { 
@@ -44,7 +46,7 @@ const createStudent = async (createData: {
         ? createData.DoB.toISOString()
         : String(createData.DoB);
   
-  const [collection] = await db
+  const collection = await db
     .insert(student)
     .values({
       nisn: createData.nisn,
@@ -79,11 +81,21 @@ const updateStudent = async (
     isActive?: boolean;
   }
 ): Promise<Student> => {
+    console.info("[Model] updateData: ", updateData);
+    
     const formattedUpdateData = {
-        ...updateData,
-        DoB: updateData.DoB instanceof Date ? updateData.DoB.toISOString() : String(updateData.DoB) 
-    }
-  const [collection] = await db
+      ...updateData,
+      DoB:
+        updateData.DoB !== undefined
+          ? updateData.DoB instanceof Date
+            ? updateData.DoB.toISOString()
+            : String(updateData.DoB)
+          : updateData.DoB,
+    };
+
+    console.info("[Model] formattedUpdateData: ", formattedUpdateData);
+
+  const collection = await db
     .update(student)
     .set(formattedUpdateData)
     .where(eq(student.student_id, uuid))
@@ -92,7 +104,7 @@ const updateStudent = async (
 };
 
 const deleteStudent = async (uuid: string): Promise<Student> => {
-  const [collection] = await db
+  const collection = await db
     .delete(student)
     .where(eq(student.student_id, uuid))
     .returning();

@@ -1,3 +1,5 @@
+import type { number } from "zod";
+
 interface apiResponse {
   success: boolean;
   message?: string;
