@@ -26,7 +26,7 @@ const getStudentByUuid = async (uuid: string): Promise<Student> => {
   return collection as Student;
 };
 
-const createStudent = async (
+const createStudent = async (createData: { 
   nisn: string,
   nipd: string,
   nik: string,
@@ -38,23 +38,26 @@ const createStudent = async (
   email: string,
   starting_school_years_id: string,
   isActive: boolean,
-): Promise<Student> => {
-    let formattedDoB = DoB instanceof Date ? DoB.toISOString() : String(DoB)
-
+}): Promise<Student> => {
+    let formattedDoB =
+      createData.DoB instanceof Date
+        ? createData.DoB.toISOString()
+        : String(createData.DoB);
+  
   const [collection] = await db
     .insert(student)
     .values({
-      nisn: nisn,
-      nipd: nipd,
-      nik: nik,
-      rfid: rfid,
-      name: name,
+      nisn: createData.nisn,
+      nipd: createData.nipd,
+      nik: createData.nik,
+      rfid: createData.rfid,
+      name: createData.name,
       DoB: formattedDoB,
-      PoB: PoB,
-      gender: gender,
-      email: email,
-      starting_school_years: starting_school_years_id,
-      isActive: isActive,
+      PoB: createData.PoB,
+      gender: createData.gender,
+      email: createData.email,
+      starting_school_years: createData.starting_school_years_id,
+      isActive: createData.isActive,
     })
     .returning();
   return collection as Student;

@@ -26,15 +26,15 @@ const getMajorByUuid = async (uuid: string): Promise<Major> => {
   return collection as Major;
 };
 
-const createMajor = async (
+const createMajor = async (createData: {
   name: string,
   majors_head_id: string
-): Promise<Major> => {
+}): Promise<Major> => {
   const [collection] = await db
     .insert(majors)
     .values({
-      name: name,
-      majors_head_id: majors_head_id,
+      name: createData.name,
+      majors_head_id: createData.majors_head_id,
     })
     .returning();
   return collection as Major;

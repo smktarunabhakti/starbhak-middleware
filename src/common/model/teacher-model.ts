@@ -26,8 +26,7 @@ const getTeacherByUuid = async (uuid: string): Promise<Teacher> => {
   return collection as Teacher;
 };
 
-const createTeacher = async (
-  teacher_id: string,
+const createTeacher = async (createData: {
   name: string,
   DoB: Date | string,
   PoB: string,
@@ -35,19 +34,21 @@ const createTeacher = async (
   email: string,
   isActive: boolean,
   createdAt: Date
-): Promise<Teacher> => {
-    const formattedDoB = DoB instanceof Date ? DoB.toISOString() : String(DoB)
+}): Promise<Teacher> => {
+    const formattedDoB =
+      createData.DoB instanceof Date
+        ? createData.DoB.toISOString()
+        : String(createData.DoB);
   const [collection] = await db
     .insert(teacher)
     .values({
-      teacher_id: teacher_id,
-      name: name,
+      name: createData.name,
       DoB: formattedDoB,
-      PoB: PoB,
-      gender: gender,
-      email: email,
-      isActive: isActive,
-      createdAt: createdAt,
+      PoB: createData.PoB,
+      gender: createData.gender,
+      email: createData.email,
+      isActive: createData.isActive,
+      createdAt: createData.createdAt,
     })
     .returning();
   return collection as Teacher;

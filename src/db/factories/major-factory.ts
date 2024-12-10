@@ -21,7 +21,10 @@ const seedMajors = async () => {
   for (const majorSeed of majorSeeds) {
     try {
       console.log(`➕ Inserting major: ${majorSeed.name}\n`);
-      await createMajor(majorSeed.name, majorSeed.majors_head_id as string);
+      await createMajor({
+        name: majorSeed.name,
+        majors_head_id: majorSeed.majors_head_id as string,
+      });
     } catch (error) {
       console.error(`❌ Error inserting major ${majorSeed.name}:`, error, "\n");
     }

@@ -26,17 +26,15 @@ const getSubjectByUuid = async (uuid: string): Promise<Subject> => {
   return collection as Subject;
 };
 
-const createSubject = async (
-  subjects_id: string,
+const createSubject = async (createData: {
   name: string,
   isActive: boolean,
-): Promise<Subject> => {
+}): Promise<Subject> => {
   const [collection] = await db
     .insert(subject)
     .values({
-      subjects_id: subjects_id,
-      name: name,
-      isActive: isActive,
+      name: createData.name,
+      isActive: createData.isActive,
     })
     .returning();
   return collection as Subject;

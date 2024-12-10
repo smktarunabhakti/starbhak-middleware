@@ -28,8 +28,7 @@ const getStudyGroupByUuid = async (
   return collection as StudyGroupSchedule;
 };
 
-const createStudyGroup = async (
-  study_groups_id: string,
+const createStudyGroup = async (createData: {
   starting_school_years_id: string,
   name: string,
   homeroom_teacher_id: string,
@@ -37,18 +36,17 @@ const createStudyGroup = async (
   year: "X" | "XI" | "XII",
   major_id: string,
   isActive: boolean,
-): Promise<StudyGroupSchedule> => {
+}): Promise<StudyGroupSchedule> => {
   const [collection] = await db
     .insert(studyGroup)
     .values({
-      study_groups_id: study_groups_id,
-      starting_school_years_id: starting_school_years_id,
-      name: name,
-      homeroom_teacher_id: homeroom_teacher_id,
-      counseling_teacher_id: counseling_teacher_id,
-      year: year,
-      major_id: major_id,
-      isActive: isActive,
+      starting_school_years_id: createData.starting_school_years_id,
+      name: createData.name,
+      homeroom_teacher_id: createData.homeroom_teacher_id,
+      counseling_teacher_id: createData.counseling_teacher_id,
+      year: createData.year,
+      major_id: createData.major_id,
+      isActive: createData.isActive,
     })
     .returning();
   return collection as StudyGroupSchedule;

@@ -2,7 +2,7 @@ import {boolean, date, integer, pgTable, text, timestamp, uuid, varchar} from "d
 
 export const teacher = pgTable("teachers", {
     id: integer("id").primaryKey().generatedAlwaysAsIdentity(),
-    teacher_id: uuid("teacher_id").unique(),
+    teacher_id: uuid("teacher_id").defaultRandom().unique(),
     DoB: date("dob"), //date of birth
     PoB: text("pob"), //place of birth
     gender: text('gender'),

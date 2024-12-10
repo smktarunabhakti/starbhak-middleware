@@ -15,20 +15,7 @@ const studentSeeds: Student[] = [
     PoB: "Jakarta",
     gender: "Male",
     email: "john.doe@example.com",
-    starting_school_years_id: "2024-2025",
-    isActive: true,
-  },
-  {
-    nisn: "987654321",
-    nipd: "67890",
-    nik: "654987321",
-    rfid: "RF5678",
-    name: "Jane Smith",
-    DoB: new Date("2006-07-20"),
-    PoB: "Bandung",
-    gender: "Female",
-    email: "jane.smith@example.com",
-    starting_school_years_id: "2024-2025",
+    starting_school_years_id: "88d2b61f-7ac4-42e4-acdb-ca74ede1eab8",
     isActive: true,
   },
 ];
@@ -43,19 +30,19 @@ const seedStudents = async () => {
   for (const seed of studentSeeds) {
     try {
       console.log(`➕ Inserting Student: ${seed.name}\n`);
-      await createStudent(
-        seed.nisn!,
-        seed.nipd!,
-        seed.nik!,
-        seed.rfid!,
-        seed.name!,
-        seed.DoB!,
-        seed.PoB!,
-        seed.gender!,
-        seed.email!,
-        seed.starting_school_years_id!,
-        seed.isActive!
-      );
+      await createStudent({
+        nisn: seed.nisn!,
+        nipd: seed.nipd!,
+        nik: seed.nik!,
+        rfid: seed.rfid!,
+        name: seed.name!,
+        DoB: seed.DoB!,
+        PoB: seed.PoB!,
+        gender: seed.gender!,
+        email: seed.email!,
+        starting_school_years_id: seed.starting_school_years_id!,
+        isActive: seed.isActive!,
+      });
     } catch (error) {
       console.log(`❌ Error inserting Student ${seed.name}: `, error, "\n");
     }
@@ -66,3 +53,4 @@ const seedStudents = async () => {
 };
 
 seedStudents();
+

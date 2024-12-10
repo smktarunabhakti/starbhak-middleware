@@ -1,6 +1,6 @@
 {
-  "id": "299fab1e-4e28-44b1-a840-c559682b6bae",
-  "prevId": "9c3d1690-3794-4176-9580-c664ea340c75",
+  "id": "8dd4b5a3-eb98-4722-9c6f-530fb3338a35",
+  "prevId": "299fab1e-4e28-44b1-a840-c559682b6bae",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -1220,7 +1220,8 @@
           "name": "teacher_id",
           "type": "uuid",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "default": "gen_random_uuid()"
         },
         "dob": {
           "name": "dob",
