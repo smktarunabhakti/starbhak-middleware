@@ -14,6 +14,15 @@ const teacherSeeds: Teacher[] = [
     isActive: true,
     createdAt: new Date(),
   },
+  {
+    name: "Loona",
+    DoB: new Date("1980-08-22"),
+    PoB: "Bandung",
+    gender: "Female",
+    email: "loona@example.com",
+    isActive: true,
+    createdAt: new Date(),
+  },
 ];
 
 const seedTeachers = async () => {

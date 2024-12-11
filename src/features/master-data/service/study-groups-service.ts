@@ -141,11 +141,11 @@ const removeStudyGroup = async (
   }
 };
 
-export default {
+export {
     fetchStudyGroups,
     fetchStudyGroupById,
     fetchStudyGroupByUuid,
-    createStudyGroup,
-    updateStudyGroup,
-    deleteStudyGroup
+    addStudyGroup,
+    editStudyGroup,
+    removeStudyGroup
 }

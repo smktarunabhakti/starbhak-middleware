@@ -4,17 +4,47 @@ import type { StudyGroupSchedule } from "../../common/interfaces/study-group-sch
 import { studyGroup } from "../schemas/study-groups-table-schema";
 import { createStudyGroup } from "../../common/model/study-group-model";
 
-const studyGroupSeeds: StudyGroupSchedule[] = [
-  {
-    starting_school_years_id: "ab5662bd-2912-4bd9-bbf9-8691b71ea33d",
-    name: "Science Group",
-    homeroom_teacher_id: "970e5913-b05c-4dff-a706-5c43611afbc1",
-    counseling_teacher_id: "970e5913-b05c-4dff-a706-5c43611afbc1",
-    year: "X",
-    major_id: "a0c2fcb4-71e4-4990-8ce3-ec70b54c218f",
-    isActive: true,
-  },
-];
+const generateStudyGroupSeeds = async (
+  q: number
+): Promise<StudyGroupSchedule[]> => {
+  const starting_school_years_id = await db.execute(
+    sql`SELECT school_year_id FROM school_years ORDER BY RANDOM() LIMIT 1`
+  );
+
+  const homeroom_teacher_id = await db.execute(
+    sql`SELECT teacher_id FROM teachers ORDER BY RANDOM() LIMIT 1`
+  );
+
+  const counseling_teacher_id = await db.execute(
+    sql`SELECT teacher_id FROM teachers ORDER BY RANDOM() LIMIT 1`
+  );
+
+  const major_id = await db.execute(
+    sql`SELECT majors_id FROM majors ORDER BY RANDOM() LIMIT 1`
+  );
+
+  // console.log(starting_school_years_id.rows[0].school_year_id);
+  // console.log(homeroom_teacher_id.rows[0].teacher_id);
+  // console.log(counseling_teacher_id.rows[0].teacher_id);
+  // console.log(major_id.rows[0].majors_id);
+  
+  return [
+    {
+      starting_school_years_id: starting_school_years_id.rows[0]
+        .school_year_id as string,
+      name: "Kejuruan",
+      homeroom_teacher_id: homeroom_teacher_id.rows[0].teacher_id as string,
+      counseling_teacher_id: counseling_teacher_id.rows[0].teacher_id as string,
+      year: "X",
+      major_id: major_id.rows[0].majors_id as string,
+      isActive: true,
+    },
+  ];
+};
+
+generateStudyGroupSeeds(2)
+
+const studyGroupSeeds: StudyGroupSchedule[] = await generateStudyGroupSeeds(2) ;
 
 const seedStudyGroups = async () => {
   await db.execute(sql`TRUNCATE TABLE study_groups RESTART IDENTITY CASCADE`);

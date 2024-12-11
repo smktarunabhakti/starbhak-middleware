@@ -9,7 +9,7 @@ const getAllTeachers = async (): Promise<Teacher[]> => {
 };
 
 const getTeacherById = async (id: number): Promise<Teacher> => {
-  const [collection] = await db
+  const collection = await db
     .select()
     .from(teacher)
     .where(eq(teacher.id, id))
@@ -18,7 +18,7 @@ const getTeacherById = async (id: number): Promise<Teacher> => {
 };
 
 const getTeacherByUuid = async (uuid: string): Promise<Teacher> => {
-  const [collection] = await db
+  const collection = await db
     .select()
     .from(teacher)
     .where(eq(teacher.teacher_id, uuid))
@@ -27,19 +27,22 @@ const getTeacherByUuid = async (uuid: string): Promise<Teacher> => {
 };
 
 const createTeacher = async (createData: {
-  name: string,
-  DoB: Date | string,
-  PoB: string,
-  gender: string,
-  email: string,
-  isActive: boolean,
-  createdAt: Date
+  name: string;
+  DoB: Date | string;
+  PoB: string;
+  gender: string;
+  email: string;
+  isActive: boolean;
+  createdAt: Date;
 }): Promise<Teacher> => {
-    const formattedDoB =
-      createData.DoB instanceof Date
-        ? createData.DoB.toISOString()
-        : String(createData.DoB);
-  const [collection] = await db
+  let formattedDoB =
+    createData.DoB instanceof Date
+      ? createData.DoB.toISOString()
+      : String(createData.DoB);
+
+  console.log("[TeacherModel] DoB: ", formattedDoB);
+  
+  const collection = await db
     .insert(teacher)
     .values({
       name: createData.name,
@@ -51,6 +54,10 @@ const createTeacher = async (createData: {
       createdAt: createData.createdAt,
     })
     .returning();
+  
+  console.log(collection);
+  
+  
   return collection as Teacher;
 };
 
@@ -66,11 +73,16 @@ const updateTeacher = async (
     updatedAt?: Date;
   }
 ): Promise<Teacher> => {
-    const formattedUpdateData = {
-        ...updateData,
-        DoB: updateData.DoB instanceof Date ? updateData.DoB.toISOString() : String(updateData.DoB)
-    }
-  const [collection] = await db
+  const formattedUpdateData = {
+    ...updateData,
+    DoB:
+      updateData.DoB !== undefined
+        ? updateData.DoB instanceof Date
+          ? updateData.DoB.toISOString()
+          : String(updateData.DoB)
+        : updateData.DoB,
+  };
+  const collection = await db
     .update(teacher)
     .set(formattedUpdateData)
     .where(eq(teacher.teacher_id, uuid))
@@ -79,7 +91,7 @@ const updateTeacher = async (
 };
 
 const deleteTeacher = async (uuid: string): Promise<Teacher> => {
-  const [collection] = await db
+  const collection = await db
     .delete(teacher)
     .where(eq(teacher.teacher_id, uuid))
     .returning();

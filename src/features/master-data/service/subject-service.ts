@@ -129,11 +129,11 @@ const removeSubject = async (uuid: string): Promise<ServiceResponse> => {
   }
 };
 
-export default {
+export {
   fetchSubjects,
   fetchSubjectById,
   fetchSubjectByUuid,
-  createSubject,
-  updateSubject,
-  deleteSubject
+  addSubject,
+  editSubject,
+  removeSubject
 }
