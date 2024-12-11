@@ -12,6 +12,7 @@ import {
 const fetchStudents = async (): Promise<ServiceResponse> => {
   try {
     const collections = await getAllStudents();
+
     return {
       success: true,
       message: "Success fetched students data!",

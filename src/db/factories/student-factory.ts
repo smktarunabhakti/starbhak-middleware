@@ -4,6 +4,12 @@ import type { Student } from "../../common/interfaces/student-interface";
 import { student } from "../schemas/students-table-schema";
 import { createStudent } from "../../common/model/student-model";
 
+const randomSchoolYear: string = await await db.execute(
+    sql`SELECT school_year_id FROM school_years ORDER BY RANDOM() LIMIT 1`
+  ).then(x => {
+    return x.rows[0].school_year_id as string
+  })
+
 const studentSeeds: Student[] = [
   {
     nisn: "123456789",
@@ -15,7 +21,7 @@ const studentSeeds: Student[] = [
     PoB: "Jakarta",
     gender: "Male",
     email: "john.doe@example.com",
-    starting_school_years_id: "88d2b61f-7ac4-42e4-acdb-ca74ede1eab8",
+    starting_school_years_id: randomSchoolYear,
     isActive: true,
   },
 ];
@@ -26,6 +32,9 @@ const seedStudents = async () => {
 
   await db.delete(student);
   console.log("🗑️  Emptying the students table before seeding\n");
+
+  console.log("Seed with data: ", studentSeeds);
+  
 
   for (const seed of studentSeeds) {
     try {
@@ -43,6 +52,7 @@ const seedStudents = async () => {
         starting_school_years_id: seed.starting_school_years_id!,
         isActive: seed.isActive!,
       });
+      
     } catch (error) {
       console.log(`❌ Error inserting Student ${seed.name}: `, error, "\n");
     }

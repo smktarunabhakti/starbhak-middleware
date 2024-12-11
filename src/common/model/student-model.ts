@@ -3,9 +3,9 @@ import { db } from "../../db";
 import { student } from "../../db/schemas/students-table-schema";
 import type { Student } from "../interfaces/student-interface";
 
-const getAllStudents = async (): Promise<Student[]> => {
+const getAllStudents = async (): Promise<Student[] | null> => {
   const collections = await db.select().from(student);
-  return collections as Student[];
+  return collections.length > 0 ? collections as Student[] : null;
 };
 
 const getStudentById = async (id: number): Promise<Student | null> => {

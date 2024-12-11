@@ -12,6 +12,7 @@
     "seed:teacher": "bun src/db/factories/teacher-factory.ts",
     "seed:subject": "bun src/db/factories/subject-factory.ts",
     "seed:study-group": "bun src/db/factories/study-group-factory.ts",
+    "seed:col-4": "bun run seed:student && bun run seed:teacher && bun run seed:subject && bun run seed:study-group",
     "start": "bun index.ts",
     "dev": "bun --watch index.ts",
     "db:generate": "bunx --bun drizzle-kit generate",
