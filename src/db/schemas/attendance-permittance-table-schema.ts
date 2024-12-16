@@ -1,6 +1,5 @@
 import {boolean, date, integer, pgEnum, pgTable, text, time, timestamp, uuid, varchar} from "drizzle-orm/pg-core";
 import { student } from "./students-table-schema";
-import { teacher } from "./teacher-table-schema";
 
 export const attendancePermittanceTypeEnum = pgEnum('attendancePermittanceType', ['IZIN', "SAKIT", "ALPHA"]);
 export const attendancePermittanceStatusEnum = pgEnum('attendancePermittanceStatus', ["ACCEPTED", "DENIED", "PENDING"]);
