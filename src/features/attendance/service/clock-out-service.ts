@@ -2,6 +2,7 @@ import { and, eq, sql } from "drizzle-orm";
 import { db } from "../../../db";
 import { student as StudentSchema } from "../../../db/schemas/students-table-schema";
 import { attendanceRecord } from "../../../db/schemas/attendance-records-table-schema";
+import { studyGroupSchedules } from "../../../db/schemas/study-group-schedules-table-schema";
 
 export default async function clockOutService (rfid: string) {
     const today = new Date().toISOString().split('T');
@@ -42,4 +43,5 @@ export default async function clockOutService (rfid: string) {
         message: "Berhasil Tap Out!"
     }
 
+    
 }
