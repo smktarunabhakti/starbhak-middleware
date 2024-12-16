@@ -71,6 +71,13 @@
       "when": 1733828175576,
       "tag": "0009_tough_iceman",
       "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1734322635079,
+      "tag": "0010_aspiring_mandroid",
+      "breakpoints": true
     }
   ]
 }
