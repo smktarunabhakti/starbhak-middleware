@@ -7,6 +7,7 @@ import schoolYearController from "../controller/school-year-controller";
 import majorsController from "../controller/majors-controller";
 import academicCalendarController from "../controller/academic-calendar";
 import parentController from "../controller/parent-controller";
+import parentStudentController from "../controller/parent-student-controller";
 
 const masterDataRoute = new Hono()
 
@@ -18,5 +19,6 @@ masterDataRoute.route("/school-year", schoolYearController)
 masterDataRoute.route("/majors", majorsController)
 masterDataRoute.route("/academic-calendar", academicCalendarController)
 masterDataRoute.route("/parents", parentController)
+masterDataRoute.route("/parent-student", parentStudentController)
 
 export default masterDataRoute

@@ -35,6 +35,7 @@ const createTeacher = async (createData: {
   isActive: boolean;
   createdAt: Date;
 }): Promise<Teacher> => {
+  
   let formattedDoB =
     createData.DoB instanceof Date
       ? createData.DoB.toISOString()
