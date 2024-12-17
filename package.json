@@ -13,7 +13,7 @@
     "seed:subject": "bun src/db/factories/subject-factory.ts",
     "seed:study-group": "bun src/db/factories/study-group-factory.ts",
     "seed:parent": "bun src/db/factories/parent-factory.ts",
-    "seed:col-4": "bun run seed:student && bun run seed:teacher && bun run seed:subject && bun run seed:study-group",
+    "seed:all": "bun run seed:role && bun run seed:user && bun run seed:school-years && bun run seed:academy-calendar && bun run seed:major && bun run seed:student && bun run seed:teacher && bun run seed:subject && bun run seed:study-group && bun run seed:parent",
     "start": "bun index.ts",
     "dev": "bun --watch index.ts",
     "db:generate": "bunx --bun drizzle-kit generate",

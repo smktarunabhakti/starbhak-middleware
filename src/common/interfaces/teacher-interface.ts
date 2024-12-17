@@ -6,6 +6,7 @@ export interface Teacher {
     PoB?: string,
     gender?: string,
     email?: string,
+    userId?: string,
     isActive?: boolean,
     createdAt?: Date,
     updatedAt?: Date

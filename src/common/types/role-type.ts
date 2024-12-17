@@ -1,0 +1,1 @@
+export type Role = "Teacher" | "Parent" | "Student"

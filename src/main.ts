@@ -17,9 +17,4 @@ app.get("/", (c) => {
   return c.text("hallo");
 });
 
-app.get("/users", async (c) => {
-    const datas = await db.select().from(users)
-    return c.json(datas)
-})
-
 export default app;
