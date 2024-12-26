@@ -1,10 +1,12 @@
-import { and, eq, sql } from "drizzle-orm";
+import { and, eq, isNotNull, sql } from "drizzle-orm";
 import { db } from "../../../db";
 import { student as StudentSchema } from "../../../db/schemas/students-table-schema";
 import { studyGroupSchedules } from "../../../db/schemas/study-group-schedules-table-schema";
 import { attendanceRecord } from "../../../db/schemas/attendance-records-table-schema";
+import { schedules } from "../../../db/schemas/schedules-table-schema";
+import { addTeacher } from "../../master-data/service/teacher-service";
 
-export default async function clockInService (rfid: string) {
+export default async function clockInService (rfid: string){
     const find = await db.select().from(StudentSchema).where(eq(StudentSchema.rfid, rfid))
 
     if(!find){
@@ -48,4 +50,19 @@ export default async function clockInService (rfid: string) {
         message: "Berhasil Tap In!"
     }
 
+    const today = new Date().toISOString().split('T');
+
+    const findTapIn = await db.select().from(attendanceRecord).where(
+        and(
+            eq(attendanceRecord.student_id, student.student_id!),
+            eq(attendanceRecord.date, today[0])
+        )
+    )
+
+    if(findTapIn != null){
+        return {
+            success: true,
+            message: "Kamu sudah Tap In!"
+        }
+    }
 }

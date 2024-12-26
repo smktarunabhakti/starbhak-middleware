@@ -31,10 +31,12 @@ const createTeacher = async (createData: {
   DoB: Date | string;
   PoB: string;
   gender: string;
+  userId: string
   email: string;
   isActive: boolean;
   createdAt: Date;
 }): Promise<Teacher> => {
+  
   let formattedDoB =
     createData.DoB instanceof Date
       ? createData.DoB.toISOString()
@@ -50,6 +52,7 @@ const createTeacher = async (createData: {
       PoB: createData.PoB,
       gender: createData.gender,
       email: createData.email,
+      user_id: createData.userId,
       isActive: createData.isActive,
       createdAt: createData.createdAt,
     })

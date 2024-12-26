@@ -10,7 +10,9 @@ attendanceController.post("/check-in", async (c) => {
     const { rfid } = await c.req.json()
 
     //add validation here
-
+    if(rfid == null) {
+        return c.json(errorResponse("Rfid required"))
+    }
     const attendanceRes = await clockInService(rfid)
 
     if(!attendanceRes.success){
@@ -24,6 +26,9 @@ attendanceController.post("/check-out", async (c) => {
     const { rfid } = await c.req.json()
 
     //add validation here
+    if(rfid == null) {
+        return c.json(errorResponse("Rfid required"))
+    }
 
     const attendanceRes = await clockOutService(rfid)
 

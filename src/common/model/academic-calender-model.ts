@@ -77,7 +77,7 @@ const deleteAcademicCalendar = async (
     .delete(academicCalendar)
     .where(eq(academicCalendar.academic_calendars_id, uuid))
     .returning();
-  return deleteAcademicCalendar as AcademicCalendar;
+  return deletedAcademicCalendar as AcademicCalendar;
 };
 
 export {

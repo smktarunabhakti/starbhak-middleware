@@ -20,6 +20,7 @@ const teacherSeeds: Teacher[] = [
     PoB: "Bandung",
     gender: "Female",
     email: "loona@example.com",
+    userId: "eb674718-3c37-4db6-a2a5-01f8e5bb6a3c",
     isActive: true,
     createdAt: new Date(),
   },
@@ -41,6 +42,7 @@ const seedTeachers = async () => {
         PoB: seed.PoB!,
         gender: seed.gender!,
         email: seed.email!,
+        userId: seed.userId!,
         isActive: seed.isActive!,
         createdAt: seed.createdAt!,
       });

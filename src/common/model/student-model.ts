@@ -29,17 +29,19 @@ const getStudentByUuid = async (uuid: string): Promise<Student | null> => {
 };
 
 const createStudent = async (createData: { 
-  nisn: string,
-  nipd: string,
-  nik: string,
-  rfid: string,
-  name: string,
-  DoB: Date | string,
-  PoB: string,
-  gender: string,
-  email: string,
-  starting_school_years_id: string,
-  isActive: boolean,
+  study_groups_id: string;
+  nisn: string;
+  nipd: string;
+  nik: string;
+  rfid: string;
+  gender: string;
+  email: string;
+  name: string;
+  DoB: Date | string;
+  PoB: string;
+  starting_school_years_id: string;
+  user_id: string;
+  isActive: boolean;
 }): Promise<Student> => {
     let formattedDoB =
       createData.DoB instanceof Date
@@ -49,17 +51,19 @@ const createStudent = async (createData: {
   const collection = await db
     .insert(student)
     .values({
-      nisn: createData.nisn,
-      nipd: createData.nipd,
-      nik: createData.nik,
-      rfid: createData.rfid,
-      name: createData.name,
+      study_groups_id: createData.study_groups_id!,
+      nisn: createData.nisn!,
+      nipd: createData.nipd!,
+      nik: createData.nik!,
+      rfid: createData.rfid!,
+      gender: createData.gender!,
+      email: createData.email!,
+      name: createData.name!,
       DoB: formattedDoB,
-      PoB: createData.PoB,
-      gender: createData.gender,
-      email: createData.email,
-      starting_school_years: createData.starting_school_years_id,
-      isActive: createData.isActive,
+      PoB: createData.PoB!,
+      starting_school_years: createData.starting_school_years_id!,
+      user_id: createData.user_id!,
+      isActive: createData.isActive!,
     })
     .returning();
   return collection as Student;

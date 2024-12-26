@@ -1,6 +1,6 @@
 {
-  "id": "a64f9766-abc4-49e3-8aad-a07c7fc86151",
-  "prevId": "8dd4b5a3-eb98-4722-9c6f-530fb3338a35",
+  "id": "af184da8-917d-4129-bf2d-b4713e55e11b",
+  "prevId": "a64f9766-abc4-49e3-8aad-a07c7fc86151",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -400,6 +400,65 @@
           ]
         }
       },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.parent_student": {
+      "name": "parent_student",
+      "schema": "",
+      "columns": {
+        "parent_id": {
+          "name": "parent_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "student_id": {
+          "name": "student_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "parent_student_parent_id_parents_parent_id_fk": {
+          "name": "parent_student_parent_id_parents_parent_id_fk",
+          "tableFrom": "parent_student",
+          "tableTo": "parents",
+          "columnsFrom": [
+            "parent_id"
+          ],
+          "columnsTo": [
+            "parent_id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "parent_student_student_id_students_student_id_fk": {
+          "name": "parent_student_student_id_students_student_id_fk",
+          "tableFrom": "parent_student",
+          "tableTo": "students",
+          "columnsFrom": [
+            "student_id"
+          ],
+          "columnsTo": [
+            "student_id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
       "policies": {},
       "checkConstraints": {},
       "isRLSEnabled": false
