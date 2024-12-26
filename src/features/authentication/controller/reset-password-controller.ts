@@ -1,24 +1,21 @@
 import { Hono } from "hono";
 import { errorResponse, successResponse } from "../../../common/utils/api-response";
-import { UpdateService } from "../service/reset-password-service";
+import { resetPasswordService } from "../service/reset-password-service";
+import type { StatusCode } from "hono/utils/http-status";
 
-const ResetPass = new Hono();
+const resetPasswordController = new Hono();
 
-ResetPass.post("/", async (c) => {
+resetPasswordController.post("/", async (c) => {
     try {
-        const { email, passwordHash, name } = await c.req.json();
+        const { email, token, newPass } = await c.req.json();
 
-            const updateResult = UpdateService(email,passwordHash,name);
-            
-            if(!(await updateResult).success) {
-                return c.json(errorResponse((await updateResult).message), 500);
-            }
+            const updateResult = await resetPasswordService(email, token, newPass)
 
-            return c.json(successResponse((await updateResult).message), 200);
+            return c.json(updateResult.apiResponse, updateResult.status as StatusCode);
     } catch (error) {
         console.error("Reset password error:", error);
         return c.json(errorResponse("Internal server error"), 500);
     }
 })
 
-export default ResetPass
+export default resetPasswordController

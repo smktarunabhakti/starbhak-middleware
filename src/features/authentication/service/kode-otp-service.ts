@@ -1,29 +1,77 @@
 const nodemailer = require('nodemailer');
-const {google} = require('googleapis');
+import * as crypto from "node:crypto";
+import byc, { compareSync } from "bcrypt";
+import { db } from '../../../db';
+import { resetPasswordSession } from '../../../db/schemas/reset-password-session-schema';
+import { eq } from "drizzle-orm";
+import { errorResponse, successResponse, type apiResponse } from "../../../common/utils/api-response";
+import type { StatusCode } from "hono/utils/http-status";
 
-const oAuth2client = new google.auth.OAuth2(process.env.CLIENT_ID,process.env.CLIENT_SECRET);
-oAuth2client.setCredentials({refresh_token: process.env.REFRESH_TOKEN});
+export async function generateOTP(email: string) {
 
+    const otp = Math.floor(1000 + Math.random() * 9000).toString();
+
+    //generate token
+    const token = crypto.randomBytes(128).toString("hex");
+
+    const hashedToken = byc.hashSync(token, 10)
+    const hashedOtp = byc.hashSync("${otpCode}", 10)
+
+    const now = new Date();
+
+    // store email and token with otp to db
+    await db.insert(resetPasswordSession).values({
+        email: email,
+        expire_at: new Date(now.getTime() + 7 * 60 * 1000),
+        otp: hashedOtp,
+        token: hashedToken,
+    })
+
+    return otp
+}
 
 export const otpService = async (to: string,subject: string,html: string) => {
-
-    const accessToken = await oAuth2client.getAccessToken();
-
     const transporter = nodemailer.createTransport({
-        service: process.env.SERVICE_OAuth2,
+        host: process.env.MAIL_HOST,
+        port: process.env.MAIL_PORT,
+        secure: false,
         auth: {
-            type: process.env.TYPE,
-            user: process.env.USER,
-            clientId: process.env.CLIENT_ID,
-            clientSecret: process.env.CLIENT_SECRET,
-            refreshToken: process.env.REFRESH_TOKEN,
-            accessToken:accessToken
-        }
+           user: process.env.MAIL_USERNAME,
+           pass: process.env.MAIL_PASSWORD
+        },
     });
 
-    await transporter.sendMail({to,subject,html});
+    let check = await transporter.sendMail({
+        to: to,
+        subject: subject,
+        html: html,
+        from: '"SMK Taruna Bhakti Depok" <taruna@smktarunabhakti.net>'
+    });
+
     return {
         success: true,
         message: "Send mail successful"
     }
+}
+
+export const confirmOtpService = async (email:string, otp: string): Promise<{apiResponse: apiResponse, status: StatusCode }> => {
+    const items = await db.select().from(resetPasswordSession).where(eq(resetPasswordSession.email, email))
+
+    if (!items) {
+        return {apiResponse: errorResponse("No request is founded please make a new request to change password"),  status: 422};
+    }
+
+    const item = items[0];
+
+    if(!compareSync(otp, item.otp)){
+        return {apiResponse: errorResponse("False otp please try again!"), status: 401};
+    }
+
+    const now = new Date();
+
+    if (item.expire_at.getTime() < now.getTime()){
+        return {apiResponse: errorResponse("Otp Expired!"), status: 410};
+    };
+
+    return {apiResponse: successResponse("Success to confirm that you are in fact real! (probably)", { token: item.token }), status: 200};
 }

@@ -30,8 +30,6 @@ export const registerService = async (email: string, passwordHash: string, name:
         } as registerResult
     }
 
-    console.log("runned")
-
     await createUser(
         email,
         passwordHash,

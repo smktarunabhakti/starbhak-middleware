@@ -1,15 +1,14 @@
 import { Hono } from "hono";
 import { errorResponse, successResponse } from "../../../common/utils/api-response";
-import { otpService } from "../service/kode-otp-service";
+import { confirmOtpService, generateOTP, otpService } from "../service/kode-otp-service";
 import { getUserByEmail } from "../../../common/model/user-model";
-const kodeOtp = new Hono();
-const otpStore = new Map<string, { code: string;}>();
 
-function generateOTP() {
-    return Math.floor(1000 + Math.random() * 9000).toString();
-}
 
-kodeOtp.post("/", async (c) => {
+const otpController = new Hono();
+
+
+
+otpController.post("/", async (c) => {
     try{
         const { email } = await c.req.json();
 
@@ -19,13 +18,13 @@ kodeOtp.post("/", async (c) => {
             return c.json(errorResponse("User not found"), 404);
         }
 
-        const otp = generateOTP();
+        const otp = await generateOTP(email);  
 
         const codeOtpResult = await otpService(email,'Starbhak-OTP',`
             <h2>Reset Password Verification</h2>
             <p>Your OTP Code is: <strong>${otp}</strong></p>
             <p>If you didn't request this, please ignore this email.</p>   
-            `);
+        `);
         
         return c.json(successResponse("OTP sent successfully"), 200);
 
@@ -35,4 +34,17 @@ kodeOtp.post("/", async (c) => {
     }
 })
 
-export default kodeOtp
+otpController.post("/confirm", async (c) => {
+    try {
+        const { email, otp } = await c.req.json();
+
+        const confirmRes = await confirmOtpService(email, otp);
+
+        return c.json(confirmRes.apiResponse, confirmRes.status);
+    } catch (error) {
+        console.error("Failed OTP error:", error);
+        return c.json(errorResponse("Failed to Confirm OTP"), 500);
+    }
+})
+
+export default otpController

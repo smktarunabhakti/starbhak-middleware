@@ -1,6 +1,6 @@
 import type { number } from "zod";
 
-interface apiResponse {
+export interface apiResponse {
   success: boolean;
   message?: string;
   data?: object;
