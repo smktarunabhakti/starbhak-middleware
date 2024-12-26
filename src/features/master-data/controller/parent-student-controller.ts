@@ -18,7 +18,7 @@ parentStudentController.post("/", async (c) => {
     try {
         const newParentStudent = await db.insert(parentStudent).values({
             parentId: parentId,
-            studenId: studentId
+            studentId: studentId
         }).returning()
 
         return c.json(

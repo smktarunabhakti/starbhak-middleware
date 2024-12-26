@@ -14,6 +14,9 @@ import {
   successResponse,
 } from "../../../common/utils/api-response";
 import type { Teacher } from "../../../common/interfaces/teacher-interface";
+import { db } from "../../../db";
+import { student } from "../../../db/schemas/students-table-schema";
+import { eq } from "drizzle-orm";
 
 const masterDataRoute = new Hono();
 
@@ -31,7 +34,34 @@ masterDataRoute.route("/parent-student", parentStudentController);
  * Additional route here
  * *
  */
+masterDataRoute.get("/student", async (c) => {
+  try {
+    const {nisn} = await c.req.json()
+    const foundStudent = await db.select().from(student).where(eq(student.nisn, nisn)).limit(1)
 
+    if (!foundStudent) {
+      return c.json(
+        errorResponse("Cannot find user with provided user"),
+        404
+      )
+    }
+
+    const mappedStudent = foundStudent.map(student => {
+      return {
+        //Nanti aja deh
+      }
+    })
+
+    return c.json(
+      successResponse("Success fetch student", foundStudent[0])
+    )
+  } catch (error) {
+    return c.json(
+      errorResponse("Unknown error occurred while fetching teacher", error!),
+      500
+    );
+  }
+})
 masterDataRoute.get("/all-teachers", async (c) => {
   try {
     const result = await fetchTeachers();
