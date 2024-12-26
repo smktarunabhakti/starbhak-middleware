@@ -11,7 +11,6 @@ import {
 } from "../../../common/utils/api-response";
 import { verify } from "hono/jwt";
 import type { JWTPayload } from "hono/utils/jwt/types";
-import { z } from "zod";
 import { fetchUserById } from "../../master-data/service/user-service";
 import type { User } from "../../../common/interfaces/user-interface";
 import { db } from "../../../db";
