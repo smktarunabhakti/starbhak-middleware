@@ -1,0 +1,1 @@
+ALTER TABLE "attendance_permittance" ALTER COLUMN "teacher_id" SET DATA TYPE varchar;

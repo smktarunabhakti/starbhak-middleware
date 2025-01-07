@@ -3,10 +3,11 @@ import { db } from "..";
 import type { StudyGroupSchedule } from "../../common/interfaces/study-group-schedule-interface";
 import { studyGroup } from "../schemas/study-groups-table-schema";
 import { createStudyGroup } from "../../common/model/study-group-model";
+import type { StudyGroup } from "../../common/interfaces/study-group-interface";
 
 const generateStudyGroupSeeds = async (
   q: number
-): Promise<StudyGroupSchedule[]> => {
+): Promise<StudyGroup[]> => {
   const starting_school_years_id = await db.execute(
     sql`SELECT school_year_id FROM school_years ORDER BY RANDOM() LIMIT 1`
   );
@@ -32,7 +33,27 @@ const generateStudyGroupSeeds = async (
     {
       starting_school_years_id: starting_school_years_id.rows[0]
         .school_year_id as string,
-      name: "Kejuruan",
+      name: "PPLG 1",
+      homeroom_teacher_id: homeroom_teacher_id.rows[0].teacher_id as string,
+      counseling_teacher_id: counseling_teacher_id.rows[0].teacher_id as string,
+      year: "X",
+      major_id: major_id.rows[0].majors_id as string,
+      isActive: true,
+    },
+    {
+      starting_school_years_id: starting_school_years_id.rows[0]
+        .school_year_id as string,
+      name: "PPLG 2",
+      homeroom_teacher_id: homeroom_teacher_id.rows[0].teacher_id as string,
+      counseling_teacher_id: counseling_teacher_id.rows[0].teacher_id as string,
+      year: "X",
+      major_id: major_id.rows[0].majors_id as string,
+      isActive: true,
+    },
+    {
+      starting_school_years_id: starting_school_years_id.rows[0]
+        .school_year_id as string,
+      name: "PPLG 3",
       homeroom_teacher_id: homeroom_teacher_id.rows[0].teacher_id as string,
       counseling_teacher_id: counseling_teacher_id.rows[0].teacher_id as string,
       year: "X",
@@ -42,9 +63,9 @@ const generateStudyGroupSeeds = async (
   ];
 };
 
-generateStudyGroupSeeds(2)
+generateStudyGroupSeeds(1)
 
-const studyGroupSeeds: StudyGroupSchedule[] = await generateStudyGroupSeeds(2) ;
+const studyGroupSeeds: StudyGroup[] = await generateStudyGroupSeeds(2) ;
 
 const seedStudyGroups = async () => {
   await db.execute(sql`TRUNCATE TABLE study_groups RESTART IDENTITY CASCADE`);

@@ -79,40 +79,52 @@ authRoute.get("/self", async (c) => {
           name: ri.name,
         });
 
-        if (ri.name == "Teacher") {
-          console.log(`Found as Teacher, userID: ${restUser.id}`);
-          const foundUser = await db
-            .select()
-            .from(teacher)
-            .where(eq(teacher.user_id, restUser.id as string))
-            .limit(1);
-          console.log(foundUser);
-          if (foundUser.length > 0) currentUserProfiles.push(foundUser[0]);
-        }
-
-        if (ri.name == "Parent") {
-          console.log(`Found as Parent, userID: ${restUser.id}`);
-          const foundUser = await db
-            .select()
-            .from(parents)
-            .where(eq(parents.user_id, restUser.id as string))
-            .limit(1);
-          console.log(foundUser);
-          if (foundUser.length > 0) currentUserProfiles.push(foundUser[0]);
-        }
-
-        if (ri.name == "Student") {
-          console.log(`Found as Student, userID: ${restUser.id}`);
-          const foundUser = await db
-            .select()
-            .from(student)
-            .where(eq(student.user_id, restUser.id as string))
-            .limit(1);
-          console.log(foundUser);
-          if (foundUser.length > 0) currentUserProfiles.push(foundUser[0]);
-        }
       }
     }
+
+    const userProfile = await db.select().from(roles).where(eq(roles.id, restUser.roleId))
+    
+    if(userProfile){
+
+      currentUserRoles.push({
+        id: restUser.roleId,
+        name: userProfile[0].name,
+      });
+
+      if (userProfile[0].name == "Teacher") {
+        console.log(`Found as Teacher, userID: ${restUser.id}`);
+        const foundUser = await db
+          .select()
+          .from(teacher)
+          .where(eq(teacher.user_id, restUser.id as string))
+          .limit(1);
+        console.log(foundUser);
+        if (foundUser.length > 0) currentUserProfiles.push(foundUser[0]);
+      }
+  
+      if (userProfile[0].name == "Parent") {
+        console.log(`Found as Parent, userID: ${restUser.id}`);
+        const foundUser = await db
+          .select()
+          .from(parents)
+          .where(eq(parents.user_id, restUser.id as string))
+          .limit(1);
+        console.log(foundUser);
+        if (foundUser.length > 0) currentUserProfiles.push(foundUser[0]);
+      }
+  
+      if (userProfile[0].name == "Student") {
+        console.log(`Found as Student, userID: ${restUser.id}`);
+        const foundUser = await db
+          .select()
+          .from(student)
+          .where(eq(student.user_id, restUser.id as string))
+          .limit(1);
+        console.log(foundUser);
+        if (foundUser.length > 0) currentUserProfiles.push(foundUser[0]);
+      }
+    }
+
 
     const finalResult: object = {
       ...restUser,

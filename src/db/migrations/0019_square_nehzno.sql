@@ -1,0 +1,1 @@
+ALTER TABLE "parents" DROP COLUMN IF EXISTS "password";

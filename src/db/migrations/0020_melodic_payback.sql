@@ -1,0 +1,1 @@
+ALTER TABLE "attendance_permittance" DROP CONSTRAINT "attendance_permittance_student_id_students_student_id_fk";

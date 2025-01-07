@@ -1,10 +1,10 @@
 import type { AttenndancePermittance, statusEnum, typeEnum } from "../../../common/interfaces/attenndance-permittance-interface";
 import type { ServiceResponse } from "../../../common/interfaces/service-interface";
-import { createAttenndancePermittance, deleteAttenndancePermittance, getAllAttenndancePermittances, getAttenndancePermittanceById, updateAttenndancePermittance } from "../../../common/model/attenndance-permittance-model";
+import { createAttendancePermittance, deleteAttendancePermittance, getAllAttendancePermittances, getAttendancePermittanceById, updateAttendancePermittance } from "../../../common/model/attendance-permittance-model";
 
 const fetchAttendancePermitance = async (): Promise<ServiceResponse> => {
   try {
-    const collections = await getAllAttenndancePermittances();
+    const collections = await getAllAttendancePermittances();
     return {
       success: true,
       message: "Success fetched attendance permittance data!",
@@ -23,7 +23,7 @@ const fetchAttendancePermittanceById = async (
   id: number
 ): Promise<ServiceResponse> => {
   try {
-    const collection = await getAttenndancePermittanceById(id);
+    const collection = await getAttendancePermittanceById(id);
     if (!collection) {
       return {
         success: false,
@@ -47,16 +47,15 @@ const fetchAttendancePermittanceById = async (
 };
 
 const addAttendancePermittance = async (AttendancePermittanceData: {
-    student_id: string
-    description: string
+    student_id?: string
+    description?: string
     date: string | Date
     type: typeEnum
     status: statusEnum
-    teacher_id: string
-    isActive: boolean
+    teacher_id?: string
 }): Promise<ServiceResponse> => {
   try {
-    const createdAttendancePermittance = await createAttenndancePermittance(
+    const createdAttendancePermittance = await createAttendancePermittance(
       AttendancePermittanceData
     );
     return {
@@ -75,6 +74,47 @@ const addAttendancePermittance = async (AttendancePermittanceData: {
   }
 };
 
+const addAttendancePermittanceFromToDateSameExcuses = async (
+  AttendancePermittanceData: {
+  excuses?: string
+  type: typeEnum
+  teacher_id?: string
+  student_id?: string
+}, startDate: Date, endDate: Date): Promise<ServiceResponse> => {
+try {
+
+  let createdAttendancePermittance = [];
+
+  for (let currentDate = new Date(startDate); currentDate <= endDate; currentDate.setDate(currentDate.getDate() + 1)) {
+
+    let data = await createAttendancePermittance({
+      date: currentDate,
+      description: AttendancePermittanceData.excuses,
+      status: "ACCEPTED",
+      type: AttendancePermittanceData.type,
+      teacher_id: AttendancePermittanceData.teacher_id,
+      student_id: AttendancePermittanceData.student_id
+    });
+
+    createdAttendancePermittance.push(data);
+  }
+
+  return {
+    success: true,
+    message: "AttendancePermittance added successfully!",
+    data: createdAttendancePermittance,
+    statusCode: 201,
+  };
+} catch (error) {
+  return {
+    success: false,
+    message: "Failed while adding AttendancePermittance!",
+    data: { errors: error },
+    statusCode: 500,
+  };
+}
+};
+
 const editAttendancePermittance = async (
   id: number,
   updateData: {
@@ -88,7 +128,7 @@ const editAttendancePermittance = async (
   }
 ): Promise<ServiceResponse> => {
   try {
-    const existingAttendancePermittance = await getAttenndancePermittanceById(
+    const existingAttendancePermittance = await getAttendancePermittanceById(
       id
     );
     if (!existingAttendancePermittance) {
@@ -99,7 +139,7 @@ const editAttendancePermittance = async (
       };
     }
 
-    const updatedAttendancePermittance = await updateAttenndancePermittance(
+    const updatedAttendancePermittance = await updateAttendancePermittance(
       id,
       updateData
     );
@@ -123,7 +163,7 @@ const removeAttendancePermittance = async (
   id: number
 ): Promise<ServiceResponse> => {
   try {
-    const existingAttendancePermittance = await getAttenndancePermittanceById(
+    const existingAttendancePermittance = await getAttendancePermittanceById(
       id
     );
     if (!existingAttendancePermittance) {
@@ -134,7 +174,7 @@ const removeAttendancePermittance = async (
       };
     }
 
-    const deletedAttendancePermittance = await deleteAttenndancePermittance(
+    const deletedAttendancePermittance = await deleteAttendancePermittance(
       id
     );
     return {
@@ -158,5 +198,6 @@ export {
     fetchAttendancePermittanceById,
     addAttendancePermittance,
     editAttendancePermittance,
-    removeAttendancePermittance
+    removeAttendancePermittance,
+    addAttendancePermittanceFromToDateSameExcuses
 }

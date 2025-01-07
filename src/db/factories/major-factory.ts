@@ -6,8 +6,15 @@ import { createMajor } from "../../common/model/major-model";
 
 const majorSeeds: Major[] = [
   {
-    name: "PPLG",
-    majors_head_id: "ed606f19-8510-4689-84ae-779db1ed85d3",
+    name: "RPL",
+  },
+
+  {
+    name: "BRF",
+  },
+
+  {
+    name: "ANIM",
   },
 ];
 

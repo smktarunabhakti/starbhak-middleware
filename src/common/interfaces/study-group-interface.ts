@@ -1,17 +1,13 @@
-export interface Student {
+export interface StudyGroup {
     id?: number,
-    teacher_id?: string,
-    nisn?: string,
-    nipd?: string,
-    nik?: string,
-    rfid?: string,
-    name?: string,
-    DoB?: Date | string,
-    PoB?: string,
-    gender?: string,
-    email?: string,
+    study_groups_id?: string,
     starting_school_years_id?: string,
-    isActive?: boolean,
+    name: string,
+    homeroom_teacher_id?: string,
+    counseling_teacher_id?: string,
+    year?: "X" | "XI" | "XII",
+    major_id?: string,
+    isActive?: boolean, 
     createdAt?: Date,
     updatedAt?: Date
 }

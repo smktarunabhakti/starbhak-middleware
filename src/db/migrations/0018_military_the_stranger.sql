@@ -1,0 +1,1 @@
+ALTER TABLE "parents" RENAME COLUMN "username" TO "name";

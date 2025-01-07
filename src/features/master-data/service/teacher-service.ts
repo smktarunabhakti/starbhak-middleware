@@ -78,12 +78,14 @@ const fetchTeacherByUuid = async (uuid: string): Promise<ServiceResponse> => {
 
 const addTeacher = async (teacherData: {
   name: string;
-  DoB: Date | string;
-  PoB: string;
-  gender: string;
+  DoB?: Date | string;
+  PoB?: string;
+  gender?: string;
+  userId?: string;
   email: string;
   isActive: boolean;
   createdAt: Date;
+  teacherId: string;
 }): Promise<ServiceResponse> => {
   try {
     const createdTeacher = await createTeacher(teacherData);

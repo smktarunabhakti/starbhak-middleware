@@ -1,4 +1,4 @@
-import { eq } from "drizzle-orm";
+import { ConsoleLogWriter, eq } from "drizzle-orm";
 import { db } from "../../db";
 import { teacher } from "../../db/schemas/teacher-table-schema";
 import type { Teacher } from "../interfaces/teacher-interface";
@@ -28,13 +28,14 @@ const getTeacherByUuid = async (uuid: string): Promise<Teacher> => {
 
 const createTeacher = async (createData: {
   name: string;
-  DoB: Date | string;
-  PoB: string;
-  gender: string;
-  userId: string
+  DoB?: Date | string;
+  PoB?: string;
+  gender?: string;
+  userId?: string;
   email: string;
   isActive: boolean;
   createdAt: Date;
+  teacherId: string;
 }): Promise<Teacher> => {
   
   let formattedDoB =
@@ -43,8 +44,11 @@ const createTeacher = async (createData: {
       : String(createData.DoB);
 
   console.log("[TeacherModel] DoB: ", formattedDoB);
-  
-  const collection = await db
+
+  console.log(createData)
+
+  try {
+    const collection = await db
     .insert(teacher)
     .values({
       name: createData.name,
@@ -55,13 +59,18 @@ const createTeacher = async (createData: {
       user_id: createData.userId,
       isActive: createData.isActive,
       createdAt: createData.createdAt,
+      teacher_id: createData.teacherId,
     })
     .returning();
+
+    console.log(collection);
   
-  console.log(collection);
-  
-  
-  return collection as Teacher;
+    return collection as Teacher;
+  } catch (error) {
+    return createData as Teacher;
+  }
+
+
 };
 
 const updateTeacher = async (

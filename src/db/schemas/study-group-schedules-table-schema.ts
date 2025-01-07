@@ -1,7 +1,7 @@
 import {boolean, integer, pgEnum, pgTable, text, time, timestamp, uuid, varchar} from "drizzle-orm/pg-core"
 import { studyGroup } from "./study-groups-table-schema";
 
-export const studyGroupSchedules = pgTable("study_groups", {
+export const studyGroupSchedules = pgTable("study_group_schedules", {
     id: integer("id").primaryKey().generatedAlwaysAsIdentity(),
     study_groups_id: uuid("study_groups_id").references(() => studyGroup.study_groups_id),
     day_of_week: integer().notNull(),
