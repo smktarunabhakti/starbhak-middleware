@@ -1,5 +1,5 @@
 export interface ParentStudent {
-    parentId: string,
-    studentId: string,
+    parentId?: string,
+    studentId?: string,
     createdAt?: string | Date
 }
