@@ -28,14 +28,13 @@ const getTeacherByUuid = async (uuid: string): Promise<Teacher> => {
 
 const createTeacher = async (createData: {
   name: string;
-  DoB?: Date | string;
-  PoB?: string;
-  gender?: string;
-  userId?: string;
+  DoB: Date | string;
+  PoB: string;
+  gender: string;
+  userId: string;
   email: string;
   isActive: boolean;
   createdAt: Date;
-  teacherId: string;
 }): Promise<Teacher> => {
   
   let formattedDoB =
@@ -59,7 +58,6 @@ const createTeacher = async (createData: {
       user_id: createData.userId,
       isActive: createData.isActive,
       createdAt: createData.createdAt,
-      teacher_id: createData.teacherId,
     })
     .returning();
 

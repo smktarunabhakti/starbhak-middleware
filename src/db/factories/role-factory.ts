@@ -33,9 +33,9 @@ const seedRoles = async () => {
         try {
           console.log(`➕ Inserting role: ${roleSeed.name}\n`);
           await createRole(
-            roleSeed.name,
-            roleSeed.description,
-            roleSeed.domain
+            roleSeed.name!,
+            roleSeed.description!,
+            roleSeed.domain!
           );
         } catch (error) {
           console.log(`❌ Error inserting role ${roleSeed.name}: `, error, "\n");

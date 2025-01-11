@@ -29,7 +29,7 @@ const seedMajors = async () => {
     try {
       console.log(`➕ Inserting major: ${majorSeed.name}\n`);
       await createMajor({
-        name: majorSeed.name,
+        name: majorSeed.name!,
         majors_head_id: majorSeed.majors_head_id as string,
       });
     } catch (error) {

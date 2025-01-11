@@ -34,9 +34,9 @@ const seedParents = async () => {
           console.log(`➕ Inserting Parent: ${ParentSeed.username}\n`);
           await createParent(
             {
-                username: ParentSeed.username,
-                email: ParentSeed.email,
-                password: ParentSeed.password,
+                username: ParentSeed.username!,
+                email: ParentSeed.email!,
+                password: ParentSeed.password!,
             }
           );
         } catch (error) {
