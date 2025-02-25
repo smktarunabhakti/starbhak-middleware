@@ -1,0 +1,34 @@
+[
+    {
+        "teachers_name": "Aniek Rochmawati S.Pd",
+        "subject_name": "Sejarah",
+        "day_of_week": 1,
+        "start_at": "08:40",
+        "end_at": "09:15",
+        "study_group_name": "XI TKJ 2"
+    },
+    {
+        "teachers_name": "Aniek Rochmawati S.Pd",
+        "subject_name": "Sejarah",
+        "day_of_week": 1,
+        "start_at": "09:15",
+        "end_at": "09:50",
+        "study_group_name": "XI TKJ 2"
+    },
+    {
+        "teachers_name": "Aniek Rochmawati S.Pd",
+        "subject_name": "Sejarah",
+        "day_of_week": 4,
+        "start_at": "15:35",
+        "end_at": "16:05",
+        "study_group_name": "XI TKJ 1"
+    },
+    {
+        "teachers_name": "Aniek Rochmawati S.Pd",
+        "subject_name": "Sejarah",
+        "day_of_week": 4,
+        "start_at": "16:05",
+        "end_at": "16:40",
+        "study_group_name": "XI TKJ 1"
+    }
+]

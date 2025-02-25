@@ -15,7 +15,7 @@ export const student = pgTable("students", {
     name: text("name").notNull(),
     DoB: date("dob"), 
     PoB: text("pob"),
-    starting_school_years: uuid("starting_school_years_id").references(() => schoolYear.school_year_id),
+    starting_school_years_id: uuid("starting_school_years_id").references(() => schoolYear.school_year_id),
     user_id: uuid("user_id"),
     isActive: boolean("is_active").default(true), 
     createdAt: timestamp("created_at").defaultNow(),

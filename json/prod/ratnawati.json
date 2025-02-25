@@ -1,0 +1,307 @@
+[
+    {
+        "teachers_name": "Ratna Wati",
+        "subject_name": "Seni",
+        "day_of_week": 1,
+        "start_at": "07:30",
+        "end_at": "08:15",
+        "study_group_name": "X TE"
+    },
+    {
+        "teachers_name": "Ratna Wati",
+        "subject_name": "Seni",
+        "day_of_week": 1,
+        "start_at": "08:15",
+        "end_at": "09:00",
+        "study_group_name": "X TE"
+    },
+
+    {
+        "teachers_name": "Ratna Wati",
+        "subject_name": "Seni",
+        "day_of_week": 1,
+        "start_at": "10:50",
+        "end_at": "11:35",
+        "study_group_name": "X PSPT 2"
+    },
+    {
+        "teachers_name": "Ratna Wati",
+        "subject_name": "Seni",
+        "day_of_week": 1,
+        "start_at": "11:35",
+        "end_at": "12:20",
+        "study_group_name": "X PSPT 2"
+    },
+
+    {
+        "teachers_name": "Ratna Wati",
+        "subject_name": "Seni",
+        "day_of_week": 1,
+        "start_at": "12:40",
+        "end_at": "13:25",
+        "study_group_name": "X RPL 5"
+    },
+    {
+        "teachers_name": "Ratna Wati",
+        "subject_name": "Seni",
+        "day_of_week": 1,
+        "start_at": "13:25",
+        "end_at": "14:10",
+        "study_group_name": "X RPL 5"
+    },
+
+    {
+        "teachers_name": "Ratna Wati",
+        "subject_name": "Seni",
+        "day_of_week": 2,
+        "start_at": "09:00",
+        "end_at": "09:45",
+        "study_group_name": "X ANIMASI 1"
+    },
+    {
+        "teachers_name": "Ratna Wati",
+        "subject_name": "Seni",
+        "day_of_week": 2,
+        "start_at": "09:45",
+        "end_at": "10:30",
+        "study_group_name": "X ANIMASI 1"
+    },
+
+    {
+        "teachers_name": "Ratna Wati",
+        "subject_name": "Seni",
+        "day_of_week": 2,
+        "start_at": "11:35",
+        "end_at": "12:20",
+        "study_group_name": "X RPL 1"
+    },
+    {
+        "teachers_name": "Ratna Wati",
+        "subject_name": "Seni",
+        "day_of_week": 2,
+        "start_at": "12:40",
+        "end_at": "13:25",
+        "study_group_name": "X RPL 1"
+    },
+
+    {
+        "teachers_name": "Ratna Wati",
+        "subject_name": "Seni",
+        "day_of_week": 2,
+        "start_at": "14:10",
+        "end_at": "14:50",
+        "study_group_name": "X TKJ 1"
+    },
+    {
+        "teachers_name": "Ratna Wati",
+        "subject_name": "Seni",
+        "day_of_week": 2,
+        "start_at": "14:50",
+        "end_at": "15:30",
+         "study_group_name": "X TKJ 1"
+    },
+
+    {
+        "teachers_name": "Ratna Wati",
+        "subject_name": "Seni",
+        "day_of_week": 3,
+        "start_at": "09:00",
+        "end_at": "09:45",
+        "study_group_name": "X ANIMASI 2"
+    },
+    {
+        "teachers_name": "Ratna Wati",
+        "subject_name": "Seni",
+        "day_of_week": 3,
+        "start_at": "09:45",
+        "end_at": "10:30",
+        "study_group_name": "X ANIMASI 2"
+    },
+
+    {
+        "teachers_name": "Ratna Wati",
+        "subject_name": "Seni",
+        "day_of_week": 3,
+        "start_at": "11:35",
+        "end_at": "12:20",
+        "study_group_name": "X PSPT 3"
+    },
+    {
+        "teachers_name": "Ratna Wati",
+        "subject_name": "Seni",
+        "day_of_week": 3,
+        "start_at": "12:40",
+        "end_at": "13:25",
+        "study_group_name": "X PSPT 3"
+    },
+
+
+
+    {
+        "teachers_name": "Ratna Wati",
+        "subject_name": "Seni",
+        "day_of_week": 4,
+        "start_at": "10:50",
+        "end_at": "11:35",
+        "study_group_name": "X PSPT 1"
+    },
+    {
+        "teachers_name": "Ratna Wati",
+        "subject_name": "Seni",
+        "day_of_week": 4,
+        "start_at": "11:35",
+        "end_at": "12:20",
+        "study_group_name": "X PSPT 1"
+    },
+
+    {
+        "teachers_name": "Ratna Wati",
+        "subject_name": "Seni",
+        "day_of_week": 4,
+        "start_at": "12:40",
+        "end_at": "13:25",
+        "study_group_name": "X RPL 3"
+    },
+    {
+        "teachers_name": "Ratna Wati",
+        "subject_name": "Seni",
+        "day_of_week": 4,
+        "start_at": "13:25",
+        "end_at": "14:10",
+        "study_group_name": "X RPL 3"
+    },
+
+    {
+        "teachers_name": "Ratna Wati",
+        "subject_name": "Seni",
+        "day_of_week": 4,
+        "start_at": "14:10",
+        "end_at": "14:50",
+        "study_group_name": "X TKJ 2"
+    },
+    {
+        "teachers_name": "Ratna Wati",
+        "subject_name": "Seni",
+        "day_of_week": 4,
+        "start_at": "14:50",
+        "end_at": "15:30",
+        "study_group_name": "X TKJ 2"
+    },
+
+    {
+        "teachers_name": "Ratna Wati",
+        "subject_name": "Seni",
+        "day_of_week": 5,
+        "start_at": "07:30",
+        "end_at": "08:15",
+        "study_group_name": "X TKJ 3"
+    },
+    {
+        "teachers_name": "Ratna Wati",
+        "subject_name": "Seni",
+        "day_of_week": 5,
+        "start_at": "08:15",
+        "end_at": "09:00",
+        "study_group_name": "X TKJ 3"
+    },
+
+    {
+        "teachers_name": "Ratna Wati",
+        "subject_name": "Seni",
+        "day_of_week": 5,
+        "start_at": "09:00",
+        "end_at": "09:45",
+        "study_group_name": "X RPL 4"
+    },
+    {
+        "teachers_name": "Ratna Wati",
+        "subject_name": "Seni",
+        "day_of_week": 5,
+        "start_at": "09:45",
+        "end_at": "10:30",
+        "study_group_name": "X RPL 4"
+    },
+
+    {
+        "teachers_name": "Ratna Wati",
+        "subject_name": "Seni",
+        "day_of_week": 5,
+        "start_at": "10:50",
+        "end_at": "11:35",
+        "study_group_name": "X RPL 2"
+    },
+    {
+        "teachers_name": "Ratna Wati",
+        "subject_name": "Seni",
+        "day_of_week": 5,
+        "start_at": "13:00",
+        "end_at": "13:45",
+        "study_group_name": "X RPL 2"
+    },
+    {
+        "teachers_name": "Ratna Wati",
+        "subject_name": "Seni",
+        "day_of_week": 5,
+        "start_at": "10:50",
+        "end_at": "11:35",
+        "study_group_name": "X RPL 2"
+    },
+    {
+        "teachers_name": "Ratna Wati",
+        "subject_name": "Seni",
+        "day_of_week": 5,
+        "start_at": "13:00",
+        "end_at": "13:45",
+        "study_group_name": "X RPL 2"
+    },
+
+    {
+        "teachers_name": "Ratna Wati",
+        "subject_name": "Seni",
+        "day_of_week": 5,
+        "start_at": "13:45",
+        "end_at": "14:25",
+        "study_group_name": "X TKJ 4"
+    },
+    {
+        "teachers_name": "Ratna Wati",
+        "subject_name": "Seni",
+        "day_of_week": 5,
+        "start_at": "14:25",
+        "end_at": "15:05",
+        "study_group_name": "X TKJ 4"
+    },
+
+    {
+        "teacher_name": "Ratna Wati",
+        "subject_name": "P5",
+        "day_of_week": 6,
+        "start_at": "07:00",
+        "end_at": "07:45",
+        "study_group_name": "X RPL 5"
+    },
+    {
+        "teacher_name": "Ratna Wati",
+        "subject_name": "P5",
+        "day_of_week": 6,
+        "start_at": "07:45",
+        "end_at": "08:30",
+        "study_group_name": "X RPL 5"
+    },
+    {
+        "teacher_name": "Ratna Wati",
+        "subject_name": "P5",
+        "day_of_week": 6,
+        "start_at": "08:30",
+        "end_at": "09:15",
+        "study_group_name": "X RPL 5"
+    },
+    {
+        "teacher_name": "Ratna Wati",
+        "subject_name": "P5",
+        "day_of_week": 6,
+        "start_at": "09:15",
+        "end_at": "10:00",
+        "study_group_name": "X RPL 5"
+    }
+]

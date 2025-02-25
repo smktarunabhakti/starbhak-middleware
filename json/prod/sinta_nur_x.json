@@ -1,0 +1,66 @@
+[
+    {
+        "teachers_name": "Sinta Nur Alifah, S.I.Kom",
+        "subject_name": "DPBA",
+        "day_of_week": 5,
+        "start_at": "07:30",
+        "end_at": "08:15",
+        "study_group_name": "X Animasi 1"
+    },
+    {
+        "teachers_name": "Sinta Nur Alifah, S.I.Kom",
+        "subject_name": "DPBA",
+        "day_of_week": 5,
+        "start_at": "08:15",
+        "end_at": "09:00",
+        "study_group_name": "X Animasi 1"
+    },
+    {
+        "teachers_name": "Sinta Nur Alifah, S.I.Kom",
+        "subject_name": "DPBA",
+        "day_of_week": 5,
+        "start_at": "09:00",
+        "end_at": "09:45",
+        "study_group_name": "X Animasi 1"
+    },
+    {
+        "teachers_name": "Sinta Nur Alifah, S.I.Kom",
+        "subject_name": "DPBA",
+        "day_of_week": 5,
+        "start_at": "09:45",
+        "end_at": "10:30",
+        "study_group_name": "X Animasi 1"
+    },
+    {
+        "teachers_name": "Sinta Nur Alifah, S.I.Kom",
+        "subject_name": "DPBA",
+        "day_of_week": 5,
+        "start_at": "10:50",
+        "end_at": "11:35",
+        "study_group_name": "X Animasi 2"
+    },
+    {
+        "teachers_name": "Sinta Nur Alifah, S.I.Kom",
+        "subject_name": "DPBA",
+        "day_of_week": 5,
+        "start_at": "13:00",
+        "end_at": "13:45",
+        "study_group_name": "X Animasi 2"
+    },
+    {
+        "teachers_name": "Sinta Nur Alifah, S.I.Kom",
+        "subject_name": "DPBA",
+        "day_of_week": 5,
+        "start_at": "13:45",
+        "end_at": "14:25",
+        "study_group_name": "X Animasi 2"
+    },
+    {
+        "teachers_name": "Sinta Nur Alifah, S.I.Kom",
+        "subject_name": "DPBA",
+        "day_of_week": 5,
+        "start_at": "14:25",
+        "end_at": "15:05",
+        "study_group_name": "X Animasi 2"
+    }
+]

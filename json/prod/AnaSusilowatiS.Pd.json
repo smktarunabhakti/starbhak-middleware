@@ -1,0 +1,98 @@
+[
+    {
+        "teacher_name": "Ana Susilowati, S.Pd",
+        "subject_name": "B.Inggris",
+        "day_of_week": 2,
+        "start_at": "13:00",
+        "end_at": "13:35",
+        "study_group_name": "XI TKJ 1"
+    },
+    {
+        "teacher_name": "Ana Susilowati, S.Pd",
+        "subject_name": "B.Inggris",
+        "day_of_week": 4,
+        "start_at": "09:15",
+        "end_at": "09:50",
+        "study_group_name": "XI RPL 3"
+    },
+    {
+        "teacher_name": "Ana Susilowati, S.Pd",
+        "subject_name": "B.Inggris",
+        "day_of_week": 4,
+        "start_at": "10:10",
+        "end_at": "10:45",
+        "study_group_name": "XI RPL 3"
+    },
+    {
+        "teacher_name": "Ana Susilowati, S.Pd",
+        "subject_name": "B.Inggris",
+        "day_of_week": 4,
+        "start_at": "10:45",
+        "end_at": "11:20",
+        "study_group_name": "XI RPL 3"
+    },
+    {
+        "teacher_name": "Ana Susilowati, S.Pd",
+        "subject_name": "B.Inggris",
+        "day_of_week": 4,
+        "start_at": "11:20",
+        "end_at": "11:55",
+        "study_group_name": "XI TKJ 3"
+    },
+    {
+        "teacher_name": "Ana Susilowati, S.Pd",
+        "subject_name": "B.Inggris",
+        "day_of_week": 4,
+        "start_at": "11:55",
+        "end_at": "12:30",
+        "study_group_name": "XI TKJ 3"
+    },
+    {
+        "teacher_name": "Ana Susilowati, S.Pd",
+        "subject_name": "B.Inggris",
+        "day_of_week": 6,
+        "start_at": "10:00",
+        "end_at": "10:35",
+        "study_group_name": "XI TKJ 3"
+    },
+    {
+        "teacher_name": "Ana Susilowati, S.Pd",
+        "subject_name": "B.Inggris",
+        "day_of_week": 6,
+        "start_at": "10:35",
+        "end_at": "11:10",
+        "study_group_name": "XI TKJ 3"
+    },
+    {
+        "teacher_name": "Ana Susilowati, S.Pd",
+        "subject_name": "B.Inggris",
+        "day_of_week": 6,
+        "start_at": "11:45",
+        "end_at": "12:20",
+        "study_group_name": "XI RPL 3"
+    },
+    {
+        "teacher_name": "Ana Susilowati, S.Pd",
+        "subject_name": "B.Inggris",
+        "day_of_week": 6,
+        "start_at": "16:05",
+        "end_at": "16:40",
+        "study_group_name": "XI TKJ 1"
+    },
+    {
+        "teacher_name": "Ana Susilowati, S.Pd",
+        "subject_name": "B.Inggris",
+        "day_of_week": 6,
+        "start_at": "16:40",
+        "end_at": "17:15",
+        "study_group_name": "XI TKJ 1"
+    },
+    {
+        "teacher_name": "Ana Susilowati, S.Pd",
+        "subject_name": "B.Inggris",
+        "day_of_week": 6,
+        "start_at": "17:15",
+        "end_at": "17:50",
+        "study_group_name": "XI TKJ 1"
+    }
+]

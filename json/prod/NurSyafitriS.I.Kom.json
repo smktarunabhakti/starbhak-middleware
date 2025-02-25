@@ -1,0 +1,114 @@
+[
+    {
+        "teacher_name": "Nur Syafitri, S.I.Kom",
+        "subject_name": "DDKPSPT",
+        "day_of_week": 1,
+        "start_at": "07:30",
+        "end_at": "08:15",
+        "study_group_name": "X PSPT 3"
+    },
+    {
+        "teacher_name": "Nur Syafitri, S.I.Kom",
+        "subject_name": "DDKPSPT",
+        "day_of_week": 1,
+        "start_at": "08:15",
+        "end_at": "09:00",
+        "study_group_name": "X PSPT 3"
+    },
+    {
+        "teacher_name": "Nur Syafitri, S.I.Kom",
+        "subject_name": "DDKPSPT",
+        "day_of_week": 1,
+        "start_at": "09:00",
+        "end_at": "09:45",
+        "study_group_name": "X PSPT 3"
+    },
+    {
+        "teacher_name": "Nur Syafitri, S.I.Kom",
+        "subject_name": "DDKPSPT",
+        "day_of_week": 1,
+        "start_at": "09:45",
+        "end_at": "10:30",
+        "study_group_name": "X PSPT 3"
+    },
+    {
+        "teacher_name": "Nur Syafitri, S.I.Kom",
+        "subject_name": "DDKPSPT",
+        "day_of_week": 1,
+        "start_at": "10:50",
+        "end_at": "11:35",
+        "study_group_name": "X PSPT 3"
+    },
+    {
+        "teacher_name": "Nur Syafitri, S.I.Kom",
+        "subject_name": "DDKPSPT",
+        "day_of_week": 1,
+        "start_at": "11:35",
+        "end_at": "12:20",
+        "study_group_name": "X PSPT 3"
+    },
+    {
+        "teacher_name": "Nur Syafitri, S.I.Kom",
+        "subject_name": "DDKPSPT",
+        "day_of_week": 1,
+        "start_at": "12:40",
+        "end_at": "13:25",
+        "study_group_name": "X PSPT 3"
+    },
+    {
+        "teacher_name": "Nur Syafitri, S.I.Kom",
+        "subject_name": "DDKPSPT",
+        "day_of_week": 1,
+        "start_at": "13:25",
+        "end_at": "14:10",
+        "study_group_name": "X PSPT 3"
+    },
+    {
+        "teacher_name": "Nur Syafitri, S.I.Kom",
+        "subject_name": "DDKPSPT",
+        "day_of_week": 1,
+        "start_at": "14:10",
+        "end_at": "14:50",
+        "study_group_name": "X PSPT 3"
+    },
+    {
+        "teacher_name": "Nur Syafitri, S.I.Kom",
+        "subject_name": "DDKPSPT",
+        "day_of_week": 1,
+        "start_at": "14:50",
+        "end_at": "15:30",
+        "study_group_name": "X PSPT 3"
+    },
+    {
+        "teacher_name": "Nur Syafitri, S.I.Kom",
+        "subject_name": "DDKPSPT",
+        "day_of_week": 5,
+        "start_at": "07:30",
+        "end_at": "08:15",
+        "study_group_name": "X PSPT 3"
+    },
+    {
+        "teacher_name": "Nur Syafitri, S.I.Kom",
+        "subject_name": "DDKPSPT",
+        "day_of_week": 5,
+        "start_at": "08:15",
+        "end_at": "09:00",
+        "study_group_name": "X PSPT 3"
+    },
+    {
+        "teacher_name": "Nur Syafitri, S.I.Kom",
+        "subject_name": "DDKPSPT",
+        "day_of_week": 5,
+        "start_at": "09:00",
+        "end_at": "09:45",
+        "study_group_name": "X PSPT 3"
+    },
+    {
+        "teacher_name": "Nur Syafitri, S.I.Kom",
+        "subject_name": "DDKPSPT",
+        "day_of_week": 5,
+        "start_at": "09:45",
+        "end_at": "10:30",
+        "study_group_name": "X PSPT 3"
+    }
+]

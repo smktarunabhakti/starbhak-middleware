@@ -1,0 +1,122 @@
+[
+    {
+        "teacher_name": "Furida Lusi Siagian, M.Si",
+        "subject_name": "Matematika",
+        "day_of_week": 3,
+        "start_at": "13:00",
+        "end_at": "13:35",
+        "study_group_name": "XI PSPT 2"
+    },
+    {
+        "teacher_name": "Furida Lusi Siagian, M.Si",
+        "subject_name": "Matematika",
+        "day_of_week": 3,
+        "start_at": "13:35",
+        "end_at": "14:05",
+        "study_group_name": "XI PSPT 2"
+    },
+    {
+        "teacher_name": "Furida Lusi Siagian, M.Si",
+        "subject_name": "Matematika",
+        "day_of_week": 3,
+        "start_at": "14:05",
+        "end_at": "14:40",
+        "study_group_name": "XI PSPT 2"
+    },
+    {
+        "teacher_name": "Furida Lusi Siagian, M.Si",
+        "subject_name": "Matematika",
+        "day_of_week": 4,
+        "start_at": "07:30",
+        "end_at": "08:05",
+        "study_group_name": "XI ANIMASI 1"
+    },
+    {
+        "teacher_name": "Furida Lusi Siagian, M.Si",
+        "subject_name": "Matematika",
+        "day_of_week": 4,
+        "start_at": "08:05",
+        "end_at": "08:40",
+        "study_group_name": "XI ANIMASI 1"
+    },
+    {
+        "teacher_name": "Furida Lusi Siagian, M.Si",
+        "subject_name": "Matematika",
+        "day_of_week": 4,
+        "start_at": "08:40",
+        "end_at": "09:15",
+        "study_group_name": "XI ANIMASI 1"
+    },
+    {
+        "teacher_name": "Furida Lusi Siagian, M.Si",
+        "subject_name": "Matematika",
+        "day_of_week": 4,
+        "start_at": "09:15",
+        "end_at": "09:50",
+        "study_group_name": "XI ANIMASI 2"
+    },
+    {
+        "teacher_name": "Furida Lusi Siagian, M.Si",
+        "subject_name": "Matematika",
+        "day_of_week": 4,
+        "start_at": "10:10",
+        "end_at": "10:45",
+        "study_group_name": "XI ANIMASI 2"
+    },
+    {
+        "teacher_name": "Furida Lusi Siagian, M.Si",
+        "subject_name": "Matematika",
+        "day_of_week": 4,
+        "start_at": "10:45",
+        "end_at": "11:20",
+        "study_group_name": "XI ANIMASI 2"
+    },
+    {
+        "teacher_name": "Furida Lusi Siagian, M.Si",
+        "subject_name": "Matematika",
+        "day_of_week": 4,
+        "start_at": "13:00",
+        "end_at": "13:35",
+        "study_group_name": "XI ANIMASI 3"
+    },
+    {
+        "teacher_name": "Furida Lusi Siagian, M.Si",
+        "subject_name": "Matematika",
+        "day_of_week": 4,
+        "start_at": "13:35",
+        "end_at": "14:05",
+        "study_group_name": "XI ANIMASI 3"
+    },
+    {
+        "teacher_name": "Furida Lusi Siagian, M.Si",
+        "subject_name": "Matematika",
+        "day_of_week": 4,
+        "start_at": "14:05",
+        "end_at": "14:40",
+        "study_group_name": "XI ANIMASI 3"
+    },
+    {
+        "teacher_name": "Furida Lusi Siagian, M.Si",
+        "subject_name": "Matematika",
+        "day_of_week": 5,
+        "start_at": "08:30",
+        "end_at": "09:00",
+        "study_group_name": "XI PSPT 1"
+    },
+    {
+        "teacher_name": "Furida Lusi Siagian, M.Si",
+        "subject_name": "Matematika",
+        "day_of_week": 5,
+        "start_at": "09:00",
+        "end_at": "09:30",
+        "study_group_name": "XI PSPT 1"
+    },
+    {
+        "teacher_name": "Furida Lusi Siagian, M.Si",
+        "subject_name": "Matematika",
+        "day_of_week": 5,
+        "start_at": "09:50",
+        "end_at": "10:15",
+        "study_group_name": "XI PSPT 1"
+    }
+]

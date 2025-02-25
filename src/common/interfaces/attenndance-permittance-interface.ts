@@ -1,7 +1,7 @@
 export type typeEnum = "IZIN" | "SAKIT" | "ALPHA"
 export type statusEnum = "ACCEPTED" | "DENIED" | "PENDING"
 
-export interface AttenndancePermittance{
+export interface AttenndancePermittance {
     id: number,
     student_id: string,
     description: string,

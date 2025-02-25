@@ -1,0 +1,98 @@
+[
+    {
+        "teachers_name": "Maesitoh S.Pd",
+        "subject_name": "B. Indonesia",
+        "day_of_week": 2,
+        "start_at": "16:05",
+        "end_at": "16:40",
+        "study_group_name": "XI TKJ 1"
+    },
+    {
+        "teachers_name": "Maesitoh S.Pd",
+        "subject_name": "B. Indonesia",
+        "day_of_week": 2,
+        "start_at": "16:40",
+        "end_at": "17:15",
+        "study_group_name": "XI TKJ 1"
+    },
+    {
+        "teachers_name": "Maesitoh S.Pd",
+        "subject_name": "B. Indonesia",
+        "day_of_week": 2,
+        "start_at": "17:15",
+        "end_at": "17:50",
+        "study_group_name": "XI TKJ 1"
+    },
+    {
+        "teachers_name": "Maesitoh S.Pd",
+        "subject_name": "B. Indonesia",
+        "day_of_week": 4,
+        "start_at": "07:30",
+        "end_at": "08:15",
+        "study_group_name": "XI ANIMASI 2"
+    },
+    {
+        "teachers_name": "Maesitoh S.Pd",
+        "subject_name": "B. Indonesia",
+        "day_of_week": 4,
+        "start_at": "08:15",
+        "end_at": "09:00",
+        "study_group_name": "XI ANIMASI 2"
+    },
+    {
+        "teachers_name": "Maesitoh S.Pd",
+        "subject_name": "B. Indonesia",
+        "day_of_week": 4,
+        "start_at": "09:00",
+        "end_at": "09:45",
+        "study_group_name": "XI ANIMASI 2"
+    },
+    {
+        "teachers_name": "Maesitoh S.Pd",
+        "subject_name": "B. Indonesia",
+        "day_of_week": 4,
+        "start_at": "09:45",
+        "end_at": "10:30",
+        "study_group_name": "XI ANIMASI 2"
+    },
+    {
+        "teachers_name": "Maesitoh S.Pd",
+        "subject_name": "B. Indonesia",
+        "day_of_week": 4,
+        "start_at": "10:50",
+        "end_at": "11:35",
+        "study_group_name": "XI ANIMASI 2"
+    },
+    {
+        "teachers_name": "Maesitoh S.Pd",
+        "subject_name": "B. Indonesia",
+        "day_of_week": 4,
+        "start_at": "11:35",
+        "end_at": "12:20",
+        "study_group_name": "XI ANIMASI 2"
+    },
+    {
+        "teachers_name": "Maesitoh S.Pd",
+        "subject_name": "B. Indonesia",
+        "day_of_week": 5,
+        "start_at": "10:15",
+        "end_at": "10:40",
+        "study_group_name": "XI PSPT 1"
+    },
+    {
+        "teachers_name": "Maesitoh S.Pd",
+        "subject_name": "B. Indonesia",
+        "day_of_week": 5,
+        "start_at": "10:40",
+        "end_at": "11:05",
+        "study_group_name": "XI PSPT 1"
+    },
+    {
+        "teachers_name": "Maesitoh S.Pd",
+        "subject_name": "B. Indonesia",
+        "day_of_week": 5,
+        "start_at": "11:05",
+        "end_at": "11:30",
+        "study_group_name": "XI PSPT 1"
+    }
+]

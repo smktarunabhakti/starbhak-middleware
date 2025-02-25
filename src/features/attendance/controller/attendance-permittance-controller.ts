@@ -20,6 +20,8 @@ import { attendanceRecord } from "../../../db/schemas/attendance-records-table-s
 import { attendancePermittance } from "../../../db/schemas/attendance-permittance-table-schema";
 import { studyGroupSchedules } from "../../../db/schemas/study-group-schedules-table-schema";
 import { student } from "../../../db/schemas/students-table-schema";
+import { create } from "node:domain";
+import { createRecordLog } from "../service/attendance-confirmation-log-service";
 
 const attendancePermittanceController = new Hono();
 
@@ -164,7 +166,7 @@ attendancePermittanceController.post("/confirmation", async (c) => {
       .from(teacher)
       .where(eq(teacher.user_id, id as string));
 
-    for (const element of body) {
+    for (const element of body.datas) {
       const { id: studentId, status } = element;
 
       const today = new Date();
@@ -176,7 +178,7 @@ attendancePermittanceController.post("/confirmation", async (c) => {
         .where(
           and(
             eq(attendanceRecord.student_id, studentId),
-            eq(attendanceRecord.date, today.toDateString())
+            eq(attendanceRecord.date, sql`now()`)
           )
         );
 
@@ -187,7 +189,7 @@ attendancePermittanceController.post("/confirmation", async (c) => {
         .where(
           and(
             eq(attendancePermittance.student_id, studentId),
-            eq(attendancePermittance.date, today.toDateString())
+            eq(attendancePermittance.date, sql`now()`)
           )
         );
 
@@ -254,6 +256,12 @@ attendancePermittanceController.post("/confirmation", async (c) => {
         });
       }
     }
+
+    createRecordLog({
+      date: new Date().toDateString(),
+      studyGroupId: body.study_groups_id,
+      teacherId: getProfile[0].teacher_id,
+    });
 
     return c.json(successResponse("Confirmation complete!"), 200);
   } catch (error) {

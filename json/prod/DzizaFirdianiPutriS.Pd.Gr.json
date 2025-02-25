@@ -1,0 +1,122 @@
+[
+    {
+        "teacher_name": "Dziza Firdiani Putri, S.Pd. Gr",
+        "subject_name": "B.Indonesia",
+        "day_of_week": 1,
+        "start_at": "07:30",
+        "end_at": "08:05",
+        "study_group_name": "XI ANIMASI 3"
+    },
+    {
+        "teacher_name": "Dziza Firdiani Putri, S.Pd. Gr",
+        "subject_name": "B.Indonesia",
+        "day_of_week": 1,
+        "start_at": "10:45",
+        "end_at": "11:20",
+        "study_group_name": "XI TKJ 2"
+    },
+    {
+        "teacher_name": "Dziza Firdiani Putri, S.Pd. Gr",
+        "subject_name": "B.Indonesia",
+        "day_of_week": 1,
+        "start_at": "11:20",
+        "end_at": "11:55",
+        "study_group_name": "XI TKJ 2"
+    },
+    {
+        "teacher_name": "Dziza Firdiani Putri, S.Pd. Gr",
+        "subject_name": "B.Indonesia",
+        "day_of_week": 1,
+        "start_at": "11:55",
+        "end_at": "12:30",
+        "study_group_name": "XI TKJ 2"
+    },
+    {
+        "teacher_name": "Dziza Firdiani Putri, S.Pd. Gr",
+        "subject_name": "B.Indonesia",
+        "day_of_week": 2,
+        "start_at": "07:30",
+        "end_at": "08:05",
+        "study_group_name": "XI PSPT 2"
+    },
+    {
+        "teacher_name": "Dziza Firdiani Putri, S.Pd. Gr",
+        "subject_name": "B.Indonesia",
+        "day_of_week": 2,
+        "start_at": "08:05",
+        "end_at": "08:40",
+        "study_group_name": "XI PSPT 2"
+    },
+    {
+        "teacher_name": "Dziza Firdiani Putri, S.Pd. Gr",
+        "subject_name": "B.Indonesia",
+        "day_of_week": 2,
+        "start_at": "08:40",
+        "end_at": "09:15",
+        "study_group_name": "XI PSPT 2"
+    },
+    {
+        "teacher_name": "Dziza Firdiani Putri, S.Pd. Gr",
+        "subject_name": "B.Indonesia",
+        "day_of_week": 2,
+        "start_at": "09:15",
+        "end_at": "09:50",
+        "study_group_name": "XI RPL 4"
+    },
+    {
+        "teacher_name": "Dziza Firdiani Putri, S.Pd. Gr",
+        "subject_name": "B.Indonesia",
+        "day_of_week": 2,
+        "start_at": "10:10",
+        "end_at": "10:45",
+        "study_group_name": "XI RPL 4"
+    },
+    {
+        "teacher_name": "Dziza Firdiani Putri, S.Pd. Gr",
+        "subject_name": "B.Indonesia",
+        "day_of_week": 2,
+        "start_at": "10:45",
+        "end_at": "11:20",
+        "study_group_name": "XI RPL 4"
+    },
+    {
+        "teacher_name": "Dziza Firdiani Putri, S.Pd. Gr",
+        "subject_name": "B.Indonesia",
+        "day_of_week": 4,
+        "start_at": "07:30",
+        "end_at": "08:05",
+        "study_group_name": "XI TKJ 3"
+    },
+    {
+        "teacher_name": "Dziza Firdiani Putri, S.Pd. Gr",
+        "subject_name": "B.Indonesia",
+        "day_of_week": 4,
+        "start_at": "08:05",
+        "end_at": "08:40",
+        "study_group_name": "XI TKJ 3"
+    },
+    {
+        "teacher_name": "Dziza Firdiani Putri, S.Pd. Gr",
+        "subject_name": "B.Indonesia",
+        "day_of_week": 4,
+        "start_at": "08:40",
+        "end_at": "09:15",
+        "study_group_name": "XI TKJ 3"
+    },
+    {
+        "teacher_name": "Dziza Firdiani Putri, S.Pd. Gr",
+        "subject_name": "B.Indonesia",
+        "day_of_week": 4,
+        "start_at": "15:35",
+        "end_at": "16:05",
+        "study_group_name": "XI ANIMASI 3"
+    },
+    {
+        "teacher_name": "Dziza Firdiani Putri, S.Pd. Gr",
+        "subject_name": "B.Indonesia",
+        "day_of_week": 4,
+        "start_at": "16:05",
+        "end_at": "16:40",
+        "study_group_name": "XI ANIMASI 3"
+    }
+]

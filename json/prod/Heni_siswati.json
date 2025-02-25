@@ -1,0 +1,58 @@
+[
+    {
+        "teachers_name": "Heni Siswati, S.Psi",
+        "subject_name": "BK",
+        "day_of_week": 4,
+        "start_at": "09:00",
+        "end_at": "09:15",
+        "study_group_name": "X RPL 2"
+    },
+    {
+        "teachers_name": "Heni Siswati, S.Psi",
+        "subject_name": "BK",
+        "day_of_week": 4,
+        "start_at": "09:45",
+        "end_at": "10:30",
+        "study_group_name": "X RPL 2"
+    },
+    {
+        "teachers_name": "Heni Siswati, S.Psi",
+        "subject_name": "BK",
+        "day_of_week": 4,
+        "start_at": "10:50",
+        "end_at": "11:35",
+        "study_group_name": "X PSPT 3"
+    },
+    {
+        "teachers_name": "Heni Siswati, S.Psi",
+        "subject_name": "P5",
+        "day_of_week": 6,
+        "start_at": "07:00",
+        "end_at": "07:45",
+        "study_group_name": "X RPL 3"
+    },
+    {
+        "teachers_name": "Heni Siswati, S.Psi",
+        "subject_name": "P5",
+        "day_of_week": 6,
+        "start_at": "07:45",
+        "end_at": "08:30",
+        "study_group_name": "X RPL 3"
+    },
+    {
+        "teachers_name": "Heni Siswati, S.Psi",
+        "subject_name": "P5",
+        "day_of_week": 6,
+        "start_at": "08:30",
+        "end_at": "09:15",
+        "study_group_name": "X RPL 3"
+    },
+    {
+        "teachers_name": "Heni Siswati, S.Psi",
+        "subject_name": "P5",
+        "day_of_week": 6,
+        "start_at": "09:15",
+        "end_at": "10:00",
+        "study_group_name": "X RPL 3"
+    }
+]

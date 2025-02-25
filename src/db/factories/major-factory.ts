@@ -5,16 +5,25 @@ import { majors } from "../schemas/majors-table-schema";
 import { createMajor } from "../../common/model/major-model";
 
 const majorSeeds: Major[] = [
+
+  {
+    name: "TKJ",
+  },
+
+  {
+    name: "ANIMASI",
+  },
+
   {
     name: "RPL",
   },
 
   {
-    name: "BRF",
+    name: "TE",
   },
-
+  
   {
-    name: "ANIM",
+    name: "PSPT",
   },
 ];
 

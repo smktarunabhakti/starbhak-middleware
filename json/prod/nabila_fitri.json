@@ -1,0 +1,138 @@
+[
+    {
+        "teacher_name": "Nabila Fitri Oktaviani",
+        "subject_name": "MTK",
+        "day_of_week": 2,
+        "start_at": "07:30",
+        "end_at": "08:10",
+        "study_group_name": "XI TKJ 3"
+    },
+    {
+        "teacher_name": "Nabila Fitri Oktaviani",
+        "subject_name": "MTK",
+        "day_of_week": 2,
+        "start_at": "09:45",
+        "end_at": "11:35",
+        "study_group_name": "X RPL 1"
+    },
+    {
+        "teacher_name": "Nabila Fitri Oktaviani",
+        "subject_name": "MTK",
+        "day_of_week": 2,
+        "start_at": "11:35",
+        "end_at": "14:10",
+        "study_group_name": "X TKJ 4"
+    },
+    {
+        "teacher_name": "Nabila Fitri Oktaviani",
+        "subject_name": "MTK",
+        "day_of_week": 2,
+        "start_at": "14:10",
+        "end_at": "15:30",
+        "study_group_name": "X RPL 2"
+    },
+    {
+        "teacher_name": "Nabila Fitri Oktaviani",
+        "subject_name": "MTK",
+        "day_of_week": 3,
+        "start_at": "07:30",
+        "end_at": "09:00",
+        "study_group_name": "X TKJ 3"
+    },
+    {
+        "teacher_name": "Nabila Fitri Oktaviani",
+        "subject_name": "MTK",
+        "day_of_week": 3,
+        "start_at": "09:00",
+        "end_at": "12:20",
+        "study_group_name": "X TKJ 2"
+    },
+    {
+        "teacher_name": "Nabila Fitri Oktaviani",
+        "subject_name": "MTK",
+        "day_of_week": 3,
+        "start_at": "12:40",
+        "end_at": "14:10",
+        "study_group_name": "X RPL 3"
+    },
+    {
+        "teacher_name": "Nabila Fitri Oktaviani",
+        "subject_name": "MTK",
+        "day_of_week": 3,
+        "start_at": "14:10",
+        "end_at": "15:30",
+        "study_group_name": "X PSPT 1"
+    },
+    {
+        "teacher_name": "Nabila Fitri Oktaviani",
+        "subject_name": "MTK",
+        "day_of_week": 4,
+        "start_at": "07:30",
+        "end_at": "09:00",
+        "study_group_name": "X RPL 4"
+    },
+    {
+        "teacher_name": "Nabila Fitri Oktaviani",
+        "subject_name": "MTK",
+        "day_of_week": 4,
+        "start_at": "09:00",
+        "end_at": "10:30",
+        "study_group_name": "X TKJ 3"
+    },
+    {
+        "teacher_name": "Nabila Fitri Oktaviani",
+        "subject_name": "MTK",
+        "day_of_week": 4,
+        "start_at": "10:50",
+        "end_at": "12:20",
+        "study_group_name": "X RPL 3"
+    },
+    {
+        "teacher_name": "Nabila Fitri Oktaviani",
+        "subject_name": "MTK",
+        "day_of_week": 4,
+        "start_at": "12:40",
+        "end_at": "14:10",
+        "study_group_name": "X RPL 1"
+    },
+    {
+        "teacher_name": "Nabila Fitri Oktaviani",
+        "subject_name": "MTK",
+        "day_of_week": 4,
+        "start_at": "14:10",
+        "end_at": "15:30",
+        "study_group_name": "X RPL 2"
+    },
+    {
+        "teacher_name": "Nabila Fitri Oktaviani",
+        "subject_name": "MTK",
+        "day_of_week": 4,
+        "start_at": "16:05",
+        "end_at": "16:40",
+        "study_group_name": "XI TE"
+    },
+    {
+        "teacher_name": "Nabila Fitri Oktaviani",
+        "subject_name": "MTK",
+        "day_of_week": 4,
+        "start_at": "16:40",
+        "end_at": "17:50",
+        "study_group_name": "XI TKJ 1"
+    },
+    {
+        "teacher_name": "Nabila Fitri Oktaviani",
+        "subject_name": "MTK",
+        "day_of_week": 5,
+        "start_at": "07:30",
+        "end_at": "10:30",
+        "study_group_name": "X RPL 5"
+    },
+    {
+        "teacher_name": "Nabila Fitri Oktaviani",
+        "subject_name": "MTK",
+        "day_of_week": 5,
+        "start_at": "10:50",
+        "end_at": "15:05",
+        "study_group_name": "X TKJ 1"
+    }
+]

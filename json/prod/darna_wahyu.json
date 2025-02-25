@@ -1,0 +1,42 @@
+[
+    {
+        "teachers_name": "darma Wahyu Nurhidayati A.Md",
+        "subject_name": "PS",
+        "day_of_week": 2,
+        "start_at": "13:00",
+        "end_at": "13:35",
+        "study_group_name": "XI TE"
+    },
+    {
+        "teachers_name": "darma Wahyu Nurhidayati A.Md",
+        "subject_name": "PS",
+        "day_of_week": 2,
+        "start_at": "13:35",
+        "end_at": "14:05",
+        "study_group_name": "XI TE"
+    },
+    {
+        "teachers_name": "darma Wahyu Nurhidayati A.Md",
+        "subject_name": "PS",
+        "day_of_week": 2,
+        "start_at": "14:05",
+        "end_at": "14:40",
+        "study_group_name": "XI TE"
+    },
+    {
+        "teachers_name": "darma Wahyu Nurhidayati A.Md",
+        "subject_name": "PS",
+        "day_of_week": 2,
+        "start_at": "14:40",
+        "end_at": "15:15",
+        "study_group_name": "XI TE"
+    },
+    {
+        "teachers_name": "darma Wahyu Nurhidayati A.Md",
+        "subject_name": "PS",
+        "day_of_week": 2,
+        "start_at": "15:35",
+        "end_at": "16:05",
+        "study_group_name": "XI TE"
+    }
+]

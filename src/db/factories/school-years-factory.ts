@@ -8,6 +8,22 @@ const generateSchoolYearSeeds = async (): Promise<SchoolYear[]> => {
 
   const datas: SchoolYear[] = [
     {
+      start: 2020,
+      end: 2021
+    },
+    {
+      start: 2021,
+      end: 2022
+    },
+    {
+      start: 2022,
+      end: 2023
+    },
+    {
+      start: 2023,
+      end: 2024
+    },
+    {
       start: 2024,
       end: 2025
     },

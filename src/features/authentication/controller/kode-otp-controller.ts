@@ -1,7 +1,8 @@
 import { Hono } from "hono";
 import { errorResponse, successResponse } from "../../../common/utils/api-response";
-import { confirmOtpService, generateOTP, otpService } from "../service/kode-otp-service";
+import { confirmOtpService, generateOTP } from "../service/kode-otp-service";
 import { getUserByEmail } from "../../../common/model/user-model";
+import { sendEmail } from "../../../common/utils/email-service";
 
 
 const otpController = new Hono();
@@ -20,7 +21,7 @@ otpController.post("/", async (c) => {
 
         const otp = await generateOTP(email);  
 
-        const codeOtpResult = await otpService(email,'Starbhak-OTP',`
+        const codeOtpResult = await sendEmail(email,'Starbhak-OTP',`
             <h2>Reset Password Verification</h2>
             <p>Your OTP Code is: <strong>${otp}</strong></p>
             <p>If you didn't request this, please ignore this email.</p>   

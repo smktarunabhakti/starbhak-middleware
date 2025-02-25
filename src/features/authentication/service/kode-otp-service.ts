@@ -1,4 +1,3 @@
-const nodemailer = require('nodemailer');
 import * as crypto from "node:crypto";
 import byc, { compareSync } from "bcrypt";
 import { db } from '../../../db';
@@ -30,29 +29,6 @@ export async function generateOTP(email: string) {
     return otp
 }
 
-export const otpService = async (to: string,subject: string,html: string) => {
-    const transporter = nodemailer.createTransport({
-        host: process.env.MAIL_HOST,
-        port: process.env.MAIL_PORT,
-        secure: false,
-        auth: {
-           user: process.env.MAIL_USERNAME,
-           pass: process.env.MAIL_PASSWORD
-        },
-    });
-
-    let check = await transporter.sendMail({
-        to: to,
-        subject: subject,
-        html: html,
-        from: '"SMK Taruna Bhakti Depok" <taruna@smktarunabhakti.net>'
-    });
-
-    return {
-        success: true,
-        message: "Send mail successful"
-    }
-}
 
 export const confirmOtpService = async (email:string, otp: string): Promise<{apiResponse: apiResponse, status: StatusCode }> => {
     const items = await db.select().from(resetPasswordSession).where(eq(resetPasswordSession.email, email))

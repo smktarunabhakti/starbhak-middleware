@@ -5,26 +5,48 @@ import { subject } from "../schemas/subjects-table-schema";
 import { createSubject } from "../../common/model/subject-model";
 
 const subjectSeeds: Subject[] = [
+  // {
+  //   name: "Mathematics",
+  //   isActive: true,
+  // },
+  // {
+  //   name: "Science",
+  //   isActive: true,
+  // },
+  // {
+  //   name: "English",
+  //   isActive: true,
+  // },
   {
-    name: "Mathematics",
+    name: "KAI",
     isActive: true,
   },
   {
-    name: "Science",
+    name: "ASJ",
     isActive: true,
   },
   {
-    name: "English",
+    name: "AIJ",
+    isActive: true,
+  },
+
+  {
+    name: "TLJ",
+    isActive: true,
+  },
+
+  {
+    name: "KJD",
     isActive: true,
   },
 ];
 
 const seedSubjects = async () => {
-  await db.execute(sql`TRUNCATE TABLE subjects RESTART IDENTITY CASCADE`);
-  console.log("🗑️  Truncated the subjects table and reset identity\n");
+  // await db.execute(sql`TRUNCATE TABLE subjects RESTART IDENTITY CASCADE`);
+  // console.log("🗑️  Truncated the subjects table and reset identity\n");
 
-  await db.delete(subject);
-  console.log("🗑️  Emptying the subjects table before seeding\n");
+  // await db.delete(subject);
+  // console.log("🗑️  Emptying the subjects table before seeding\n");
 
   for (const seed of subjectSeeds) {
     try {

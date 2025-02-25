@@ -1,0 +1,130 @@
+[
+    {
+        "teacher_name": "Dhani Adhitya, S.Pd",
+        "subject_name": "B.Inggris",
+        "day_of_week": 1,
+        "start_at": "10:10",
+        "end_at": "10:45",
+        "study_group_name": "XI PSPT 1"
+    },
+    {
+        "teacher_name": "Dhani Adhitya, S.Pd",
+        "subject_name": "B.Inggris",
+        "day_of_week": 1,
+        "start_at": "10:45",
+        "end_at": "11:20",
+        "study_group_name": "XI PSPT 1"
+    },
+    {
+        "teacher_name": "Dhani Adhitya, S.Pd",
+        "subject_name": "B.Inggris",
+        "day_of_week": 1,
+        "start_at": "11:20",
+        "end_at": "11:55",
+        "study_group_name": "XI PSPT 1"
+    },
+    {
+        "teacher_name": "Dhani Adhitya, S.Pd",
+        "subject_name": "B.Inggris",
+        "day_of_week": 1,
+        "start_at": "11:55",
+        "end_at": "12:30",
+        "study_group_name": "XI PSPT 1"
+    },
+    {
+        "teacher_name": "Dhani Adhitya, S.Pd",
+        "subject_name": "B.Inggris",
+        "day_of_week": 2,
+        "start_at": "09:15",
+        "end_at": "09:50",
+        "study_group_name": "XI PSPT 2"
+    },
+    {
+        "teacher_name": "Dhani Adhitya, S.Pd",
+        "subject_name": "B.Inggris",
+        "day_of_week": 2,
+        "start_at": "10:10",
+        "end_at": "10:45",
+        "study_group_name": "XI PSPT 2"
+    },
+    {
+        "teacher_name": "Dhani Adhitya, S.Pd",
+        "subject_name": "B.Inggris",
+        "day_of_week": 2,
+        "start_at": "10:45",
+        "end_at": "11:20",
+        "study_group_name": "XI PSPT 2"
+    },
+    {
+        "teacher_name": "Dhani Adhitya, S.Pd",
+        "subject_name": "B.Inggris",
+        "day_of_week": 2,
+        "start_at": "11:20",
+        "end_at": "11:55",
+        "study_group_name": "XI PSPT 2"
+    },
+    {
+        "teacher_name": "Dhani Adhitya, S.Pd",
+        "subject_name": "B.Inggris",
+        "day_of_week": 2,
+        "start_at": "11:55",
+        "end_at": "12:30",
+        "study_group_name": "XI ANIMASI 2"
+    },
+    {
+        "teacher_name": "Dhani Adhitya, S.Pd",
+        "subject_name": "B.Inggris",
+        "day_of_week": 2,
+        "start_at": "16:05",
+        "end_at": "16:40",
+        "study_group_name": "XI TE"
+    },
+    {
+        "teacher_name": "Dhani Adhitya, S.Pd",
+        "subject_name": "B.Inggris",
+        "day_of_week": 2,
+        "start_at": "16:40",
+        "end_at": "17:15",
+        "study_group_name": "XI TE"
+    },
+    {
+        "teacher_name": "Dhani Adhitya, S.Pd",
+        "subject_name": "B.Inggris",
+        "day_of_week": 2,
+        "start_at": "17:15",
+        "end_at": "17:50",
+        "study_group_name": "XI TE"
+    },
+    {
+        "teacher_name": "Dhani Adhitya, S.Pd",
+        "subject_name": "B.Inggris",
+        "day_of_week": 3,
+        "start_at": "10:45",
+        "end_at": "11:20",
+        "study_group_name": "XI TE"
+    },
+    {
+        "teacher_name": "Dhani Adhitya, S.Pd",
+        "subject_name": "B.Inggris",
+        "day_of_week": 5,
+        "start_at": "16:05",
+        "end_at": "16:40",
+        "study_group_name": "XI ANIMASI 2"
+    },
+    {
+        "teacher_name": "Dhani Adhitya, S.Pd",
+        "subject_name": "B.Inggris",
+        "day_of_week": 5,
+        "start_at": "16:40",
+        "end_at": "17:15",
+        "study_group_name": "XI ANIMASI 2"
+    },
+    {
+        "teacher_name": "Dhani Adhitya, S.Pd",
+        "subject_name": "B.Inggris",
+        "day_of_week": 5,
+        "start_at": "17:15",
+        "end_at": "17:50",
+        "study_group_name": "XI ANIMASI 2"
+    }
+]

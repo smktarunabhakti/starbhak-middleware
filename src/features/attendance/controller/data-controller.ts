@@ -6,13 +6,14 @@ import {
 import { GetAllAttendanceRecord } from "../service/attendance-data-service";
 import { db } from "../../../db";
 import { student } from "../../../db/schemas/students-table-schema";
-import { and, between, eq, isNull, ne } from "drizzle-orm";
+import { and, between, eq, isNull, ne, sql } from "drizzle-orm";
 import { attendanceRecord } from "../../../db/schemas/attendance-records-table-schema";
 import { attendancePermittance } from "../../../db/schemas/attendance-permittance-table-schema";
 import { verify } from "hono/jwt";
 import type { JWTPayload } from "hono/utils/jwt/types";
 import { teacher } from "../../../db/schemas/teacher-table-schema";
 import { studyGroup } from "../../../db/schemas/study-groups-table-schema";
+import { twoDigit } from "../../../common/utils/two-digit";
 
 const dataController = new Hono();
 
@@ -36,8 +37,6 @@ dataController.get("/get-class-attendance/:id", async (c) => {
     .from(student)
     .where(eq(student.study_groups_id, id));
 
-  const today = new Date();
-
   for (const elem of students) {
     let status = "ABSEN";
 
@@ -46,7 +45,7 @@ dataController.get("/get-class-attendance/:id", async (c) => {
       .from(attendanceRecord)
       .where(
         and(
-          eq(attendanceRecord.date, today.toISOString().split("T")[0]),
+          eq(attendanceRecord.date, sql`date(now())`),
           eq(attendanceRecord.student_id, elem.student_id as string)
         )
       );
@@ -60,7 +59,7 @@ dataController.get("/get-class-attendance/:id", async (c) => {
       .from(attendancePermittance)
       .where(
         and(
-          eq(attendancePermittance.date, today.toISOString().split("T")[0]),
+          eq(attendancePermittance.date, sql`date(now())`),
           eq(attendancePermittance.student_id, elem.student_id as string),
           ne(attendancePermittance.type, "ALPHA")
         )
@@ -105,16 +104,19 @@ dataController.get("/get-class-attendance/self/homeroom", async (c) => {
     .from(teacher)
     .where(eq(teacher.user_id, id as string));
 
-  const getStudyGroup = await db.select().from(studyGroup).where(eq(studyGroup.homeroom_teacher_id, getProfile[0].teacher_id))
+  const getStudyGroup = await db
+    .select()
+    .from(studyGroup)
+    .where(eq(studyGroup.homeroom_teacher_id, getProfile[0].teacher_id));
 
   let datas = [];
 
   const students = await db
     .select()
     .from(student)
-    .where(eq(student.study_groups_id, getStudyGroup[0].study_groups_id as string));
-
-  const today = new Date();
+    .where(
+      eq(student.study_groups_id, getStudyGroup[0].study_groups_id as string)
+    );
 
   for (const elem of students) {
     let status = "ABSEN";
@@ -124,7 +126,7 @@ dataController.get("/get-class-attendance/self/homeroom", async (c) => {
       .from(attendanceRecord)
       .where(
         and(
-          eq(attendanceRecord.date, today.toISOString().split("T")[0]),
+          eq(attendanceRecord.date, sql`date(now())`),
           eq(attendanceRecord.student_id, elem.student_id as string)
         )
       );
@@ -138,7 +140,7 @@ dataController.get("/get-class-attendance/self/homeroom", async (c) => {
       .from(attendancePermittance)
       .where(
         and(
-          eq(attendancePermittance.date, today.toISOString().split("T")[0]),
+          eq(attendancePermittance.date, sql`date(now())`),
           eq(attendancePermittance.student_id, elem.student_id as string),
           ne(attendancePermittance.type, "ALPHA")
         )

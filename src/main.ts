@@ -5,9 +5,13 @@ import { db } from "./db";
 import { users } from "./db/schemas/users-table-schema";
 import attendanceRoute from "./features/attendance/routes/attendance-route";
 import masterDataRoute from "./features/master-data/routes/master-data-route";
+import { cors } from "hono/cors";
 const app = new Hono();
 
 app.use("*", logger());
+app.use("*", cors({
+  origin: "*",
+}))
 
 app.route("/api/v1/auth", authRoute)
 app.route("/api/v1/attendance", attendanceRoute)

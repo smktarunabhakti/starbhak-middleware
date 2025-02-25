@@ -1,0 +1,98 @@
+[
+    {
+        "teacher_name": "Zaki Alfia Putra, ST",
+        "subject_name": "AIJ",
+        "day_of_week": 3,
+        "start_at": "07:30",
+        "end_at": "08:05",
+        "study_group_name": "XI TKJ 1"
+    },
+    {
+        "teacher_name": "Zaki Alfia Putra, ST",
+        "subject_name": "AIJ",
+        "day_of_week": 3,
+        "start_at": "08:05",
+        "end_at": "08:40",
+        "study_group_name": "XI TKJ 1"
+    },
+    {
+        "teacher_name": "Zaki Alfia Putra, ST",
+        "subject_name": "AIJ",
+        "day_of_week": 3,
+        "start_at": "08:40",
+        "end_at": "09:15",
+        "study_group_name": "XI TKJ 1"
+    },
+    {
+        "teacher_name": "Zaki Alfia Putra, ST",
+        "subject_name": "AIJ",
+        "day_of_week": 3,
+        "start_at": "09:15",
+        "end_at": "09:50",
+        "study_group_name": "XI TKJ 1"
+    },
+    {
+        "teacher_name": "Zaki Alfia Putra, ST",
+        "subject_name": "AIJ",
+        "day_of_week": 3,
+        "start_at": "10:10",
+        "end_at": "10:45",
+        "study_group_name": "XI TKJ 1"
+    },
+    {
+        "teacher_name": "Zaki Alfia Putra, ST",
+        "subject_name": "AIJ",
+        "day_of_week": 3,
+        "start_at": "10:45",
+        "end_at": "11:20",
+        "study_group_name": "XI TKJ 1"
+    },
+    {
+        "teacher_name": "Zaki Alfia Putra, ST",
+        "subject_name": "AIJ",
+        "day_of_week": 5,
+        "start_at": "14:05",
+        "end_at": "14:40",
+        "study_group_name": "XI TKJ 2"
+    },
+    {
+        "teacher_name": "Zaki Alfia Putra, ST",
+        "subject_name": "AIJ",
+        "day_of_week": 5,
+        "start_at": "14:40",
+        "end_at": "15:15",
+        "study_group_name": "XI TKJ 2"
+    },
+    {
+        "teacher_name": "Zaki Alfia Putra, ST",
+        "subject_name": "AIJ",
+        "day_of_week": 5,
+        "start_at": "15:35",
+        "end_at": "16:05",
+        "study_group_name": "XI TKJ 2"
+    },
+    {
+        "teacher_name": "Zaki Alfia Putra, ST",
+        "subject_name": "AIJ",
+        "day_of_week": 5,
+        "start_at": "16:05",
+        "end_at": "16:40",
+        "study_group_name": "XI TKJ 2"
+    },
+    {
+        "teacher_name": "Zaki Alfia Putra, ST",
+        "subject_name": "AIJ",
+        "day_of_week": 5,
+        "start_at": "16:40",
+        "end_at": "17:15",
+        "study_group_name": "XI TKJ 2"
+    },
+    {
+        "teacher_name": "Zaki Alfia Putra, ST",
+        "subject_name": "AIJ",
+        "day_of_week": 5,
+        "start_at": "17:15",
+        "end_at": "17:50",
+        "study_group_name": "XI TKJ 2"
+    }
+]

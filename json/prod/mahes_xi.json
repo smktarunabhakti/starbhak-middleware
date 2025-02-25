@@ -1,0 +1,98 @@
+[
+    {
+        "teachers_name": "Gebi Abda Mahes Multazam, S.Pdi",
+        "subject_name": "PAI",
+        "day_of_week": 2,
+        "start_at": "08:05",
+        "end_at": "08:40",
+        "study_group_name": "XI TKJ 3"
+    },
+    {
+        "teachers_name": "Gebi Abda Mahes Multazam, S.Pdi",
+        "subject_name": "PAI",
+        "day_of_week": 2,
+        "start_at": "08:40",
+        "end_at": "09:15",
+        "study_group_name": "XI TKJ 3"
+    },
+    {
+        "teachers_name": "Gebi Abda Mahes Multazam, S.Pdi",
+        "subject_name": "PAI",
+        "day_of_week": 2,
+        "start_at": "09:15",
+        "end_at": "09:50",
+        "study_group_name": "XI TKJ 3"
+    },
+    {
+        "teachers_name": "Gebi Abda Mahes Multazam, S.Pdi",
+        "subject_name": "PAI",
+        "day_of_week": 3,
+        "start_at": "07:30",
+        "end_at": "08:05",
+        "study_group_name": "XI Animasi 3"
+    },
+    {
+        "teachers_name": "Gebi Abda Mahes Multazam, S.Pdi",
+        "subject_name": "PAI",
+        "day_of_week": 3,
+        "start_at": "08:05",
+        "end_at": "08:40",
+        "study_group_name": "XI Animasi 3"
+    },
+    {
+        "teachers_name": "Gebi Abda Mahes Multazam, S.Pdi",
+        "subject_name": "PAI",
+        "day_of_week": 3,
+        "start_at": "08:40",
+        "end_at": "09:15",
+        "study_group_name": "XI Animasi 3"
+    },
+    {
+        "teachers_name": "Gebi Abda Mahes Multazam, S.Pdi",
+        "subject_name": "PAI",
+        "day_of_week": 5,
+        "start_at": "07:30",
+        "end_at": "08:00",
+        "study_group_name": "XI TKJ 2"
+    },
+    {
+        "teachers_name": "Gebi Abda Mahes Multazam, S.Pdi",
+        "subject_name": "PAI",
+        "day_of_week": 5,
+        "start_at": "08:00",
+        "end_at": "08:30",
+        "study_group_name": "XI TKJ 2"
+    },
+    {
+        "teachers_name": "Gebi Abda Mahes Multazam, S.Pdi",
+        "subject_name": "PAI",
+        "day_of_week": 5,
+        "start_at": "08:30",
+        "end_at": "09:00",
+        "study_group_name": "XI TKJ 2"
+    },
+    {
+        "teachers_name": "Gebi Abda Mahes Multazam, S.Pdi",
+        "subject_name": "PAI",
+        "day_of_week": 5,
+        "start_at": "10:15",
+        "end_at": "10:40",
+        "study_group_name": "XI TE"
+    },
+    {
+        "teachers_name": "Gebi Abda Mahes Multazam, S.Pdi",
+        "subject_name": "PAI",
+        "day_of_week": 5,
+        "start_at": "10:40",
+        "end_at": "11:05",
+        "study_group_name": "XI TE"
+    },
+    {
+        "teachers_name": "Gebi Abda Mahes Multazam, S.Pdi",
+        "subject_name": "PAI",
+        "day_of_week": 5,
+        "start_at": "11:05",
+        "end_at": "11:30",
+        "study_group_name": "XI TE"
+    }
+]

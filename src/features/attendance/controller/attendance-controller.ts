@@ -3,6 +3,7 @@ import clockInService from "../service/clock-in-service";
 import { errorResponse, successResponse } from "../../../common/utils/api-response";
 import clockOutService from "../service/clock-out-service";
 import { GetAllAttendanceRecord } from "../service/attendance-data-service";
+import clockInOutService from "../service/clock-in-out-service";
 
 const attendanceController = new Hono();
 
@@ -31,6 +32,23 @@ attendanceController.post("/check-out", async (c) => {
     }
 
     const attendanceRes = await clockOutService(rfid)
+
+    if(!attendanceRes.success){
+        return c.json(errorResponse(attendanceRes.message))
+    }
+
+    return c.json(successResponse(attendanceRes.message))
+})
+
+attendanceController.post("/check-in-out", async (c) => {
+    const { rfid } = await c.req.json()
+
+    //add validation here
+    if(!rfid) {
+        return c.json(errorResponse("Rfid required"))
+    }
+
+    const attendanceRes = await clockInOutService(rfid)
 
     if(!attendanceRes.success){
         return c.json(errorResponse(attendanceRes.message))

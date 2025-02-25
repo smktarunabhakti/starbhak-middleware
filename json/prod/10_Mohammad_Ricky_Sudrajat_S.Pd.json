@@ -1,0 +1,42 @@
+[
+    {
+        "teacher_name": "Mohamad Ricky Sudrajat, S.Pd",
+        "subject_name": "BK",
+        "day_of_week": 4,
+        "start_at": "09:00",
+        "end_at": "09:45",
+        "study_group_name": "X RPL 4"
+    },
+    {
+        "teacher_name": "Mohamad Ricky Sudrajat, S.Pd",
+        "subject_name": "BK",
+        "day_of_week": 4,
+        "start_at": "11:35",
+        "end_at": "12:20",
+        "study_group_name": "X RPL 1"
+    },
+    {
+        "teacher_name": "Mohamad Ricky Sudrajat, S.Pd",
+        "subject_name": "BK",
+        "day_of_week": 4,
+        "start_at": "13:25",
+        "end_at": "14:10",
+        "study_group_name": "X RPL 5"
+    },
+    {
+        "teacher_name": "Mohamad Ricky Sudrajat, S.Pd",
+        "subject_name": "BK",
+        "day_of_week": 5,
+        "start_at": "09:45",
+        "end_at": "10:30",
+        "study_group_name": "X TKJ 2"
+    },
+    {
+        "teacher_name": "Mohamad Ricky Sudrajat, S.Pd",
+        "subject_name": "BK",
+        "day_of_week": 5,
+        "start_at": "13:00",
+        "end_at": "13:45",
+        "study_group_name": "X TKJ 4"
+    }
+]

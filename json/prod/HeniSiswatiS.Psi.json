@@ -1,0 +1,26 @@
+[
+    {
+        "teacher_name": "Heni Siswati, S.Psi",
+        "subject_name": "BK",
+        "day_of_week": 2,
+        "start_at": "11:55",
+        "end_at": "12:30",
+        "study_group_name": "XI PSPT 2"
+    },
+    {
+        "teacher_name": "Heni Siswati, S.Psi",
+        "subject_name": "BK",
+        "day_of_week": 3,
+        "start_at": "11:55",
+        "end_at": "12:30",
+        "study_group_name": "XI PSPT 1"
+    },
+    {
+        "teacher_name": "Heni Siswati, S.Psi",
+        "subject_name": "BK",
+        "day_of_week": 6,
+        "start_at": "11:10",
+        "end_at": "11:45",
+        "study_group_name": "XI PSPT 1"
+    }
+]

@@ -1,0 +1,98 @@
+[
+    {
+        "teacher_name": "Marfuatun S.Pd.I",
+        "subject_name": "Matematika",
+        "day_of_week": 5,
+        "start_at": "07:30",
+        "end_at": "08:00",
+        "study_group_name": "XI RPL 1"
+    },
+    {
+        "teacher_name": "Marfuatun S.Pd.I",
+        "subject_name": "Matematika",
+        "day_of_week": 5,
+        "start_at": "08:00",
+        "end_at": "08:30",
+        "study_group_name": "XI RPL 1"
+    },
+    {
+        "teacher_name": "Marfuatun S.Pd.I",
+        "subject_name": "Matematika",
+        "day_of_week": 5,
+        "start_at": "08:30",
+        "end_at": "09:00",
+        "study_group_name": "XI RPL 1"
+    },
+    {
+        "teacher_name": "Marfuatun S.Pd.I",
+        "subject_name": "Matematika",
+        "day_of_week": 5,
+        "start_at": "14:05",
+        "end_at": "14:40",
+        "study_group_name": "XI RPL 3"
+    },
+    {
+        "teacher_name": "Marfuatun S.Pd.I",
+        "subject_name": "Matematika",
+        "day_of_week": 5,
+        "start_at": "14:40",
+        "end_at": "15:15",
+        "study_group_name": "XI RPL 3"
+    },
+    {
+        "teacher_name": "Marfuatun S.Pd.I",
+        "subject_name": "Matematika",
+        "day_of_week": 5,
+        "start_at": "15:35",
+        "end_at": "16:05",
+        "study_group_name": "XI RPL 3"
+    },
+    {
+        "teacher_name": "Marfuatun S.Pd.I",
+        "subject_name": "Matematika",
+        "day_of_week": 5,
+        "start_at": "16:05",
+        "end_at": "16:40",
+        "study_group_name": "XI RPL 4"
+    },
+    {
+        "teacher_name": "Marfuatun S.Pd.I",
+        "subject_name": "Matematika",
+        "day_of_week": 5,
+        "start_at": "16:40",
+        "end_at": "17:15",
+        "study_group_name": "XI RPL 4"
+    },
+    {
+        "teacher_name": "Marfuatun S.Pd.I",
+        "subject_name": "Matematika",
+        "day_of_week": 5,
+        "start_at": "17:15",
+        "end_at": "17:50",
+        "study_group_name": "XI RPL 4"
+    },
+    {
+        "teacher_name": "Marfuatun S.Pd.I",
+        "subject_name": "Matematika",
+        "day_of_week": 6,
+        "start_at": "13:35",
+        "end_at": "14:05",
+        "study_group_name": "XI RPL 2"
+    },
+    {
+        "teacher_name": "Marfuatun S.Pd.I",
+        "subject_name": "Matematika",
+        "day_of_week": 6,
+        "start_at": "14:05",
+        "end_at": "14:40",
+        "study_group_name": "XI RPL 2"
+    },
+    {
+        "teacher_name": "Marfuatun S.Pd.I",
+        "subject_name": "Matematika",
+        "day_of_week": 6,
+        "start_at": "14:40",
+        "end_at": "15:15",
+        "study_group_name": "XI RPL 2"
+    }
+]

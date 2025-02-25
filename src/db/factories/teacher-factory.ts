@@ -45,6 +45,7 @@ const seedTeachers = async () => {
         userId: seed.userId!,
         isActive: seed.isActive!,
         createdAt: seed.createdAt!,
+        teacherId: ""
       });
     } catch (error) {
       console.log(`❌ Error inserting Teacher ${seed.name}: `, error, "\n");

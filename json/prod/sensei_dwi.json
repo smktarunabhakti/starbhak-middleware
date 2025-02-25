@@ -1,0 +1,210 @@
+[
+    {
+        "teachers_name": "Dwi Setyo Pambudi",
+        "subject_name": "B. Jepang",
+        "day_of_week": 1,
+        "start_at": "07:30",
+        "end_at": "08:05",
+        "study_group_name": "XI PSPT 1"
+    },
+    {
+        "teachers_name": "Dwi Setyo Pambudi",
+        "subject_name": "B. Jepang",
+        "day_of_week": 1,
+        "start_at": "08:05",
+        "end_at": "08:40",
+        "study_group_name": "XI PSPT 1"
+    },
+    {
+        "teachers_name": "Dwi Setyo Pambudi",
+        "subject_name": "B. Jepang",
+        "day_of_week": 2,
+        "start_at": "11:20",
+        "end_at": "11:55",
+        "study_group_name": "XI RPL 4"
+    },
+    {
+        "teachers_name": "Dwi Setyo Pambudi",
+        "subject_name": "B. Jepang",
+        "day_of_week": 2,
+        "start_at": "11:55",
+        "end_at": "12:30",
+        "study_group_name": "XI RPL 4"
+    },
+    {
+        "teachers_name": "Dwi Setyo Pambudi",
+        "subject_name": "B. Jepang",
+        "day_of_week": 3,
+        "start_at": "10:10",
+        "end_at": "10:45",
+        "study_group_name": "XI TKJ 2"
+    },
+    {
+        "teachers_name": "Dwi Setyo Pambudi",
+        "subject_name": "B. Jepang",
+        "day_of_week": 3,
+        "start_at": "10:45",
+        "end_at": "11:20",
+        "study_group_name": "XI TKJ 2"
+    },
+    {
+        "teachers_name": "Dwi Setyo Pambudi",
+        "subject_name": "B. Jepang",
+        "day_of_week": 3,
+        "start_at": "11:20",
+        "end_at": "11:55",
+        "study_group_name": "XI TE"
+    },
+    {
+        "teachers_name": "Dwi Setyo Pambudi",
+        "subject_name": "B. Jepang",
+        "day_of_week": 3,
+        "start_at": "11:55",
+        "end_at": "12:30",
+        "study_group_name": "XI TE"
+    },
+    {
+        "teachers_name": "Dwi Setyo Pambudi",
+        "subject_name": "B. Jepang",
+        "day_of_week": 3,
+        "start_at": "13:00",
+        "end_at": "13:35",
+        "study_group_name": "XI rpl 3"
+    },
+    {
+        "teachers_name": "Dwi Setyo Pambudi",
+        "subject_name": "B. Jepang",
+        "day_of_week": 3,
+        "start_at": "13:35",
+        "end_at": "14:05",
+        "study_group_name": "XI rpl 3"
+    },
+    {
+        "teachers_name": "Dwi Setyo Pambudi",
+        "subject_name": "B. Jepang",
+        "day_of_week": 4,
+        "start_at": "07:30",
+        "end_at": "08:05",
+        "study_group_name": "XI PSPT 2"
+    },
+    {
+        "teachers_name": "Dwi Setyo Pambudi",
+        "subject_name": "B. Jepang",
+        "day_of_week": 4,
+        "start_at": "08:05",
+        "end_at": "08:40",
+        "study_group_name": "XI PSPT 2"
+    },
+    {
+        "teachers_name": "Dwi Setyo Pambudi",
+        "subject_name": "B. Jepang",
+        "day_of_week": 4,
+        "start_at": "11:20",
+        "end_at": "11:55",
+        "study_group_name": "XI ANIMASI 2"
+    },
+    {
+        "teachers_name": "Dwi Setyo Pambudi",
+        "subject_name": "B. Jepang",
+        "day_of_week": 4,
+        "start_at": "11:55",
+        "end_at": "12:30",
+        "study_group_name": "XI ANIMASI 2"
+    },
+    {
+        "teachers_name": "Dwi Setyo Pambudi",
+        "subject_name": "B. Jepang",
+        "day_of_week": 4,
+        "start_at": "14:05",
+        "end_at": "14:40",
+        "study_group_name": "XI TKJ 2"
+    },
+    {
+        "teachers_name": "Dwi Setyo Pambudi",
+        "subject_name": "B. Jepang",
+        "day_of_week": 4,
+        "start_at": "14:40",
+        "end_at": "15:15",
+        "study_group_name": "XI TKJ 2"
+    },
+    {
+        "teachers_name": "Dwi Setyo Pambudi",
+        "subject_name": "B. Jepang",
+        "day_of_week": 5,
+        "start_at": "07:30",
+        "end_at": "08:00",
+        "study_group_name": "XI RPL 2"
+    },
+    {
+        "teachers_name": "Dwi Setyo Pambudi",
+        "subject_name": "B. Jepang",
+        "day_of_week": 5,
+        "start_at": "08:00",
+        "end_at": "08:30",
+        "study_group_name": "XI RPL 2"
+    },
+    {
+        "teachers_name": "Dwi Setyo Pambudi",
+        "subject_name": "B. Jepang",
+        "day_of_week": 5,
+        "start_at": "09:00",
+        "end_at": "09:30",
+        "study_group_name": "XI RPL 1"
+    },
+    {
+        "teachers_name": "Dwi Setyo Pambudi",
+        "subject_name": "B. Jepang",
+        "day_of_week": 5,
+        "start_at": "09:50",
+        "end_at": "10:15",
+        "study_group_name": "XI RPL 1"
+    },
+    {
+        "teachers_name": "Dwi Setyo Pambudi",
+        "subject_name": "B. Jepang",
+        "day_of_week": 5,
+        "start_at": "10:40",
+        "end_at": "11:05",
+        "study_group_name": "XI ANIMASI 3"
+    },
+    {
+        "teachers_name": "Dwi Setyo Pambudi",
+        "subject_name": "B. Jepang",
+        "day_of_week": 5,
+        "start_at": "11:05",
+        "end_at": "11:30",
+        "study_group_name": "XI ANIMASI 3"
+    },
+    {
+        "teachers_name": "Dwi Setyo Pambudi",
+        "subject_name": "B. Jepang",
+        "day_of_week": 5,
+        "start_at": "14:05",
+        "end_at": "14:40",
+        "study_group_name": "XI ANIMASI 2"
+    },
+    {
+        "teachers_name": "Dwi Setyo Pambudi",
+        "subject_name": "B. Jepang",
+        "day_of_week": 5,
+        "start_at": "14:40",
+        "end_at": "15:15",
+        "study_group_name": "XI ANIMASI 2"
+    },
+    {
+        "teachers_name": "Dwi Setyo Pambudi",
+        "subject_name": "B. Jepang",
+        "day_of_week": 5,
+        "start_at": "16:40",
+        "end_at": "17:15",
+        "study_group_name": "XI TKJ 2"
+    },
+    {
+        "teachers_name": "Dwi Setyo Pambudi",
+        "subject_name": "B. Jepang",
+        "day_of_week": 5,
+        "start_at": "15:15",
+        "end_at": "17:50",
+        "study_group_name": "XI TKJ 2"
+    }
+]

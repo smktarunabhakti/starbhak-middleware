@@ -1,0 +1,154 @@
+[
+    {
+        "teachers_name": "Casdik ST",
+        "subject_name": "PRE",
+        "day_of_week": 3,
+        "start_at": "07:30",
+        "end_at": "08:05",
+        "study_group_name": "XI TE"
+    },
+    {
+        "teachers_name": "Casdik ST",
+        "subject_name": "PRE",
+        "day_of_week": 3,
+        "start_at": "08:05",
+        "end_at": "08:40",
+        "study_group_name": "XI TE"
+    },
+    {
+        "teachers_name": "Casdik ST",
+        "subject_name": "PRE",
+        "day_of_week": 3,
+        "start_at": "08:40",
+        "end_at": "09:15",
+        "study_group_name": "XI TE"
+    },
+    {
+        "teachers_name": "Casdik ST",
+        "subject_name": "PRE",
+        "day_of_week": 3,
+        "start_at": "09:15",
+        "end_at": "09:50",
+        "study_group_name": "XI TE"
+    },
+    {
+        "teachers_name": "Casdik ST",
+        "subject_name": "PRE",
+        "day_of_week": 3,
+        "start_at": "10:10",
+        "end_at": "10:45",
+        "study_group_name": "XI TE"
+    },
+    {
+        "teachers_name": "Casdik ST",
+        "subject_name": "SKE",
+        "day_of_week": 4,
+        "start_at": "13:00",
+        "end_at": "13:35",
+        "study_group_name": "XI TE"
+    },
+    {
+        "teachers_name": "Casdik ST",
+        "subject_name": "SKE",
+        "day_of_week": 4,
+        "start_at": "13:35",
+        "end_at": "14:05",
+        "study_group_name": "XI TE"
+    },
+    {
+        "teachers_name": "Casdik ST",
+        "subject_name": "SKE",
+        "day_of_week": 4,
+        "start_at": "14:05",
+        "end_at": "14:40",
+        "study_group_name": "XI TE"
+    },
+    {
+        "teachers_name": "Casdik ST",
+        "subject_name": "SKE",
+        "day_of_week": 4,
+        "start_at": "14:40",
+        "end_at": "15:15",
+        "study_group_name": "XI TE"
+    },
+    {
+        "teachers_name": "Casdik ST",
+        "subject_name": "SKE",
+        "day_of_week": 4,
+        "start_at": "15:36",
+        "end_at": "16:05",
+        "study_group_name": "XI TE"
+    },
+    {
+        "teachers_name": "Casdik ST",
+        "subject_name": "SKI",
+        "day_of_week": 5,
+        "start_at": "07:30",
+        "end_at": "08:00",
+        "study_group_name": "XI TE"
+    },
+    {
+        "teachers_name": "Casdik ST",
+        "subject_name": "SKI",
+        "day_of_week": 5,
+        "start_at": "08:00",
+        "end_at": "08:30",
+        "study_group_name": "XI TE"
+    },
+    {
+        "teachers_name": "Casdik ST",
+        "subject_name": "SKI",
+        "day_of_week": 5,
+        "start_at": "08:30",
+        "end_at": "09:00",
+        "study_group_name": "XI TE"
+    },
+    {
+        "teachers_name": "Casdik ST",
+        "subject_name": "SKI",
+        "day_of_week": 5,
+        "start_at": "09:00",
+        "end_at": "09:30",
+        "study_group_name": "XI TE"
+    },
+    {
+        "teachers_name": "Casdik ST",
+        "subject_name": "SKI",
+        "day_of_week": 5,
+        "start_at": "09:50",
+        "end_at": "10:15",
+        "study_group_name": "XI TE"
+    },
+    {
+        "teachers_name": "Casdik ST",
+        "subject_name": "Teknisi AC",
+        "day_of_week": 6,
+        "start_at": "15:35",
+        "end_at": "16:05",
+        "study_group_name": "XI TE"
+    },
+    {
+        "teachers_name": "Casdik ST",
+        "subject_name": "Teknisi AC",
+        "day_of_week": 6,
+        "start_at": "16:05",
+        "end_at": "16:40",
+        "study_group_name": "XI TE"
+    },
+    {
+        "teachers_name": "Casdik ST",
+        "subject_name": "Teknisi AC",
+        "day_of_week": 6,
+        "start_at": "16:40",
+        "end_at": "17:15",
+        "study_group_name": "XI TE"
+    },
+    {
+        "teachers_name": "Casdik ST",
+        "subject_name": "Teknisi AC",
+        "day_of_week": 6,
+        "start_at": "17:15",
+        "end_at": "17:50",
+        "study_group_name": "XI TE"
+    }
+]
