@@ -18,18 +18,14 @@ const getPermissionById = async (id: string): Promise<Permission> => {
 };
 
 const createPermission = async (
-  id: string,
   name: string,
   description: string,
-  createdAt: Date
 ): Promise<Permission> => {
   const newPermission = await db
     .insert(permissions)
     .values({
-      id,
       name,
       description,
-      createdAt,
     })
     .returning();
   return newPermission[0] as Permission;
@@ -40,7 +36,6 @@ const updatePermission = async (
   data: {
     name?: string;
     description?: string;
-    createdAt?: Date;
   }
 ): Promise<Permission> => {
   const updatedPermission = await db

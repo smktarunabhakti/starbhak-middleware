@@ -1,5 +1,5 @@
 export interface UserRole {
-  userId: string;
-  roleId: string;
-  createdAt: Date
+  userId?: string;
+  roleId?: string;
+  createdAt?: Date
 }

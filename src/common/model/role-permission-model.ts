@@ -33,14 +33,12 @@ const getRolePermissionByPermissionId = async (
 const createRolePermission = async (
   roleId: string,
   permissionId: string,
-  createdAt: Date
 ): Promise<rolePermission> => {
   const newRolePermission = await db
     .insert(rolePermissions)
     .values({
       roleId,
       permissionId,
-      createdAt,
     })
     .returning();
   return newRolePermission[0] as rolePermission;

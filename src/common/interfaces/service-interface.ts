@@ -1,6 +1,6 @@
 export interface ServiceResponse {
-    success: boolean,
-    message: string,
+    success?: boolean,
+    message?: string,
     data?: any,
     statusCode?: any
 }

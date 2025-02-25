@@ -78,7 +78,7 @@ const seedUsers = async () => {
   for (const user of userSeeds) {
     try {
       console.log(`➕ Inserting user: ${user.name}\n`);
-      await createUser(user.email, user.passwordHash, user.name, user.roleId);
+      await createUser(user.email!, user.passwordHash!, user.name!, user.roleId!);
     } catch (error) {
       console.error(`❌ Error inserting user ${user.name}:`, error, "\n");
     }

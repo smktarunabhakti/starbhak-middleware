@@ -3,7 +3,7 @@ import { users } from "./users-table-schema";
 
 export const teacher = pgTable("teachers", {
     id: integer("id").primaryKey().generatedAlwaysAsIdentity(),
-    teacher_id: varchar("teacher_id").notNull().unique(),
+    teacher_id: uuid("teacher_id").defaultRandom().unique(),
     DoB: date("dob"), //date of birth
     PoB: text("pob"), //place of birth
     gender: text('gender'),

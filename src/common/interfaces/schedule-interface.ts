@@ -4,8 +4,8 @@ export interface Schedule {
     teacher_id?: string,
     subject_id?: string,
     study_group_id?: string,
-    name: string,
-    isActive: boolean, 
+    name?: string,
+    isActive?: boolean, 
     createdAt?: Date,
     updatedAt?: Date
 }
