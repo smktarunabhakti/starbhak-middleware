@@ -13,13 +13,11 @@ const fetchTeachers = async (): Promise<ServiceResponse> => {
   try {
     const collections = await getAllTeachers();
     return {
-      success: true,
       message: "Success fetched teachers data!",
       data: collections as Teacher[],
     };
   } catch (error) {
     return {
-      success: false,
       message: "Failed while fetching teachers data!",
       data: { errors: error },
     };
@@ -42,7 +40,7 @@ const fetchTeacherById = async (id: number): Promise<ServiceResponse> => {
       data: collection,
     };
   } catch (error) {
-    return {
+    throw {
       success: false,
       message: `Failed while fetching teacher data with id:${id}!`,
       data: { errors: error },
@@ -96,11 +94,11 @@ const addTeacher = async (teacherData: {
       statusCode: 201,
     };
   } catch (error) {
-    return {
-      success: false,
+
+    //console.log("[TeacherService] error: ", error);
+    throw {
       message: "Failed while adding teacher!",
       data: { errors: error },
-      statusCode: 500,
     };
   }
 };
@@ -134,7 +132,7 @@ const editTeacher = async (
       statusCode: 200,
     };
   } catch (error) {
-    return {
+    throw {
       success: false,
       message: `Failed while updating teacher with UUID:${uuid}!`,
       data: { errors: error },

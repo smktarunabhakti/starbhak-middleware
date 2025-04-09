@@ -42,11 +42,12 @@ loginController.post("/", async (c) => {
   }
 
   if (!loginResult.success) {
-    return c.json(errorResponse(loginResult.message), 500);
+    return c.json(errorResponse(loginResult.message), 400);
   }
 
   const { id } = await getUserByEmail(email);
   const exp = Math.floor(Date.now() / 1000) + (7 * 24 * 60 * 60 * 1000) / 1000;
+  // const exp = Math.floor(Date.now() / 1000) + 5 * 60;
 
   const token = await sign(
     {

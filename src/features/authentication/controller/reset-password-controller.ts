@@ -115,7 +115,7 @@ resetPasswordController.post("/very-first-time", async (c) => {
             return c.json(errorResponse("User tidak ditemukan"), 400);
         }
     
-        if (!compareSync(body.old_password, user.passwordHash)) {
+        if (!compareSync(body.old_password, user.passwordHash as string)) {
             return c.json(
                 errorResponse("Password Lama Salah!"),
                 400
@@ -130,9 +130,15 @@ resetPasswordController.post("/very-first-time", async (c) => {
           successResponse("Berhasil mengubah password"),
           200
         );
-      } catch (error) {
+      } catch (error: any) {
+
+        if (error.name === "JwtTokenExpired") {
+          return c.json(errorResponse("Token expired"), 401);
+        }
+    
+
         return c.json(
-            errorResponse("Unknown error occurred while confirming!", error!),
+            errorResponse("Unknown error occurred !", error!),
             400
           );
       }

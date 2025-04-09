@@ -82,7 +82,7 @@ authRoute.get("/self", async (c) => {
       }
     }
 
-    const userProfile = await db.select().from(roles).where(eq(roles.id, restUser.roleId))
+    const userProfile = await db.select().from(roles).where(eq(roles.id, restUser.roleId as string))
     
     if(userProfile){
 
@@ -133,8 +133,13 @@ authRoute.get("/self", async (c) => {
     };
 
     return c.json(successResponse("Success find self data", finalResult), 200);
-  } catch (error) {
-    return c.json(errorResponse("Failed find self data"), 500);
+  } catch (error: any) {
+
+    if(error.name === "JwtTokenExpired"){
+      return c.json(errorResponse("Token expired"), 401);
+    }
+
+    return c.json(errorResponse(`${error}`, error), 500);
   }
 });
 

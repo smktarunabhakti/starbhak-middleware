@@ -4,8 +4,13 @@ import { teacher } from "../../db/schemas/teacher-table-schema";
 import type { Teacher } from "../interfaces/teacher-interface";
 
 const getAllTeachers = async (): Promise<Teacher[]> => {
-  const collections = await db.select().from(teacher);
-  return collections as Teacher[];
+  try {
+    const collections = await db.select().from(teacher);
+    return collections as Teacher[];
+  } catch (error: any) {
+    throw error.message;
+  }
+  
 };
 
 const getTeacherById = async (id: number): Promise<Teacher> => {
@@ -14,7 +19,8 @@ const getTeacherById = async (id: number): Promise<Teacher> => {
     .from(teacher)
     .where(eq(teacher.id, id))
     .limit(1);
-  return collection as Teacher;
+
+  return collection[0] as Teacher;
 };
 
 const getTeacherByUuid = async (uuid: string): Promise<Teacher> => {
@@ -23,18 +29,19 @@ const getTeacherByUuid = async (uuid: string): Promise<Teacher> => {
     .from(teacher)
     .where(eq(teacher.teacher_id, uuid))
     .limit(1);
-  return collection as Teacher;
+  return collection[0] as Teacher;
 };
 
 const createTeacher = async (createData: {
   name: string;
-  DoB: Date | string;
-  PoB: string;
-  gender: string;
-  userId: string;
+  DoB?: Date | string;
+  PoB?: string;
+  gender?: string;
+  userId?: string;
   email: string;
   isActive: boolean;
   createdAt: Date;
+  teacherId: string;
 }): Promise<Teacher> => {
   
   let formattedDoB =
@@ -61,11 +68,14 @@ const createTeacher = async (createData: {
     })
     .returning();
 
-    console.log(collection);
+    //console.log(collection);
   
     return collection as Teacher;
-  } catch (error) {
-    return createData as Teacher;
+  } catch (error:any) {
+
+    //console.log("[TeacherModel] error: ", error.message);
+
+    throw error.message;
   }
 
 
@@ -97,7 +107,7 @@ const updateTeacher = async (
     .set(formattedUpdateData)
     .where(eq(teacher.teacher_id, uuid))
     .returning();
-  return collection as Teacher;
+  return collection[0] as Teacher;
 };
 
 const deleteTeacher = async (uuid: string): Promise<Teacher> => {

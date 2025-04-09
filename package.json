@@ -26,6 +26,7 @@
     "db:studio": "bunx --bun drizzle-kit studio"
   },
   "devDependencies": {
+    "@hono/swagger-ui": "^0.5.1",
     "@types/bcrypt": "^5.0.2",
     "@types/bun": "latest",
     "@types/nodemailer": "^6.4.17",

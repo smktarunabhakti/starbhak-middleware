@@ -17,10 +17,10 @@ export const loginService = async (email: string, password: string): Promise<log
     } as loginResult;
   }
 
-  if (!compareSync(password, user.passwordHash)) {
+  if (!compareSync(password, user.passwordHash as string)) {
     return {
       success: false,
-      message: "Password tidak sesuai dengan data yang ada",
+      message: "Password salah!",
     } as loginResult;
   }  
 

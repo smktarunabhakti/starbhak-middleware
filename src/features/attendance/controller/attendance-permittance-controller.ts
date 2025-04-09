@@ -182,17 +182,6 @@ attendancePermittanceController.post("/confirmation", async (c) => {
           )
         );
 
-      //check if already permit
-      const permit = await db
-        .select()
-        .from(attendancePermittance)
-        .where(
-          and(
-            eq(attendancePermittance.student_id, studentId),
-            eq(attendancePermittance.date, sql`now()`)
-          )
-        );
-
       if (status == "hadir") {
         if (attendance.length != 0) {
           continue;
@@ -213,15 +202,6 @@ attendancePermittanceController.post("/confirmation", async (c) => {
             )
           );
 
-        console.log(findSchedule);
-
-        if (permit.length != 0) {
-          for (const perm of permit) {
-            await db
-              .delete(attendancePermittance)
-              .where(eq(attendancePermittance.id, perm.id));
-          }
-        }
 
         await db.insert(attendanceRecord).values({
           student_id: studentId,
@@ -241,6 +221,20 @@ attendancePermittanceController.post("/confirmation", async (c) => {
           isActive: true,
           date: today.toDateString(),
           teacher_id: getProfile[0].teacher_id,
+          createdAt: sql`NOW()`
+        });
+      }
+
+      if (status == "sakit") {
+        await db.insert(attendancePermittance).values({
+          student_id: studentId,
+          description: "From Teacher Confirming!",
+          type: "SAKIT",
+          status: "ACCEPTED",
+          isActive: true,
+          date: today.toDateString(),
+          teacher_id: getProfile[0].teacher_id,
+          createdAt: sql`NOW()`
         });
       }
 
@@ -253,6 +247,7 @@ attendancePermittanceController.post("/confirmation", async (c) => {
           isActive: true,
           date: today.toDateString(),
           teacher_id: getProfile[0].teacher_id,
+          createdAt: sql`NOW()`
         });
       }
     }
@@ -260,11 +255,16 @@ attendancePermittanceController.post("/confirmation", async (c) => {
     createRecordLog({
       date: new Date().toDateString(),
       studyGroupId: body.study_groups_id,
-      teacherId: getProfile[0].teacher_id,
+      teacherId: getProfile[0].teacher_id as string,
     });
 
     return c.json(successResponse("Confirmation complete!"), 200);
-  } catch (error) {
+  } catch (error:any) {
+
+    if(error.name === "JwtTokenExpired"){
+      return c.json(errorResponse("Token expired"), 401);
+    }
+
     return c.json(
       errorResponse("Unknown error occurred while confirming!", error!),
       500
@@ -312,14 +312,14 @@ attendancePermittanceController.post(
           description: body.excuses,
           date: new Date(body.start_date),
           status: "ACCEPTED",
-          teacher_id: getProfile[0].teacher_id,
+          teacher_id: getProfile[0].teacher_id as string,
         });
       } else {
         result = await addAttendancePermittanceFromToDateSameExcuses(
           {
             type: "IZIN",
             excuses: body.excuses,
-            teacher_id: getProfile[0].teacher_id,
+            teacher_id: getProfile[0].teacher_id as string,
           },
           new Date(body.start_date),
           new Date(body.end_date)
@@ -330,7 +330,12 @@ attendancePermittanceController.post(
         successResponse(result.message, result.data),
         result.statusCode || 201
       );
-    } catch (error) {
+    } catch (error: any) {
+
+      if(error.name === "JwtTokenExpired"){
+        return c.json(errorResponse("Token expired"), 401);
+      }
+
       return c.json(
         errorResponse(
           "Unknown error occurred while creating attendancePermittance",

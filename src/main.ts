@@ -1,8 +1,6 @@
 import { Hono } from "hono";
 import { logger } from "hono/logger";
 import authRoute from "./features/authentication/routes/auth-route";
-import { db } from "./db";
-import { users } from "./db/schemas/users-table-schema";
 import attendanceRoute from "./features/attendance/routes/attendance-route";
 import masterDataRoute from "./features/master-data/routes/master-data-route";
 import { cors } from "hono/cors";

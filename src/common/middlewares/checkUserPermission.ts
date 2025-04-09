@@ -50,7 +50,12 @@ export const checkUserPermission = (roles: string[]) => {
             // ???
 
             await next()
-        } catch (error) {
+        } catch (error: any) {
+
+            if(error.name === "JwtTokenExpired"){
+                return c.json(errorResponse("Token expired"), 401);
+              }
+
             return c.json(errorResponse("Token tidak valid"), 401);
         }
     }

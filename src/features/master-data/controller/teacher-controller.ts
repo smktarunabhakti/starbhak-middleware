@@ -35,13 +35,20 @@ teacherController.get("/id/:id", async (c) => {
     const id = parseInt(c.req.param("id") as string, 10);
     const result = await fetchTeacherById(id);
 
+    if(result.success === false) {
+      return c.json(
+        errorResponse(result.message),
+        result.statusCode || 400
+      );
+    }
+
     return c.json(
       successResponse(result.message, { teacher: result.data }),
-      result.success ? 200 : 404
+      200 
     );
   } catch (error: unknown) {
     return c.json(
-      errorResponse("Unknown error occurred while fetching teacher", error!),
+      errorResponse("Error occurred while fetching teacher", error!),
       500
     );
   }
@@ -52,13 +59,20 @@ teacherController.get("/:uuid", async (c) => {
     const uuid = c.req.param("uuid");
     const result = await fetchTeacherByUuid(uuid);
 
+    if(result.success === false) {
+      return c.json(
+        errorResponse(result.message),
+        result.statusCode || 400
+      );
+    }
+
     return c.json(
       successResponse(result.message, { teacher: result.data }),
-      result.success ? 200 : 404
+      200 
     );
   } catch (error: unknown) {
     return c.json(
-      errorResponse("Unknown error occurred while fetching teacher", error!),
+      errorResponse("Error occurred while fetching teacher", error!),
       500
     );
   }
@@ -67,10 +81,10 @@ teacherController.get("/:uuid", async (c) => {
 teacherController.post("/", async (c) => {
   try {
     const body = await c.req.json();
-    console.log("[Teacher Controller] body: ", body);
+    //console.log("[Teacher Controller] body: ", body);
     
     const result = await addTeacher(body);
-    console.log("[Teacher Controller] result: ", result);
+    //console.log("[Teacher Controller] result: ", result);
 
     return c.json(
       successResponse(result.message, { teacher: result.data }),
@@ -78,7 +92,7 @@ teacherController.post("/", async (c) => {
     );
   } catch (error: unknown) {
     return c.json(
-      errorResponse("Unknown error occurred while creating teacher", error!),
+      errorResponse("Error occurred while creating teacher", error!),
       500
     );
   }
