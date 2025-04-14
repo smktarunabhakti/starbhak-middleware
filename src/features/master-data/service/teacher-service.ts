@@ -82,7 +82,6 @@ const addTeacher = async (teacherData: {
   userId?: string;
   email: string;
   isActive: boolean;
-  createdAt: Date;
   teacherId: string;
 }): Promise<ServiceResponse> => {
   try {

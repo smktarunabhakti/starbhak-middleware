@@ -40,10 +40,11 @@ const createTeacher = async (createData: {
   userId?: string;
   email: string;
   isActive: boolean;
-  createdAt: Date;
   teacherId: string;
 }): Promise<Teacher> => {
   
+  console.log("[TeacherModel] createData: ", createData);
+
   let formattedDoB =
     createData.DoB instanceof Date
       ? createData.DoB.toISOString()
@@ -51,7 +52,7 @@ const createTeacher = async (createData: {
 
   console.log("[TeacherModel] DoB: ", formattedDoB);
 
-  console.log(createData)
+  // console.log(createData)
 
   try {
     const collection = await db
@@ -60,22 +61,17 @@ const createTeacher = async (createData: {
       name: createData.name,
       DoB: formattedDoB,
       PoB: createData.PoB,
+      teacher_id: createData.teacherId,
       gender: createData.gender,
       email: createData.email,
       user_id: createData.userId,
       isActive: createData.isActive,
-      createdAt: createData.createdAt,
     })
     .returning();
-
-    //console.log(collection);
   
     return collection as Teacher;
   } catch (error:any) {
-
-    //console.log("[TeacherModel] error: ", error.message);
-
-    throw error.message;
+    throw error;
   }
 
 
