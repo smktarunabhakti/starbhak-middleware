@@ -3,11 +3,10 @@ import { errorResponse, successResponse } from "../../../common/utils/api-respon
 import { confirmOtpService, generateOTP } from "../service/kode-otp-service";
 import { getUserByEmail } from "../../../common/model/user-model";
 import { sendEmail } from "../../../common/utils/email-service";
+import { ConsoleLogWriter } from "drizzle-orm";
 
 
 const otpController = new Hono();
-
-
 
 otpController.post("/", async (c) => {
     try{
@@ -38,6 +37,8 @@ otpController.post("/", async (c) => {
 otpController.post("/confirm", async (c) => {
     try {
         const { email, otp } = await c.req.json();
+
+        console.log("Confirm OTP:", email, otp);
 
         const confirmRes = await confirmOtpService(email, otp);
 

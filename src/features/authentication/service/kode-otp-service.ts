@@ -14,7 +14,7 @@ export async function generateOTP(email: string) {
     const token = crypto.randomBytes(128).toString("hex");
 
     const hashedToken = byc.hashSync(token, 10)
-    const hashedOtp = byc.hashSync("${otpCode}", 10)
+    const hashedOtp = byc.hashSync(`${otp}`, 10)
 
     const now = new Date();
 
@@ -39,7 +39,7 @@ export const confirmOtpService = async (email:string, otp: string): Promise<{api
 
     const item = items[0];
 
-    if(!compareSync(otp, item.otp)){
+    if(!compareSync(`${otp}`, item.otp)){
         return {apiResponse: errorResponse("False otp please try again!"), status: 401};
     }
 
@@ -59,5 +59,5 @@ export const confirmOtpService = async (email:string, otp: string): Promise<{api
         expire_at: new Date(now.getTime() + 7 * 60 * 1000),
     }).where(eq(resetPasswordSession.email, email))
 
-    return {apiResponse: successResponse("Success to confirm that you are in fact real! (probably)", { token: item.token }), status: 200};
+    return {apiResponse: successResponse("Success to confirm that you are in fact real! (probably)", { token }), status: 200};
 }
