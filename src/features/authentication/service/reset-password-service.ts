@@ -22,6 +22,8 @@ export const resetPasswordService = async (email: string, token: string, newPass
         passwordHash: hashSync(newPass, 10),
     }).where(eq(users.email, email))
 
+    await db.delete(resetPasswordSession).where(eq(resetPasswordSession.email, email));
+
     return {apiResponse: successResponse("Update"),  status: 200};
     
 }

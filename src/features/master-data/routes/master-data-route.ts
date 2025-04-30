@@ -18,6 +18,7 @@ import { db } from "../../../db";
 import { student } from "../../../db/schemas/students-table-schema";
 import { eq } from "drizzle-orm";
 import scheduleController from "../controller/schedule-controller";
+import userController from "../controller/user-controller";
 
 const masterDataRoute = new Hono();
 
@@ -30,7 +31,8 @@ masterDataRoute.route("/majors", majorsController);
 masterDataRoute.route("/academic-calendar", academicCalendarController);
 masterDataRoute.route("/parents", parentController);
 masterDataRoute.route("/parent-student", parentStudentController);
-masterDataRoute.route("/schedules", scheduleController)
+masterDataRoute.route("/schedules", scheduleController);
+masterDataRoute.route("/users", userController);
 
 /**
  * Additional route here
