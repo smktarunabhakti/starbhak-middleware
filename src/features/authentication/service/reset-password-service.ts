@@ -1,4 +1,4 @@
-import { eq } from "drizzle-orm";
+import { desc, eq } from "drizzle-orm";
 import { db } from "../../../db";
 import { resetPasswordSession } from "../../../db/schemas/reset-password-session-schema.ts";
 import { users } from "../../../db/schemas/users-table-schema.ts";
@@ -6,7 +6,7 @@ import { errorResponse, successResponse } from "../../../common/utils/api-respon
 import { compareSync, hashSync } from "bcrypt";
 
 export const resetPasswordService = async (email: string, token: string, newPass: string) => {
-    const items = await db.select().from(resetPasswordSession).where(eq(resetPasswordSession.email, email))
+    const items = await db.select().from(resetPasswordSession).where(eq(resetPasswordSession.email, email)).orderBy(desc(resetPasswordSession.id));
 
     if (!items) {
         return {apiResponse: errorResponse("No request is founded please make a new request to change password"),  status: 422};

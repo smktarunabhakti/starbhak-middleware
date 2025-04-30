@@ -2,7 +2,7 @@ import * as crypto from "node:crypto";
 import byc, { compareSync } from "bcrypt";
 import { db } from '../../../db';
 import { resetPasswordSession } from '../../../db/schemas/reset-password-session-schema';
-import { eq } from "drizzle-orm";
+import { asc, desc, eq } from "drizzle-orm";
 import { errorResponse, successResponse, type apiResponse } from "../../../common/utils/api-response";
 import type { StatusCode } from "hono/utils/http-status";
 
@@ -31,7 +31,7 @@ export async function generateOTP(email: string) {
 
 
 export const confirmOtpService = async (email:string, otp: string): Promise<{apiResponse: apiResponse, status: StatusCode }> => {
-    const items = await db.select().from(resetPasswordSession).where(eq(resetPasswordSession.email, email))
+    const items = await db.select().from(resetPasswordSession).where(eq(resetPasswordSession.email, email)).orderBy(desc(resetPasswordSession.id));
 
     if (!items) {
         return {apiResponse: errorResponse("No request is founded please make a new request to change password"),  status: 422};
@@ -48,6 +48,16 @@ export const confirmOtpService = async (email:string, otp: string): Promise<{api
     if (item.expire_at.getTime() < now.getTime()){
         return {apiResponse: errorResponse("Otp Expired!"), status: 410};
     };
+
+    //generate token
+    const token = crypto.randomBytes(128).toString("hex");
+
+    const hashedToken = byc.hashSync(token, 10)
+
+    await db.update(resetPasswordSession).set({
+        token: hashedToken,
+        expire_at: new Date(now.getTime() + 7 * 60 * 1000),
+    }).where(eq(resetPasswordSession.email, email))
 
     return {apiResponse: successResponse("Success to confirm that you are in fact real! (probably)", { token: item.token }), status: 200};
 }
