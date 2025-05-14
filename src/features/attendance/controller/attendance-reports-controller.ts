@@ -9,7 +9,6 @@ import { and, between, eq } from "drizzle-orm";
 import { student } from "../../../db/schemas/students-table-schema";
 import { attendancePermittance } from "../../../db/schemas/attendance-permittance-table-schema";
 import { schedules } from "../../../db/schemas/schedules-table-schema";
-import { check } from "drizzle-orm/mysql-core";
 
 const attendanceReportsController = new Hono();
 
@@ -28,7 +27,7 @@ attendanceReportsController.get("/daily", async (c) => {
     const result = await db
       .select()
       .from(student)
-      .innerJoin(
+      .leftJoin(
         attendanceRecord,
         eq(student.student_id, attendanceRecord.student_id)
       )
@@ -196,3 +195,5 @@ attendanceReportsController.get("/monthly", async (c) => {
     throw error;
   }
 });
+
+export default attendanceReportsController;
