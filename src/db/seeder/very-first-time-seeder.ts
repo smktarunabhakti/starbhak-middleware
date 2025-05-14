@@ -200,8 +200,19 @@ async function insertScheduleDataAndCreateNewSubjectIfNotExist(
   scheduleDatas: any,
   teacher_id: string
 ) {
+
+  console.log("Inserting schedule data...", scheduleDatas);
+
+  sleep(1500);
+
   let schedulePromiseMap = scheduleDatas.map(
-    async (item: any): Promise<any> => {
+    async (item: any, index: number): Promise<any> => {
+
+      //dumb, this is a bad idea, but we need to do this for now lol, fix later!
+      if (index != 0) {
+        await sleep(500 + (index * 50));
+      }
+
       let splitClassName = item.study_group_name.split(" ");
 
       let grade = splitClassName[0].toUpperCase();
@@ -302,10 +313,12 @@ async function findKnownTeacherNotInSystem(firstname: string) {
 
 //truncate all schedule and account table
 
-async function truncateAllSchedules() {
+async function truncateAllSchedulesAndSubjects() {
   console.log("Truncating all schedules...");
 
   await db.execute(sql`TRUNCATE TABLE ${schedules} RESTART IDENTITY CASCADE`);
+
+  await db.execute(sql`TRUNCATE TABLE ${subject} RESTART IDENTITY CASCADE`);
 
   console.log("All schedules truncated!\n");
 }
@@ -657,6 +670,6 @@ async function updateAllClassWithHomeRoomTeachers() {
   }
 }
 
-await truncateAllSchedules();
+await truncateAllSchedulesAndSubjects();
 await veryFirstTimeSeeder();
 await updateAllClassWithHomeRoomTeachers();

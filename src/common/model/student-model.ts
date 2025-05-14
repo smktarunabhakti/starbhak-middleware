@@ -2,9 +2,26 @@ import { eq } from "drizzle-orm";
 import { db } from "../../db";
 import { student } from "../../db/schemas/students-table-schema";
 import type { Student } from "../interfaces/student-interface";
+import { schoolYear } from "../../db/schemas/school-years-table-schema";
+import { studyGroup } from "../../db/schemas/study-groups-table-schema";
 
 const getAllStudents = async (): Promise<Student[] | null> => {
-  const collections = await db.select().from(student);
+  const collections = await db.select({
+    id: student.id,
+    student_id: student.student_id,
+    name: student.name,
+    study_groups: studyGroup.name,
+    year: studyGroup.year,
+    starting_school_year: schoolYear.start,
+    nisn: student.nisn,
+    nipd: student.nipd,
+    nik: student.nik,
+    rfid: student.rfid,
+    DoB: student.DoB,
+    PoB: student.PoB,
+    email: student.email,
+    gender: student.gender
+  }).from(student).leftJoin(schoolYear, eq(student.starting_school_years_id, schoolYear.school_year_id)).leftJoin(studyGroup, eq(student.study_groups_id, studyGroup.study_groups_id));
   return collections.length > 0 ? collections as Student[] : null;
 };
 

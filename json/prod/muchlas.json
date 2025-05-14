@@ -1,7 +1,7 @@
 [
     {
         "teachers_name": "Muchlas Edi Kiswanto",
-        "subject_name": "B. Ingrris",
+        "subject_name": "B. Inggris",
         "day_of_week": 3,
         "start_at": "07:30",
         "end_at": "08:05",
@@ -9,7 +9,7 @@
     },
     {
         "teachers_name": "Muchlas Edi Kiswanto",
-        "subject_name": "B. Ingrris",
+        "subject_name": "B. Inggris",
         "day_of_week": 3,
         "start_at": "08:05",
         "end_at": "08:40",
@@ -17,7 +17,7 @@
     },
     {
         "teachers_name": "Muchlas Edi Kiswanto",
-        "subject_name": "B. Ingrris",
+        "subject_name": "B. Inggris",
         "day_of_week": 3,
         "start_at": "10:45",
         "end_at": "11:20",
@@ -25,7 +25,7 @@
     },
     {
         "teachers_name": "Muchlas Edi Kiswanto",
-        "subject_name": "B. Ingrris",
+        "subject_name": "B. Inggris",
         "day_of_week": 3,
         "start_at": "11:20",
         "end_at": "11:55",
@@ -33,7 +33,7 @@
     },
     {
         "teachers_name": "Muchlas Edi Kiswanto",
-        "subject_name": "B. Ingrris",
+        "subject_name": "B. Inggris",
         "day_of_week": 3,
         "start_at": "11:55",
         "end_at": "12:30",
@@ -42,7 +42,7 @@
 
     {
         "teachers_name": "Muchlas Edi Kiswanto",
-        "subject_name": "B. Ingrris",
+        "subject_name": "B. Inggris",
         "day_of_week": 4,
         "start_at": "13:00",
         "end_at": "13:35",
@@ -50,7 +50,7 @@
     },
     {
         "teachers_name": "Muchlas Edi Kiswanto",
-        "subject_name": "B. Ingrris",
+        "subject_name": "B. Inggris",
         "day_of_week": 4,
         "start_at": "13:35",
         "end_at": "14:05",
@@ -59,7 +59,7 @@
 
     {
         "teachers_name": "Muchlas Edi Kiswanto",
-        "subject_name": "B. Ingrris",
+        "subject_name": "B. Inggris",
         "day_of_week": 4,
         "start_at": "16:40",
         "end_at": "17:15",
@@ -67,7 +67,7 @@
     },
     {
         "teachers_name": "Muchlas Edi Kiswanto",
-        "subject_name": "B. Ingrris",
+        "subject_name": "B. Inggris",
         "day_of_week": 4,
         "start_at": "17:15",
         "end_at": "17:50",
@@ -76,7 +76,7 @@
 
     {
         "teachers_name": "Muchlas Edi Kiswanto",
-        "subject_name": "B. Ingrris",
+        "subject_name": "B. Inggris",
         "day_of_week": 5,
         "start_at": "09:50",
         "end_at": "10:15",
@@ -84,7 +84,7 @@
     },
     {
         "teachers_name": "Muchlas Edi Kiswanto",
-        "subject_name": "B. Ingrris",
+        "subject_name": "B. Inggris",
         "day_of_week": 5,
         "start_at": "10:15",
         "end_at": "10:40",
@@ -92,7 +92,7 @@
     },
     {
         "teachers_name": "Muchlas Edi Kiswanto",
-        "subject_name": "B. Ingrris",
+        "subject_name": "B. Inggris",
         "day_of_week": 5,
         "start_at": "10:40",
         "end_at": "11:05",
@@ -100,7 +100,7 @@
     },
     {
         "teachers_name": "Muchlas Edi Kiswanto",
-        "subject_name": "B. Ingrris",
+        "subject_name": "B. Inggris",
         "day_of_week": 5,
         "start_at": "11:05",
         "end_at": "11:30",
@@ -109,7 +109,7 @@
 
     {
         "teachers_name": "Muchlas Edi Kiswanto",
-        "subject_name": "B. Ingrris",
+        "subject_name": "B. Inggris",
         "day_of_week": 5,
         "start_at": "13:00",
         "end_at": "13:35",
@@ -117,7 +117,7 @@
     },
     {
         "teachers_name": "Muchlas Edi Kiswanto",
-        "subject_name": "B. Ingrris",
+        "subject_name": "B. Inggris",
         "day_of_week": 5,
         "start_at": "13:35",
         "end_at": "14:05",
@@ -125,7 +125,7 @@
     },
     {
         "teachers_name": "Muchlas Edi Kiswanto",
-        "subject_name": "B. Ingrris",
+        "subject_name": "B. Inggris",
         "day_of_week": 5,
         "start_at": "14:05",
         "end_at": "14:40",
@@ -133,7 +133,7 @@
     },
     {
         "teachers_name": "Muchlas Edi Kiswanto",
-        "subject_name": "B. Ingrris",
+        "subject_name": "B. Inggris",
         "day_of_week": 5,
         "start_at": "14:40",
         "end_at": "15:15",
@@ -142,7 +142,7 @@
 
     {
         "teachers_name": "Muchlas Edi Kiswanto",
-        "subject_name": "B. Ingrris",
+        "subject_name": "B. Inggris",
         "day_of_week": 6,
         "start_at": "13:00",
         "end_at": "13:35",
@@ -150,7 +150,7 @@
     },
     {
         "teachers_name": "Muchlas Edi Kiswanto",
-        "subject_name": "B. Ingrris",
+        "subject_name": "B. Inggris",
         "day_of_week": 6,
         "start_at": "14:05",
         "end_at": "14:40",
@@ -158,7 +158,7 @@
     },
     {
         "teachers_name": "Muchlas Edi Kiswanto",
-        "subject_name": "B. Ingrris",
+        "subject_name": "B. Inggris",
         "day_of_week": 6,
         "start_at": "14:40",
         "end_at": "15:15",
