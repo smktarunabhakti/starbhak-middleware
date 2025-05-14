@@ -29,14 +29,12 @@ attendanceReportsController.get("/daily", async (c) => {
       .from(student)
       .leftJoin(
         attendanceRecord,
-        eq(student.student_id, attendanceRecord.student_id)
-      )
-      .where(
         and(
-          eq(attendanceRecord.date, date),
-          eq(student.study_groups_id, study_groups_id)
+          eq(student.student_id, attendanceRecord.student_id),
+          eq(attendanceRecord.date, date)
         )
-      );
+      )
+      .where(eq(student.study_groups_id, study_groups_id));
 
     const resultPermittance = await db
       .select({
@@ -78,7 +76,11 @@ attendanceReportsController.get("/daily", async (c) => {
       if (attendance_records == null) {
         status = "ALPHA";
         if (studentPermittance != null) {
-          status = studentPermittance.length > 0 ? studentPermittance[studentPermittance.length - 1].attendancePermittance.type : "ALPHA";
+          status =
+            studentPermittance.length > 0
+              ? studentPermittance[studentPermittance.length - 1]
+                  .attendancePermittance.type
+              : "ALPHA";
         }
 
         return {
