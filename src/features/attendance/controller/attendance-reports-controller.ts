@@ -9,6 +9,8 @@ import { and, between, eq } from "drizzle-orm";
 import { student } from "../../../db/schemas/students-table-schema";
 import { attendancePermittance } from "../../../db/schemas/attendance-permittance-table-schema";
 import { schedules } from "../../../db/schemas/schedules-table-schema";
+import { subject } from "../../../db/schemas/subjects-table-schema";
+import { teacher } from "../../../db/schemas/teacher-table-schema";
 
 const attendanceReportsController = new Hono();
 
@@ -57,8 +59,23 @@ attendanceReportsController.get("/daily", async (c) => {
     const day_of_week: number = new Date(date).getDay();
 
     let schedule = await db
-      .select()
+      .select({
+        start_at: schedules.start_at,
+        end_at: schedules.end_at,
+        subject_name: subject.name,
+        teacher_name: teacher.name,
+        study_groups_id: schedules.study_group_id,
+        day_of_week: schedules.day_of_week,
+      })
       .from(schedules)
+      .innerJoin(
+        subject,
+        eq(schedules.subject_id, subject.subjects_id)
+      )
+      .innerJoin(
+        teacher,
+        eq(schedules.teacher_id, teacher.teacher_id)
+      )
       .where(
         and(
           eq(schedules.study_group_id, study_groups_id),
@@ -169,7 +186,7 @@ attendanceReportsController.get("/monthly", async (c) => {
     const result = await db
       .select()
       .from(student)
-      .innerJoin(
+      .leftJoin(
         attendanceRecord,
         eq(student.student_id, attendanceRecord.student_id)
       )
@@ -189,7 +206,7 @@ attendanceReportsController.get("/monthly", async (c) => {
         month: month,
         year: year,
         study_groups_id: study_groups_id,
-        ...result,
+        attendance_records: result
       })
     );
   } catch (error) {
