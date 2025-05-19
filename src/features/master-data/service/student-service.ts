@@ -7,11 +7,38 @@ import {
   createStudent,
   updateStudent,
   deleteStudent,
+  getStudentByStudyGroupUUID,
 } from "../../../common/model/student-model";
 
 const fetchStudents = async (): Promise<ServiceResponse> => {
   try {
     const collections = await getAllStudents();
+
+    return {
+      success: true,
+      message: "Success fetched students data!",
+      data: collections as Student[],
+    };
+  } catch (error) {
+    return {
+      success: false,
+      message: "Failed while fetching students data!",
+      data: { errors: error },
+    };
+  }
+};
+
+const fetchStudentsByStudyGroups = async (uuid: string): Promise<ServiceResponse> => {
+  try {
+    const collections = await getStudentByStudyGroupUUID(uuid);
+
+    if (!collections) {
+      return {
+        success: false,
+        message: `Cannot find students with study group UUID:${uuid}!`,
+        statusCode: 404,
+      };
+    }
 
     return {
       success: true,
@@ -195,4 +222,5 @@ export {
   addStudent,
   editStudent,
   removeStudent,
+  fetchStudentsByStudyGroups
 };

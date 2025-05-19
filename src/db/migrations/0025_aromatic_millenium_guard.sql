@@ -1,0 +1,1 @@
+ALTER TYPE "public"."attendancePermittanceType" ADD VALUE 'HADIR' BEFORE 'IZIN';--> statement-breakpoint

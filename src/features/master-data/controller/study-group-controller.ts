@@ -3,7 +3,14 @@ import {
   errorResponse,
   successResponse,
 } from "../../../common/utils/api-response";
-import { addStudyGroup, editStudyGroup, fetchStudyGroupById, fetchStudyGroupByUuid, fetchStudyGroups, removeStudyGroup } from "../service/study-groups-service";
+import {
+  addStudyGroup,
+  editStudyGroup,
+  fetchStudyGroupById,
+  fetchStudyGroupByUuid,
+  fetchStudyGroups,
+  removeStudyGroup,
+} from "../service/study-groups-service";
 
 const studyGroupController = new Hono();
 
@@ -16,7 +23,10 @@ studyGroupController.get("/", async (c) => {
     );
   } catch (error) {
     return c.json(
-      errorResponse("Unknown error occurres while fetching studyGroups", error!),
+      errorResponse(
+        "Unknown error occurres while fetching studyGroups",
+        error!
+      ),
       500
     );
   }
@@ -32,7 +42,10 @@ studyGroupController.get("/:uuid", async (c) => {
     );
   } catch (error) {
     return c.json(
-      errorResponse("Unknown error occurres while fetching studyGroups", error!),
+      errorResponse(
+        "Unknown error occurres while fetching studyGroups",
+        error!
+      ),
       500
     );
   }
@@ -50,7 +63,10 @@ studyGroupController.get("/id/:id", async (c) => {
     );
   } catch (error) {
     return c.json(
-      errorResponse("Unknown error occurred while fetching studyGroups", error!),
+      errorResponse(
+        "Unknown error occurred while fetching studyGroups",
+        error!
+      ),
       500
     );
   }
@@ -102,6 +118,30 @@ studyGroupController.delete("/:uuid", async (c) => {
   } catch (error: unknown) {
     return c.json(
       errorResponse("Unknown error occurred while deleting studyGroup", error!),
+      500
+    );
+  }
+});
+
+studyGroupController.get("/select/all", async (c) => {
+  try {
+    const result = await fetchStudyGroups();
+    return c.json(
+      successResponse(
+        result.message,
+        result.data.map((group: any) => ({
+          id: group.study_groups_id,
+          name: group.year + " " + group.name,
+        }))
+      ),
+      result.statusCode || 200
+    );
+  } catch (error) {
+    return c.json(
+      errorResponse(
+        "Unknown error occurres while fetching studyGroups",
+        error!
+      ),
       500
     );
   }

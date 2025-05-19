@@ -19,7 +19,7 @@ attendanceReportsController.get("/daily", async (c) => {
     let { date, study_groups_id } = c.req.query();
 
     if (!date) {
-      date = new Date().toISOString().split("T")[0]; // Default to today's date
+      date = new Date().toISOString().split("T")[0];
     }
 
     if (!study_groups_id) {
@@ -66,6 +66,7 @@ attendanceReportsController.get("/daily", async (c) => {
         teacher_name: teacher.name,
         study_groups_id: schedules.study_group_id,
         day_of_week: schedules.day_of_week,
+        
       })
       .from(schedules)
       .innerJoin(
@@ -104,6 +105,7 @@ attendanceReportsController.get("/daily", async (c) => {
           student_id: students.student_id,
           name: students.name,
           status: status,
+          date: date,
           study_groups_id: students.study_groups_id,
           all_day: true,
           check_in: null,
@@ -121,6 +123,7 @@ attendanceReportsController.get("/daily", async (c) => {
         student_id: students.student_id,
         name: students.name,
         status: "HADIR",
+        date: attendance_records.date,
         study_groups_id: students.study_groups_id,
         all_day: studentPermittance == null ? true : false,
         checkpoint:
@@ -131,7 +134,7 @@ attendanceReportsController.get("/daily", async (c) => {
                 status: perm.attendancePermittance.status,
                 description: perm.attendancePermittance.description,
                 date: perm.attendancePermittance.date,
-                createdAt: perm.attendancePermittance.createdAt,
+                created_at: perm.attendancePermittance.createdAt,
                 teacher_id: perm.attendancePermittance.teacher_id,
               })),
         check_in: attendance_records.clock_in,

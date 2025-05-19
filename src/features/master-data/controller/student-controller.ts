@@ -6,11 +6,13 @@ import {
   addStudent,
   editStudent,
   removeStudent,
+  fetchStudentsByStudyGroups,
 } from "../service/student-service";
 import {
   errorResponse,
   successResponse,
 } from "../../../common/utils/api-response";
+import type { Student } from "../../../common/interfaces/student-interface";
 
 const studentController = new Hono();
 
@@ -77,10 +79,9 @@ studentController.post("/", async (c) => {
   try {
     const body = await c.req.json();
     console.log("Body: ", body);
-    
+
     const result = await addStudent(body);
     console.log("Result: ", result);
-    
 
     return c.json(
       successResponse(result.message, { student: result.data }),
@@ -138,6 +139,34 @@ studentController.delete("/:uuid", async (c) => {
   } catch (error: unknown) {
     return c.json(
       errorResponse("Unknown error occurred while deleting student", error!),
+      500
+    );
+  }
+});
+
+studentController.get("/select/studygroups", async (c) => {
+  try {
+    const { study_groups_id } = c.req.query();
+
+    const result = await fetchStudentsByStudyGroups(study_groups_id);
+
+    if (result.success) {
+      return c.json(
+        successResponse(
+          result.message,
+          result.data.map((student: Student) => ({
+            id: student.student_id,
+            name: student.name,
+          }))
+        ),
+        200
+      );
+    } else {
+      return c.json(errorResponse(result.message, []), result.statusCode);
+    }
+  } catch (error: unknown) {
+    return c.json(
+      errorResponse("Unknown error occurred, please try again", error!),
       500
     );
   }

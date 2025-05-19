@@ -171,7 +171,6 @@ attendancePermittanceController.post("/confirmation", async (c) => {
 
       const today = new Date();
 
-      //check if hadir
       const attendance = await db
         .select()
         .from(attendanceRecord)
@@ -183,30 +182,43 @@ attendancePermittanceController.post("/confirmation", async (c) => {
         );
 
       if (status == "hadir") {
-        if (attendance.length != 0) {
-          continue;
-        }
-
-        const getStudent = await db
-          .select()
-          .from(student)
-          .where(eq(student.student_id, studentId as string));
+        if (attendance.length == 0) {
+          const getStudent = await db
+            .select()
+            .from(student)
+            .where(eq(student.student_id, studentId as string));
 
           const findSchedule = await db
-          .select()
-          .from(studyGroupSchedules)
-          .where(
-            and(
-              eq(studyGroupSchedules.study_groups_id, getStudent[0].study_groups_id as string),
-              eq(studyGroupSchedules.day_of_week, today.getDay()),
-            )
-          );
+            .select()
+            .from(studyGroupSchedules)
+            .where(
+              and(
+                eq(
+                  studyGroupSchedules.study_groups_id,
+                  getStudent[0].study_groups_id as string
+                ),
+                eq(studyGroupSchedules.day_of_week, today.getDay())
+              )
+            );
 
+          await db.insert(attendanceRecord).values({
+            student_id: studentId,
+            scheduled_clock_in:
+              findSchedule.length != 0 ? findSchedule[0].start_at : "07:00",
+            scheduled_clock_out:
+              findSchedule.length != 0 ? findSchedule[0].end_at : "17:00",
+          });
+        }
 
-        await db.insert(attendanceRecord).values({
+        await db.insert(attendancePermittance).values({
           student_id: studentId,
-          scheduled_clock_in: findSchedule.length != 0 ? findSchedule[0].start_at : "07:00",
-          scheduled_clock_out: findSchedule.length != 0 ? findSchedule[0].end_at : "17:00",
+          description: "From Teacher Confirming!",
+          type: "HADIR",
+          status: "ACCEPTED",
+          isActive: true,
+          date: today.toDateString(),
+          teacher_id: getProfile[0].teacher_id,
+          createdAt: sql`NOW()`,
         });
 
         continue;
@@ -221,8 +233,10 @@ attendancePermittanceController.post("/confirmation", async (c) => {
           isActive: true,
           date: today.toDateString(),
           teacher_id: getProfile[0].teacher_id,
-          createdAt: sql`NOW()`
+          createdAt: sql`NOW()`,
         });
+
+        continue;
       }
 
       if (status == "sakit") {
@@ -234,8 +248,10 @@ attendancePermittanceController.post("/confirmation", async (c) => {
           isActive: true,
           date: today.toDateString(),
           teacher_id: getProfile[0].teacher_id,
-          createdAt: sql`NOW()`
+          createdAt: sql`NOW()`,
         });
+
+        continue;
       }
 
       if (status == "absen") {
@@ -247,8 +263,10 @@ attendancePermittanceController.post("/confirmation", async (c) => {
           isActive: true,
           date: today.toDateString(),
           teacher_id: getProfile[0].teacher_id,
-          createdAt: sql`NOW()`
+          createdAt: sql`NOW()`,
         });
+
+        continue;
       }
     }
 
@@ -259,9 +277,8 @@ attendancePermittanceController.post("/confirmation", async (c) => {
     });
 
     return c.json(successResponse("Confirmation complete!"), 200);
-  } catch (error:any) {
-
-    if(error.name === "JwtTokenExpired"){
+  } catch (error: any) {
+    if (error.name === "JwtTokenExpired") {
       return c.json(errorResponse("Token expired"), 401);
     }
 
@@ -331,8 +348,7 @@ attendancePermittanceController.post(
         result.statusCode || 201
       );
     } catch (error: any) {
-
-      if(error.name === "JwtTokenExpired"){
+      if (error.name === "JwtTokenExpired") {
         return c.json(errorResponse("Token expired"), 401);
       }
 

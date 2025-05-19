@@ -1,9 +1,9 @@
 import {boolean, date, integer, pgTable, text, timestamp, uuid, varchar} from "drizzle-orm/pg-core";
-import { users } from "./users-table-schema";
+import { string } from "zod";
 
 export const teacher = pgTable("teachers", {
     id: integer("id").primaryKey().generatedAlwaysAsIdentity(),
-    teacher_id: uuid("teacher_id").defaultRandom().unique(),
+    teacher_id: varchar("teacher_id").notNull().unique(),
     DoB: date("dob"), //date of birth
     PoB: text("pob"), //place of birth
     gender: text('gender'),

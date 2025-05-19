@@ -6,23 +6,67 @@ import { schoolYear } from "../../db/schemas/school-years-table-schema";
 import { studyGroup } from "../../db/schemas/study-groups-table-schema";
 
 const getAllStudents = async (): Promise<Student[] | null> => {
-  const collections = await db.select({
-    id: student.id,
-    student_id: student.student_id,
-    name: student.name,
-    study_groups: studyGroup.name,
-    year: studyGroup.year,
-    starting_school_year: schoolYear.start,
-    nisn: student.nisn,
-    nipd: student.nipd,
-    nik: student.nik,
-    rfid: student.rfid,
-    DoB: student.DoB,
-    PoB: student.PoB,
-    email: student.email,
-    gender: student.gender
-  }).from(student).leftJoin(schoolYear, eq(student.starting_school_years_id, schoolYear.school_year_id)).leftJoin(studyGroup, eq(student.study_groups_id, studyGroup.study_groups_id));
-  return collections.length > 0 ? collections as Student[] : null;
+  const collections = await db
+    .select({
+      id: student.id,
+      student_id: student.student_id,
+      name: student.name,
+      study_groups: studyGroup.name,
+      year: studyGroup.year,
+      starting_school_year: schoolYear.start,
+      nisn: student.nisn,
+      nipd: student.nipd,
+      nik: student.nik,
+      rfid: student.rfid,
+      DoB: student.DoB,
+      PoB: student.PoB,
+      email: student.email,
+      gender: student.gender,
+    })
+    .from(student)
+    .leftJoin(
+      schoolYear,
+      eq(student.starting_school_years_id, schoolYear.school_year_id)
+    )
+    .leftJoin(
+      studyGroup,
+      eq(student.study_groups_id, studyGroup.study_groups_id)
+    );
+  return collections.length > 0 ? (collections as Student[]) : null;
+};
+
+const getStudentByStudyGroupUUID = async (
+  uuid: string
+): Promise<Student[] | null> => {
+  const collections = await db
+    .select({
+      id: student.id,
+      student_id: student.student_id,
+      name: student.name,
+      study_groups: studyGroup.name,
+      year: studyGroup.year,
+      starting_school_year: schoolYear.start,
+      nisn: student.nisn,
+      nipd: student.nipd,
+      nik: student.nik,
+      rfid: student.rfid,
+      DoB: student.DoB,
+      PoB: student.PoB,
+      email: student.email,
+      gender: student.gender,
+    })
+    .from(student)
+    .leftJoin(
+      schoolYear,
+      eq(student.starting_school_years_id, schoolYear.school_year_id)
+    )
+    .leftJoin(
+      studyGroup,
+      eq(student.study_groups_id, studyGroup.study_groups_id)
+    )
+    .where(eq(student.study_groups_id, uuid))
+    .orderBy(student.name);
+  return collections.length > 0 ? (collections as Student[]) : null;
 };
 
 const getStudentById = async (id: number): Promise<Student | null> => {
@@ -31,21 +75,20 @@ const getStudentById = async (id: number): Promise<Student | null> => {
     .from(student)
     .where(eq(student.id, id))
     .limit(1);
-  return collection.length > 0 ? collection as Student : null;
+  return collection.length > 0 ? (collection as Student) : null;
 };
 
 const getStudentByUuid = async (uuid: string): Promise<Student | null> => {
-
   const collection = await db
     .select()
     .from(student)
     .where(eq(student.student_id, uuid))
     .limit(1);
-  
-  return collection.length > 0 ? collection as Student : null;
+
+  return collection.length > 0 ? (collection as Student) : null;
 };
 
-const createStudent = async (createData: { 
+const createStudent = async (createData: {
   study_groups_id: string;
   nisn: string;
   nipd: string;
@@ -60,11 +103,11 @@ const createStudent = async (createData: {
   user_id: string;
   isActive: boolean;
 }): Promise<Student> => {
-    let formattedDoB =
-      createData.DoB instanceof Date
-        ? createData.DoB.toISOString()
-        : String(createData.DoB);
-  
+  let formattedDoB =
+    createData.DoB instanceof Date
+      ? createData.DoB.toISOString()
+      : String(createData.DoB);
+
   const collection = await db
     .insert(student)
     .values({
@@ -102,19 +145,19 @@ const updateStudent = async (
     isActive?: boolean;
   }
 ): Promise<Student> => {
-    console.info("[Model] updateData: ", updateData);
-    
-    const formattedUpdateData = {
-      ...updateData,
-      DoB:
-        updateData.DoB !== undefined
-          ? updateData.DoB instanceof Date
-            ? updateData.DoB.toISOString()
-            : String(updateData.DoB)
-          : updateData.DoB,
-    };
+  console.info("[Model] updateData: ", updateData);
 
-    console.info("[Model] formattedUpdateData: ", formattedUpdateData);
+  const formattedUpdateData = {
+    ...updateData,
+    DoB:
+      updateData.DoB !== undefined
+        ? updateData.DoB instanceof Date
+          ? updateData.DoB.toISOString()
+          : String(updateData.DoB)
+        : updateData.DoB,
+  };
+
+  console.info("[Model] formattedUpdateData: ", formattedUpdateData);
 
   const collection = await db
     .update(student)
@@ -139,4 +182,5 @@ export {
   createStudent,
   updateStudent,
   deleteStudent,
+  getStudentByStudyGroupUUID,
 };
